@@ -4,6 +4,13 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {clearErrors} from './actions/session_actions';
 
+// import { fetchAllBenches, createBench } from './util/benches_api_util';
+// window.fetchAllBenches = fetchAllBenches;
+// window.createBench = createBench;
+
+// import { fetchAllBenches } from './actions/bench_actions';
+// window.fetchAllBenches = fetchAllBenches;
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -14,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  // window.store = store;
 
   const root = document.getElementById('root');
 
