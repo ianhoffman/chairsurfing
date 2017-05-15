@@ -10,6 +10,14 @@ class Bench < ApplicationRecord
       .where("lat < ? AND lat > ?", northEast['lat'], southWest['lat'])
       .where("lng < ? AND lng > ?", northEast['lng'], southWest['lng'])
 
+    if(bounds[:max_seating])
+      benches = benches.where('seating <= ?', params[:max_seating])
+    end
+
+    if(bounds[:min_seating])
+      benches = benches.where('seating >= ?', bounds(:min_seating))
+    end
+
     return benches
   end
 

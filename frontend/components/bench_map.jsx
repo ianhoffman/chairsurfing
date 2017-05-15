@@ -32,7 +32,7 @@ class BenchMap extends React.Component {
         }
       };
 
-      this.props.updateBounds('placeholder', bounds);
+      this.props.updateBounds('bounds', bounds);
     }.bind(this));
 
     this.map.addListener('click', coords => {
