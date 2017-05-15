@@ -1,12 +1,15 @@
 import React from 'react';
 import BenchMap from './bench_map';
 import BenchIndex from './bench_index';
+import FilterForm from './filter_form';
 
-const Search = ({benches, fetchAllBenches, updateBounds}) => (
+const Search = ({benches, fetchAllBenches, updateFilter}) => (
   <div>
+    <FilterForm
+      updateFilter={updateFilter} />
     <BenchMap
       benches={benches}
-      updateBounds={updateBounds} />
+      updateFilter={updateFilter} />
     <BenchIndex
       benches={benches}
       fetchAllBenches={fetchAllBenches} />

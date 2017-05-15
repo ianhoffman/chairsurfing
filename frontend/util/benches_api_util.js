@@ -2,9 +2,9 @@ export const fetchAllBenches = filters => {
   return $.ajax({
     url: '/api/benches',
     method: 'GET',
-    data: { bounds: filters },
+    data: { filters },
     error: err => console.log(err)
-  })
+  });
 };
 
 export const createBench = bench => (

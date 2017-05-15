@@ -1,14 +1,14 @@
-export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
+export const UPDATE_FILTER = "UPDATE_FILTER";
 
 import { fetchAllBenches } from './bench_actions';
 
-const changeFilter = (filter, value) => ({
-  type: UPDATE_BOUNDS,
+export const changeFilter = (filter, value) => ({
+  type: UPDATE_FILTER,
   filter,
   value
 });
 
-export const updateBounds = (filter, value) => (dispatch, getState) => {
+export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
   return fetchAllBenches(getState().filters)(dispatch);
 };
