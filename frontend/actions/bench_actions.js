@@ -19,6 +19,12 @@ export const fetchAllBenches = filters => dispatch => (
   )
 );
 
+export const fetchSingleBench = id => dispatch => (
+  BenchesAPIUtil.fetchSingleBench(id).then(
+    res => dispatch(receiveBench(res))
+  )
+);
+
 export const createBench = bench => dispatch => (
   BenchesAPIUtil.createBench(bench).then(
     res => dispatch(receiveBench(bench))

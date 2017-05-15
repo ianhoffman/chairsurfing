@@ -14,3 +14,11 @@ export const createBench = bench => (
     data: { bench }
   })
 );
+
+export const fetchSingleBench = id => {
+  return $.ajax({
+    url: `/api/benches/${id}`,
+    method: 'GET',
+    error: err => console.log(err)
+  });
+};

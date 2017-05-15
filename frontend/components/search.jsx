@@ -2,6 +2,7 @@ import React from 'react';
 import BenchMap from './bench_map';
 import BenchIndex from './bench_index';
 import FilterForm from './filter_form';
+import BenchShowContainer from './bench_show_container';
 
 const Search = ({benches, fetchAllBenches, updateFilter}) => (
   <div>

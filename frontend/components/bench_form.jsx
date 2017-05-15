@@ -28,7 +28,6 @@ class BenchForm extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return(
       <form>
         <h1>Create A Bench!</h1>

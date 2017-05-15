@@ -7,7 +7,7 @@ export default class MarkerManager {
     this.removeMarker = this.removeMarker.bind(this);
   }
 
-  updateMarkers(benches) {
+  updateMarkers(benches, history) {
     Object.keys(this.markers).forEach(key => {
       if(!(benches[key])) {
         this.removeMarker(key);
@@ -16,7 +16,7 @@ export default class MarkerManager {
 
     Object.keys(benches).forEach(key => {
       if(!(this.markers[key])) {
-        this.createMarkersFromBench(benches[key]);
+        this.createMarkersFromBench(benches[key], history);
       }
     });
   }
@@ -26,11 +26,14 @@ export default class MarkerManager {
     delete this.markers[key];
   }
 
-  createMarkersFromBench(bench) {
+  createMarkersFromBench(bench, history) {
     var latLng = { lat: bench.lat, lng: bench.lng };
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map
+    });
+    marker.addListener('click', () => {
+      history.push(`/benches/${bench.id}`);
     });
     this.markers[bench.id] = marker;
   }
