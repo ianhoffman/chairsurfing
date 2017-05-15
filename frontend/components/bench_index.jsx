@@ -7,15 +7,17 @@ class BenchIndex extends React.Component {
   }
 
   render() {
-    const benches = Object.keys(this.props.benches).map(key => (
+    const { benches } = this.props;
+
+    const benchItems = Object.keys(benches).map(key => (
       <BenchIndexItem
         key={`bench${key}`}
-        bench={this.props.benches[key]} />
+        bench={benches[key]} />
     ));
 
     return (
       <ul>
-        {benches}
+        {benchItems}
       </ul>
     );
   }
