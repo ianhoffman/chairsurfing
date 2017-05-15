@@ -1,5 +1,6 @@
 class Bench < ApplicationRecord
   validates :description, :lat, :lng, presence: true
+  validates :seating, numericality: { greater_than: 0 }
 
   def self.in_bounds(bounds)
     northEast = bounds["northEast"]
