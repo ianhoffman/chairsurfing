@@ -3,20 +3,20 @@ export default class MarkerManager {
     this.map = map;
     this.markers = {};
 
-    this.createMarkersFromBench = this.createMarkersFromBench.bind(this);
+    this.createMarkersFromChair = this.createMarkersFromChair.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
   }
 
-  updateMarkers(benches, history) {
+  updateMarkers(chairs, history) {
     Object.keys(this.markers).forEach(key => {
-      if(!(benches[key])) {
+      if(!(chairs[key])) {
         this.removeMarker(key);
       }
     });
 
-    Object.keys(benches).forEach(key => {
+    Object.keys(chairs).forEach(key => {
       if(!(this.markers[key])) {
-        this.createMarkersFromBench(benches[key], history);
+        this.createMarkersFromChair(chairs[key], history);
       }
     });
   }
@@ -26,15 +26,15 @@ export default class MarkerManager {
     delete this.markers[key];
   }
 
-  createMarkersFromBench(bench, history) {
-    var latLng = { lat: bench.lat, lng: bench.lng };
+  createMarkersFromChair(chair, history) {
+    var latLng = { lat: chair.lat, lng: chair.lng };
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map
     });
     marker.addListener('click', () => {
-      history.push(`/benches/${bench.id}`);
+      history.push(`/chairs/${chair.id}`);
     });
-    this.markers[bench.id] = marker;
+    this.markers[chair.id] = marker;
   }
 }

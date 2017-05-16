@@ -4,12 +4,12 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {clearErrors} from './actions/session_actions';
 
-// import { fetchAllBenches, createBench } from './util/benches_api_util';
-// window.fetchAllBenches = fetchAllBenches;
-// window.createBench = createBench;
+// import { fetchAllChairs, createChair } from './util/chairs_api_util';
+// window.fetchAllChairs = fetchAllChairs;
+// window.createChair = createChair;
 //
-// import { fetchAllBenches } from './actions/bench_actions';
-// window.fetchAllBenches = fetchAllBenches;
+// import { fetchAllChairs } from './actions/chair_actions';
+// window.fetchAllChairs = fetchAllChairs;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

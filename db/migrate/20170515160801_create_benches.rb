@@ -1,6 +1,6 @@
-class CreateBenches < ActiveRecord::Migration[5.0]
+class CreateChairs < ActiveRecord::Migration[5.0]
   def change
-    create_table :benches do |t|
+    create_table :chairs do |t|
       t.string :description, null: false
       t.float :lat, null: false
       t.float :lng, null: false 

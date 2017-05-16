@@ -1,4 +1,4 @@
-export const selectBench = (state, ownProps) => {
+export const selectChair = (state, ownProps) => {
   let chair;
   Object.keys(state.chairs).forEach(key => {
     if(key == ownProps.match.params.chairId) {

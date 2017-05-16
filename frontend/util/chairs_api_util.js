@@ -1,23 +1,23 @@
-export const fetchAllBenches = filters => {
+export const fetchAllChairs = filters => {
   return $.ajax({
-    url: '/api/benches',
+    url: '/api/chairs',
     method: 'GET',
     data: { filters },
     error: err => console.log(err)
   });
 };
 
-export const createBench = bench => (
+export const createChair = chair => (
   $.ajax({
-    url: '/api/benches',
+    url: '/api/chairs',
     method: 'POST',
-    data: { bench }
+    data: { chair }
   })
 );
 
-export const fetchSingleBench = id => {
+export const fetchSingleChair = id => {
   return $.ajax({
-    url: `/api/benches/${id}`,
+    url: `/api/chairs/${id}`,
     method: 'GET',
     error: err => console.log(err)
   });
