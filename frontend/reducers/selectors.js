@@ -1,9 +1,9 @@
 export const selectBench = (state, ownProps) => {
-  let bench;
-  Object.keys(state.benches).forEach(key => {
-    if(key == ownProps.match.params.benchId) {
-      bench = state.benches[key];
+  let chair;
+  Object.keys(state.chairs).forEach(key => {
+    if(key == ownProps.match.params.chairId) {
+      chair = state.chairs[key];
     }
   });
-  return bench || { decription: '', lat: 0, lng: 0, seating: '' };
+  return chair || { decription: '', lat: 0, lng: 0, seating: '' };
 };

@@ -1,11 +1,10 @@
 import React from 'react';
 
-class BenchForm extends React.Component {
+class ChairForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       description: '',
-      seating: '',
       lat: props.lat,
       lng: props.lng
     };
@@ -22,7 +21,7 @@ class BenchForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createBench(this.state).then(
+    this.props.createChair(this.state).then(
       this.props.history.push('/')
     );
   }
@@ -30,14 +29,10 @@ class BenchForm extends React.Component {
   render() {
     return(
       <form>
-        <h1>Create A Bench!</h1>
+        <h1>Create A Chair!</h1>
 
         <label>Description
           <input onChange={this.update('description')} value={this.state.description}></input>
-        </label>
-
-        <label>Number of Seats
-          <input onChange={this.update('seating')} value={this.state.seating}></input>
         </label>
 
         <label>Latitude
@@ -48,10 +43,10 @@ class BenchForm extends React.Component {
           <input onChange={this.update('lng')} value={this.state.lng} disabled></input>
         </label>
 
-        <button onClick={this.handleSubmit}>Create Bench</button>
+        <button onClick={this.handleSubmit}>Create Chair</button>
       </form>
     );
   }
 }
 
-export default BenchForm;
+export default ChairForm;

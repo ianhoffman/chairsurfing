@@ -1,10 +1,10 @@
 **ChairSurfing**
 
-**Heroku Link:**
+**Heroku Link:**  
 **Trello Link:** https://trello.com/b/Pn3ELe81/fullstack-ian-hoffman
 
 
-**Minimum Viable Product:**
+**Minimum Viable Product:**  
 ChairSurfing is a web application inspired by CouchSurfing and built using Ruby on Rails and React/Redux. By the end of week 9, this app will, at a minimum, fulfill the following requirements:
 
 - New account creation, login, and guest/demo login
@@ -13,17 +13,17 @@ ChairSurfing is a web application inspired by CouchSurfing and built using Ruby 
 - Spots (i.e., chairs)
 - Bookings
 - Spot Search (by location and availability) & Google Maps on search
-- Reviews
+- Reviews  
 **BONUS:** Messaging
 **BONUS:** User/host profiles
 
 
-**DESIGN DOCS:**
-- docs/wireframes
-- docs/api-endpoints.md
-- docs/component-hierarchy.md
-- docs/sample-state.md
-- docs/schema.md
+**DESIGN DOCS:**  
+[docs/wireframes](./docs/wireframes)  
+[docs/api-endpoints](./docs/api-endpoints.md)  
+[docs/component-hierarchy](./docs/component-hierarchy)
+[docs/sample-state](./docs/sample-state.md)  
+[docs/schema](./docs/schema.md)  
 
 
 **IMPLEMENTATION TIMELINE:**
@@ -40,8 +40,9 @@ Phase 5: Reviews (1 day). Objective: Users can review chairs.
 
 Phase 6: Seed & Style (1 day). Objective: 1 day to make sure styling is pitch-perfect and website is seeded accurately.
 
-Bonus Features (TBD):
 
-Messaging
-User/host profiles
-Tour
+**Bonus Features (TBD):**
+
+Messaging  
+User/host profiles  
+Tour  

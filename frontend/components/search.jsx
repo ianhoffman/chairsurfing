@@ -1,19 +1,19 @@
 import React from 'react';
-import BenchMap from './bench_map';
-import BenchIndex from './bench_index';
+import ChairMap from './chair_map';
+import ChairIndex from './chair_index';
 import FilterForm from './filter_form';
-import BenchShowContainer from './bench_show_container';
+import ChairShowContainer from './chair_show_container';
 
-const Search = ({benches, fetchAllBenches, updateFilter}) => (
+const Search = ({chairs, fetchAllChairs, updateFilter}) => (
   <div>
     <FilterForm
       updateFilter={updateFilter} />
-    <BenchMap
-      benches={benches}
+    <ChairMap
+      chairs={chairs}
       updateFilter={updateFilter} />
-    <BenchIndex
-      benches={benches}
-      fetchAllBenches={fetchAllBenches} />
+    <ChairIndex
+      chairs={chairs}
+      fetchAllChairs={fetchAllChairs} />
   </div>
 );
 

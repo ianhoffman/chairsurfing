@@ -1,6 +1,6 @@
 export const UPDATE_FILTER = "UPDATE_FILTER";
 
-import { fetchAllBenches } from './bench_actions';
+import { fetchAllChairs } from './chair_actions';
 
 export const changeFilter = (filter, value) => ({
   type: UPDATE_FILTER,
@@ -10,5 +10,5 @@ export const changeFilter = (filter, value) => ({
 
 export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
-  return fetchAllBenches(getState().filters)(dispatch);
+  return fetchAllChairs(getState().filters)(dispatch);
 };

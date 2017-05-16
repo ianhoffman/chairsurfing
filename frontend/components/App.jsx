@@ -4,13 +4,13 @@ import { Switch, Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SearchContainer from './search_container';
-import BenchFormContainer from './bench_form_container';
-import BenchShowContainer from './bench_show_container';
+import ChairFormContainer from './chair_form_container';
+import ChairShowContainer from './chair_show_container';
 
 const App = () => (
   <div>
     <header>
-      <h1>Bench BnB</h1>
+      <h1>Chair BnB</h1>
       <GreetingContainer />
     </header>
 
@@ -18,8 +18,8 @@ const App = () => (
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <Route exact path="/" component={SearchContainer} />
     <Switch>
-      <ProtectedRoute path="/benches/new" component={BenchFormContainer} />
-      <Route exact path='/benches/:benchId' component={BenchShowContainer} />
+      <ProtectedRoute path="/chairs/new" component={ChairFormContainer} />
+      <Route exact path='/chairs/:chairId' component={ChairShowContainer} />
     </Switch>
   </div>
 );

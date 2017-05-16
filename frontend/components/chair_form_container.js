@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import BenchForm from './bench_form';
-import { createBench } from '../actions/bench_actions';
+import ChairForm from './chair_form';
+import { createChair } from '../actions/chair_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -10,10 +10,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createBench: (bench) => dispatch(createBench(bench))
+  createChair: (chair) => dispatch(createChair(chair))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BenchForm);
+)(ChairForm);

@@ -2,9 +2,9 @@ import React from 'react';
 import MarkerManager from '../util/marker_manager';
 import { withRouter } from 'react-router-dom';
 
-class BenchMap extends React.Component {
+class ChairMap extends React.Component {
   componentDidMount() {
-    const { benches } = this.props;
+    const { chairs } = this.props;
 
     const mapOptions = {
       center: {
@@ -37,7 +37,7 @@ class BenchMap extends React.Component {
 
     this.map.addListener('click', coords => {
       this.props.history.push({
-        pathname: "benches/new",
+        pathname: "chairs/new",
         search: `lat=${coords.latLng.lat()}&lng=${coords.latLng.lng()}`
       });
     });
@@ -46,8 +46,8 @@ class BenchMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { benches } = newProps;
-    this.MarkerManager.updateMarkers(benches, newProps.history);
+    const { chairs } = newProps;
+    this.MarkerManager.updateMarkers(chairs, newProps.history);
   }
 
   render() {
@@ -57,4 +57,4 @@ class BenchMap extends React.Component {
   }
 }
 
-export default withRouter(BenchMap);
+export default withRouter(ChairMap);
