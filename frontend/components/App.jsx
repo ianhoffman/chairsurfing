@@ -10,7 +10,7 @@ import ChairShowContainer from './chair_show_container';
 const App = () => (
   <div>
     <header>
-      <h1>Chair BnB</h1>
+      <img src="https://assets.couchsurfing.com/assets/logo-orange-58ccd2edda8895d1e1742f7744683e61f2c6fa069290a9ff012ef09d51ea643b.png" />
       <GreetingContainer />
     </header>
 

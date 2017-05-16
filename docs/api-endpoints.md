@@ -3,27 +3,29 @@
 
 **JSON API**
 
-USERS
+*USERS*
 - POST /api/users
 
-SESSION
+*SESSION*
 - POST /api/session
 - DELETE /api/session
 
-CHAIRS
+*CHAIRS*
 - GET /api/chairs
-- chairs index/search: accepts city_name query parameter; accepts dates query parameter
+- chairs: index/search:
+  - accepts city_name query parameter;  
+  - accepts dates query parameter
 - POST /api/chairs
 - GET /api/chairs/:id
 - PATCH /api/chairs/:id
 - DELETE /api/chairs/:id
 
-BOOKINGS
+*BOOKINGS*
 - GET /api/chairs/:chair_id/bookings
 - POST /api/bookings
 - DELETE /api/bookings
 
-REVIEWS
+*REVIEWS*
 - GET /api/chairs/:chair_id/reviews
-- POST /api/reviews 
+- POST /api/reviews
 - DELETE /api/reviews
