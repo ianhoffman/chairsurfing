@@ -3,20 +3,19 @@ import BenchMap from './bench_map';
 
 class BenchShow extends React.Component {
   componentDidMount() {
-    if(!(this.props.bench)) {
-      this.props.fetchSingleBench();
-    } else {
-      this.generateMap(this.props.bench).bind(this);
-    }
+    this.props.fetchSingleBench().then(
+      ({ bench }) => this.renderBench(bench)
+    );
   }
 
-  generateMap(bench) {
+  renderBench(bench) {
     const mapOptions = {
       center: {
         lat: bench.lat,
         lng: bench.lng
       },
-      zoom: 13
+      zoom: 13,
+      gestureHandling: 'none'
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -29,14 +28,22 @@ class BenchShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(newProps.bench) {
-      this.generateMap(newProps.bench).bind(this);
+    if(parseInt(newProps.match.params.benchId) !== this.props.bench.id) {
+      this.props.fetchSingleBench().then(
+        ({ bench }) => this.renderBench(bench)
+      );
     }
   }
 
   render() {
     return(
-      <div id='map-container' ref={ map => (this.mapNode = map) } />
+      <div>
+        <div className='map-container' ref={ map => (this.mapNode = map) } />
+        <div>Description: {this.props.bench.description}</div>
+        <div>Seating: {this.props.bench.seating}</div>
+        <div>Latitude: {this.props.bench.lat}</div>
+        <div>Longitude: {this.props.bench.lng}</div>
+      </div>
     );
   }
 

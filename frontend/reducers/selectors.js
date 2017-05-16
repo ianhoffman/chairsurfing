@@ -5,5 +5,5 @@ export const selectBench = (state, ownProps) => {
       bench = state.benches[key];
     }
   });
-  return bench;
+  return bench || { decription: '', lat: 0, lng: 0, seating: '' };
 };
