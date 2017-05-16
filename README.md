@@ -34,11 +34,11 @@ Phase 2: Chairs Model, API, and components (2 days). Objective: Chairs can be cr
 
 Phase 3: Bookings (2 days). Objective: Bookings can be created, cancelled and approved through the API.
 
-Phase 4: Search (1 day). Objective: Users can search chairs by location and date; chair show page uses google maps API.
+Phase 4: Search (1 day). Objective: Users can search chairs by description and availability; chair show page uses google maps API.
 
 Phase 5: Reviews (1 day). Objective: Users can review chairs.
 
-Phase 6: Seed & Style (1 day). Objective: 1 day to make sure styling is pitch-perfect and website is seeded accurately.
+Phase 6: Seed (1 day). Objective: One day to make sure website is abundantly full of beautiful chairs—and that all loose ends are tied up.
 
 
 **Bonus Features (TBD):**
