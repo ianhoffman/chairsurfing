@@ -1,15 +1,17 @@
-{  currentUser: {  
+```
+{  
+  currentUser: {  
     id: 1,  
     email: "ianhoffman10@gmail.com",  
     firstName: "Ian",  
     lastName: "Hoffman",  
     location: Berkeley  
-    },  
+  },  
 
   forms: {  
     session: {  
       errors: []  
-      },  
+    },  
     chairForm: {  
       errors: []  
     },  
@@ -61,3 +63,4 @@
     etc...
   }  
 }  
+```
