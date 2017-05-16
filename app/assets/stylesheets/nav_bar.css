@@ -18,7 +18,11 @@ header {
 }
 
 header > a {
+  margin: 0px;
   margin-top: 6px;
+  background-color: transparent;
+  border: 0px;
+  padding: 0px;
 }
 
 header img {

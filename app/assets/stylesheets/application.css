@@ -23,12 +23,98 @@
 
 .sessionForm {
   font-family: 'Lato', sans-serif;
-  padding: 25px;
-  padding-top: 22px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.formHeader {
+  border-bottom: 1px solid #f1efea;
 }
 
 .sessionForm h2 {
-  margin-top: 0px;
+  margin: 27px 38px 23px 38px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
+  color: #34495e;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.firstAndLast {
+  width: 100%;
+  display: flex;
+  margin-top: 19px;
+}
+
+.firstAndLast > input:first-child {
+  margin-right: 7px;
+}
+
+.firstAndLast input {
+  flex: 1
+}
+
+.sessionForm input {
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #27374c;
+  border: 1px solid #B2B2B2;
+  padding: 10px 7px;
+  flex: 1;
+}
+
+.submit {
+  background-color: #287fb8;
+  border: 1px solid #287fb8;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 0px 0px 13px 0px;
+  text-align: center;
+  transition: background-color 0.3s;
+  font-weight: 300;
+  flex: 1;
+}
+
+.submit:hover {
+  background-color: #2371a3;
+  border: 1px solid #2371a3;
+  cursor: pointer;
+}
+
+.switchLogin {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switchLogin span {
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.switchLogin a {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: white;
+  border: 1px solid #287fb8;
+  color: #287fb8;
+}
+
+.switchLogin a:hover {
+  background-color: #f1efea;
+  cursor: pointer;
 }

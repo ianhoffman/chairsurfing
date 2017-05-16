@@ -10,20 +10,14 @@ module.exports = {
     zIndex            : '1000'
   },
   content : {
+    overflow                   : 'none',
     position                   : 'absolute',
     margin                     : '0 auto',
-    width                      : '38%',
+    width                      : '39%',
     top                        : '20px',
+    border                     : '0px',
     padding                    : '0px',
-    // left                       : '40px',
-    // right                      : '40px',
-    // bottom                     : '40px',
-    border                     : '1px solid #ccc',
-    background                 : '#fff',
-    backgroundColor            : 'white',
-    // overflow                   : 'auto',
-    // WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '8px',
-    outline                    : 'none'
+    outline                    : 'none',
+    height                     : '0px'
   }
 };

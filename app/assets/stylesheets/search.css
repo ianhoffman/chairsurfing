@@ -50,6 +50,7 @@
   margin: 8px 11px 10px 0px;
   text-align: center;
   transition: background-color 0.3s;
+  font-weight: 300;
 }
 
 .demo:hover {

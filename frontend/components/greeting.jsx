@@ -31,7 +31,7 @@ class Greeting extends React.Component {
   render() {
     return (this.props.loggedIn) ? (
         <div>
-          <h3>Welcome, {this.props.currentUser.username}!</h3>
+          <h3>Welcome, {this.props.currentUser.firstName}!</h3>
           <button onClick={this.props.logout}> Log Out </button>
         </div>
       ) : (
