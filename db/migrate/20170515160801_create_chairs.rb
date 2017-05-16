@@ -1,4 +1,4 @@
-class CreateBenches < ActiveRecord::Migration[5.0]
+class CreateChairs < ActiveRecord::Migration[5.0]
   def change
     create_table :chairs do |t|
       t.string :description, null: false
