@@ -18,3 +18,31 @@
   width: 500px;
   height: 500px;
 }
+
+/* SEARCH */
+
+#bannerImg {
+  width: 100%;
+  position: relative;
+  float: left;
+}
+
+#bannerContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(50% - 60px);
+  font-family: 'Open Sans', sans-serif;
+}
+
+#banner {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+}
+
+#subHeader {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}

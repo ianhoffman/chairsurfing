@@ -2,7 +2,7 @@ html, body, div, section, main, p, h1, a, span {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: Lato, "Helvita Neue", Helvita, Arial, "Lucida Grande", sans-serif;
+  font-family: inherit;
   background-color: transparent;
   font-size: 1em;
   line-height: 1.5;

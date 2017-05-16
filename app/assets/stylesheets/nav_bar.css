@@ -8,6 +8,17 @@ header {
   padding-left: 15px;
   padding-top: 2px;
   border-bottom: 2px solid lightgray;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 999;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+
+}
+
+header > a {
+  margin-top: 6px;
 }
 
 header img {
@@ -19,7 +30,7 @@ header div {
   display: flex;
 }
 
-header a {
+header div a {
   text-decoration: none;
   font-size: 15px;
   background-color: white;
