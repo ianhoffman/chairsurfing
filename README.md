@@ -1,6 +1,6 @@
 **ChairSurfing**
 
-**Heroku Link:**  
+**Heroku Link:** https://chairsurfing.herokuapp.com/#/  
 **Trello Link:** https://trello.com/b/Pn3ELe81/fullstack-ian-hoffman
 
 
@@ -14,8 +14,8 @@ ChairSurfing is a web application inspired by CouchSurfing and built using Ruby 
 - Bookings
 - Spot Search (by location and availability) & Google Maps on search
 - Reviews  
-**BONUS:** Messaging
-**BONUS:** User/host profiles
+**BONUS:** Messaging  
+**BONUS:** User/host profiles  
 
 
 **DESIGN DOCS:**  
