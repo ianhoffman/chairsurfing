@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(this.props.formType, user);
+    this.props.processForm(this.props.logIn, user);
   }
 
   handleUpdate(field) {
@@ -26,19 +26,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { errors, formType, loggedIn } = this.props;
+    const { errors, logIn, loggedIn } = this.props;
     return(
-      <form>
+      <form className='sessionForm'>
         {loggedIn ? <Redirect to="/"/> : ""}
-        {formType === '/login' ? (
+        {logIn ? (
           <div>
-            <h2>Log in</h2>
-            <Link to='/signup'/>
+            <h2>Log in to ChairSurfing</h2>
           </div>
         ) : (
           <div>
-            <h2>Sign up</h2>
-            <Link to='/login'/>
+            <h2>Join ChairSurfing</h2>
           </div>
         ) }
 
@@ -58,10 +56,10 @@ class SessionForm extends React.Component {
         </label>
 
         <button onClick={this.handleSubmit}>{
-            formType === '/login' ? (
+            logIn ? (
               'Log in'
             ) : (
-              'Sign up'
+              'Join'
             )
           }</button>
 

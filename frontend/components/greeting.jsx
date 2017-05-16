@@ -1,22 +1,63 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Modal from 'react-modal';
+import SessionFormContainer from './session_form_container';
+const style = require('../modals/login_modal_style');
+import { withRouter } from 'react-router-dom';
 
-const Greeting = ({loggedIn, currentUser, logout}) => {
-  return loggedIn ?
-    (<div>
-      <h3>Welcome, {currentUser.username}!</h3>
-      <button onClick={logout}> Log Out </button>
-    </div>) :
-    (<div>
-      <Link to="/signup" className='signup'>
-        Join
-      </Link>
+class Greeting extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+      logIn: false
+    };
+  }
 
-      <Link to="/login" className='login'>
-        Log In
-      </Link>
+  handleClick(bool) {
+    this.setState({
+      modalOpen: true,
+      logIn: bool
+    });
+  }
 
-    </div>);
-};
+  closeModal() {
+    this.setState({
+      modalOpen: false
+    });
+    this.props.history.push('/');
+  }
 
-export default Greeting;
+  render() {
+    return (this.props.loggedIn) ? (
+        <div>
+          <h3>Welcome, {this.props.currentUser.username}!</h3>
+          <button onClick={this.props.logout}> Log Out </button>
+        </div>
+      ) : (
+        <div>
+          <Link to="/signup"
+            onClick={this.handleClick.bind(this, false)}
+            className='signup'>
+            Join
+          </Link>
+
+          <Link to="/login"
+            onClick={this.handleClick.bind(this, true)}
+            className='login'>
+            Log In
+          </Link>
+
+          <Modal
+            isOpen={this.state.modalOpen}
+            style={style}
+            contentLabel="Modal">
+            <SessionFormContainer
+              logIn={this.state.logIn} />
+          </Modal>
+        </div>
+      );
+  }
+}
+
+export default withRouter(Greeting);

@@ -17,12 +17,10 @@ const App = () => (
       <GreetingContainer />
     </header>
 
-    <AuthRoute path="/login" component={SessionFormContainer} />
-    <AuthRoute path="/signup" component={SessionFormContainer} />
-    <Route exact path="/" component={SearchContainer} />
     <Switch>
       <ProtectedRoute path="/chairs/new" component={ChairFormContainer} />
       <Route exact path='/chairs/:chairId' component={ChairShowContainer} />
+      <Route path="/" component={SearchContainer} />
     </Switch>
   </div>
 );

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Search = ({chairs, fetchAllChairs, updateFilter}) => (
   <main>
-    <img id='bannerImg' src="https://wallpaperlayer.com/img/2015/8/leather-chair-wallpaper-8869-9199-hd-wallpapers.jpg" />
+    <img id='bannerImg' src="/assets/hero-img.png" />
     <div id='bannerContainer'>
       <h1 id='banner'>Find Your Perfect Chair</h1>
       <h2 id='subHeader'>SF real estate is heating up. Just sleep in these chairs.</h2>

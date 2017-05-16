@@ -1,4 +1,4 @@
-html, body, div, section, main, p, h1, a, span {
+html, body, div, section, main, p, h1, a, span, h2 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -6,5 +6,6 @@ html, body, div, section, main, p, h1, a, span {
   background-color: transparent;
   font-size: 1em;
   line-height: 1.5;
+  font-weight: inherit;
   font-feature-setting: 'kern', 'liga', 'pnum';
 }
