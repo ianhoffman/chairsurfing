@@ -10,6 +10,14 @@ class SessionForm extends React.Component {
       email: "",
       password: ""
     };
+
+    if(this.props.logIn) {
+      this.state.firstName = "Jane";
+      this.state.lastName = "Doe";
+      this.state.email = "Jane@Doe.com";
+      this.state.password = "password";
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.switchView = this.switchView.bind(this);
