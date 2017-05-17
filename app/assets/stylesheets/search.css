@@ -1,9 +1,15 @@
 /* SEARCH */
 
+#heroContainer {
+  position: relative;
+  width: 100%;
+}
+
 #bannerImg {
   width: 100%;
-  position: relative;
-  float: left;
+  height: 100%;
+  /*position: relative;
+  float: left;*/
 }
 
 #bannerContainer {
@@ -31,7 +37,7 @@
   margin: 0;
   position: relative;
   top: -8px;
-  /*font-weight: 100;*/
+  font-weight: 100;
 }
 
 .demo {
@@ -56,4 +62,24 @@
 .demo:hover {
   background-color: #2371a3;
   border: 1px solid #2371a3;
+}
+
+@media (max-width: 530px) {
+  #bannerImg {
+    width: 800px;
+  }
+
+  #bannerContainer {
+    top: calc(50% - 120px);
+  }
+}
+
+@media (max-width: 505px) {
+  #bannerImg {
+    width: 900px;
+  }
+
+  #bannerContainer {
+    top: calc(50% - 120px);
+  }
 }
