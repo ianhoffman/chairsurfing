@@ -9,7 +9,7 @@ import ChairShowContainer from './chair_show_container';
 import UserProfile from './user_profile';
 
 const App = () => (
-  <div>
+  <main>
     <header>
       <Link to='/'>
         <img src="https://assets.couchsurfing.com/assets/logo-orange-58ccd2edda8895d1e1742f7744683e61f2c6fa069290a9ff012ef09d51ea643b.png" />
@@ -24,7 +24,7 @@ const App = () => (
       <ProtectedRoute path='/profile' component={UserProfile} />
       <AuthRoute path="/" component={SearchContainer} />
     </Switch>
-  </div>
+  </main>
 );
 
 export default App;

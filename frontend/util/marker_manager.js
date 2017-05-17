@@ -2,6 +2,7 @@ export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
+    this.infoWindows = [];
 
     this.createMarkersFromChair = this.createMarkersFromChair.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
@@ -28,13 +29,26 @@ export default class MarkerManager {
 
   createMarkersFromChair(chair, history) {
     var latLng = { lat: chair.lat, lng: chair.lng };
+
+    var infowindow = new google.maps.InfoWindow({
+      content: `<p>Description: ${chair.description}</p>`
+    });
+    this.infoWindows.push(infowindow);
+
     var marker = new google.maps.Marker({
       position: latLng,
-      map: this.map
-    });
-    marker.addListener('click', () => {
-      history.push(`/chairs/${chair.id}`);
+      map: this.map,
     });
     this.markers[chair.id] = marker;
+
+    marker.addListener('click', () => {
+
+      for(let i = 0; i < this.infoWindows.length; i++) {
+        this.infoWindows[i].close();
+      }
+
+      infowindow.open(this.map, marker);
+    });
   }
+
 }

@@ -9,3 +9,8 @@ html, body, div, section, main, p, h1, a, span, h2, input {
   font-weight: inherit;
   font-feature-setting: 'kern', 'liga', 'pnum';
 }
+
+html, body, main, section {
+  width: 100%;
+  height: 100%;
+}

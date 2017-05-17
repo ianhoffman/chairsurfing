@@ -11,10 +11,13 @@ class ChairMap extends React.Component {
         lat: 37.7758,
         lng: -122.435
       },
-      zoom: 13
+      zoom: 13,
+      minZoom: 12
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+    const initialBounds = this.map.getBounds();
 
     this.map.addListener('idle', function() {
       let latLngBounds = this.map.getBounds();
