@@ -53,7 +53,7 @@ class Search extends React.Component {
       <Link
         onClick={this.handleClick.bind(this)}
         to='/login'
-        className='demo'>Demo Log In</Link>
+        className='demo button'>Demo Log In</Link>
     ) : (<div>Placeholder</div>);
 
     return (
@@ -76,7 +76,7 @@ class Search extends React.Component {
         </div>
 
         <section id='searchContainer'>
-          <h1 className='banner'>The Plushest Chairs In Town</h1>
+          <h1 className='banner'>Comfy San Francisco Seats</h1>
 
           <ChairMap
             id='searchMap'

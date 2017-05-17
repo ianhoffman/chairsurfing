@@ -30,8 +30,13 @@ export default class MarkerManager {
   createMarkersFromChair(chair, history) {
     var latLng = { lat: chair.lat, lng: chair.lng };
 
+    var contentString = `<div classname='infowindow'>` +
+      `<p class='thumbnailHeader'>${chair.description}</p></br>` +
+      `<img class='thumbnail' src=${chair.imageUrl}>` +
+      `<a class='button' href='/chairs/${chair.id}'>Take a Seat!</a></div>`;
+
     var infowindow = new google.maps.InfoWindow({
-      content: `<p>Description: ${chair.description}</p>`
+      content: contentString
     });
     this.infoWindows.push(infowindow);
 

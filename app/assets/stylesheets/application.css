@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+.infowindow {
+  height: 200px;
+  width: 200px;
+  display: block;
+}
+
+.thumbnailHeader {
+  font-size: 15px;
+  margin: 0px;
+}
+
+.thumbnail {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.thumbnail .button {
+  display: block;
+  margin-bottom: 10px;
+}

@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
             value={this.state.password}
             placeholder="Password" />
 
-          <a className='submit' onClick={this.handleSubmit}>{
+          <a className='submit button' onClick={this.handleSubmit}>{
               logIn ? (
                 'Log in'
               ) : (
@@ -112,12 +112,12 @@ class SessionForm extends React.Component {
           {logIn ? (
             <div className='switchLogin'>
               <span>Don't have an account?</span>
-              <a onClick={this.switchView}>Join</a>
+              <a className='button' onClick={this.switchView}>Join</a>
             </div>
           ) : (
             <div className='switchLogin'>
               <span>Already a member?</span>
-              <a onClick={this.switchView}>Log In</a>
+              <a className='button' onClick={this.switchView}>Log In</a>
             </div>
           )}
         </div>
