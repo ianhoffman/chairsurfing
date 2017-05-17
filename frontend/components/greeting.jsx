@@ -12,12 +12,26 @@ class Greeting extends React.Component {
       modalOpen: false,
       logIn: false
     };
+    this.toggleState = this.toggleState.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   handleClick(bool) {
     this.setState({
       modalOpen: true,
       logIn: bool
+    });
+  }
+
+  toggleState() {
+    this.setState({
+      logIn: !this.state.logIn
+    });
+  }
+
+  openModal() {
+    this.setState({
+      modalOpen: true
     });
   }
 
@@ -54,6 +68,8 @@ class Greeting extends React.Component {
             contentLabel="Modal">
             <SessionFormContainer
               closeModal={this.closeModal.bind(this)}
+              openModal={this.openModal}
+              toggleState={this.toggleState}
               logIn={this.state.logIn} />
           </Modal>
         </div>

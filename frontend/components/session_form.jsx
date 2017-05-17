@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.switchView = this.switchView.bind(this);
   }
 
   handleSubmit(e) {
@@ -27,6 +28,20 @@ class SessionForm extends React.Component {
     };
   }
 
+  switchView() {
+    if(this.props.logIn) {
+      this.props.closeModal();
+      this.props.history.push('/signup');
+      this.props.toggleState();
+      this.props.openModal();
+    } else {
+      this.props.closeModal();
+      this.props.history.push('/login');
+      this.props.toggleState();
+      this.props.openModal();
+    }
+  }
+
   render() {
     const { errors, logIn, loggedIn } = this.props;
     return(
@@ -34,7 +49,7 @@ class SessionForm extends React.Component {
         {loggedIn ? <Redirect to="/"/> : ""}
         {logIn ? (
           <div className='formHeader'>
-            <h2>log in to chairsurfing</h2>
+            <h2>Log in to Chairsurfing</h2>
             <p onClick={this.props.closeModal}>X</p>
           </div>
         ) : (
@@ -89,12 +104,12 @@ class SessionForm extends React.Component {
           {logIn ? (
             <div className='switchLogin'>
               <span>Don't have an account?</span>
-              <a>Join</a>
+              <a onClick={this.switchView}>Join</a>
             </div>
           ) : (
             <div className='switchLogin'>
               <span>Already a member?</span>
-              <a>Log In</a>
+              <a onClick={this.switchView}>Log In</a>
             </div>
           )}
         </div>

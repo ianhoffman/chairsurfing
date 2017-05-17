@@ -13,7 +13,6 @@ module.exports = {
     overflow                   : 'none',
     position                   : 'absolute',
     margin                     : '0 auto',
-    width                      : '39%',
     top                        : '20px',
     border                     : '0px',
     padding                    : '0px',

@@ -5,6 +5,8 @@
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 7px;
+  width: 39%;
+  margin: 0 auto;
 }
 
 .formHeader {
@@ -113,12 +115,22 @@
   cursor: pointer;
 }
 
-@media (max-width: 1065px) {
+@media (max-width: 1147px) {
+  
+  .sessionForm {
+    width: 413px;
+  }
+}
+
+@media (max-width: 500px) {
   .firstAndLast {
     flex-direction: column;
   }
 
   .firstAndLast > input:first-child {
     margin-right: 0px;
+  }
+  .sessionForm {
+    width: 90%;
   }
 }
