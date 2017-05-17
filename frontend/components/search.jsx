@@ -67,7 +67,7 @@ class Search extends React.Component {
           logIn={this.state.logIn} />
 
         <div id='heroContainer'>
-          <img id='bannerImg' src="/assets/hero-img.png" />
+          <img id='bannerImg' src="http://res.cloudinary.com/dfuh8ucrc/image/upload/v1495042789/hero-img_ygwiys.jpg" />
           <div id='bannerContainer'>
             <h1 id='banner'>Find Your Perfect Chair</h1>
             <h2 id='subHeader'>SF real estate is heating up. Just sleep in these chairs.</h2>

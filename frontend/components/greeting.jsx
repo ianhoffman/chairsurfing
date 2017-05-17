@@ -1,10 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SessionModal from '../modals/session_modal';
-//
-// import Modal from 'react-modal';
-// import SessionFormContainer from './session_form_container';
-// const style = require('../modals/login_modal_style');
 import { withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
@@ -48,8 +44,11 @@ class Greeting extends React.Component {
   render() {
     return (this.props.loggedIn) ? (
         <div>
-          <h3>Welcome, {this.props.currentUser.firstName}!</h3>
           <button onClick={this.props.logout}> Log Out </button>
+          <ul className='loggedIn-menu'>
+            <li className="fa fa-search"></li>
+            <li className='fa fa-navicon'></li>
+          </ul>
         </div>
       ) : (
         <div>

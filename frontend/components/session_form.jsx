@@ -12,8 +12,6 @@ class SessionForm extends React.Component {
     };
 
     if(this.props.logIn) {
-      this.state.firstName = "Jane";
-      this.state.lastName = "Doe";
       this.state.email = "Jane@Doe.com";
       this.state.password = "password";
     }
@@ -74,19 +72,22 @@ class SessionForm extends React.Component {
         }
         <div className='formBody'>
 
-          <div className='firstAndLast'>
-            <input
-              type="text"
-              onChange={this.handleUpdate("firstName")}
-              value={this.state.firstName}
-              placeholder="First name" />
+          { !logIn ? (
+              <div className='firstAndLast'>
+                <input
+                  type="text"
+                  onChange={this.handleUpdate("firstName")}
+                  value={this.state.firstName}
+                  placeholder="First name" />
 
-            <input
-              type="text"
-              onChange={this.handleUpdate("lastName")}
-              value={this.state.lastName}
-              placeholder="Last name" />
-          </div>
+                <input
+                  type="text"
+                  onChange={this.handleUpdate("lastName")}
+                  value={this.state.lastName}
+                  placeholder="Last name" />
+              </div>
+            ) : ""
+          }
 
           <input
             type="text"
