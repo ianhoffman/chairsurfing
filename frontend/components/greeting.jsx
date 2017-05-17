@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Modal from 'react-modal';
-import SessionFormContainer from './session_form_container';
-const style = require('../modals/login_modal_style');
+import SessionModal from '../modals/session_modal';
+//
+// import Modal from 'react-modal';
+// import SessionFormContainer from './session_form_container';
+// const style = require('../modals/login_modal_style');
 import { withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
@@ -14,6 +16,7 @@ class Greeting extends React.Component {
     };
     this.toggleState = this.toggleState.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleClick(bool) {
@@ -62,16 +65,12 @@ class Greeting extends React.Component {
             Log In
           </Link>
 
-          <Modal
-            isOpen={this.state.modalOpen}
-            style={style}
-            contentLabel="Modal">
-            <SessionFormContainer
-              closeModal={this.closeModal.bind(this)}
-              openModal={this.openModal}
-              toggleState={this.toggleState}
-              logIn={this.state.logIn} />
-          </Modal>
+          <SessionModal
+            modalOpen={this.state.modalOpen}
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+            toggleState={this.toggleState}
+            logIn={this.state.logIn} />
         </div>
       );
   }

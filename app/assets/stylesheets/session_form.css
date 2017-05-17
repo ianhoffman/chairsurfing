@@ -1,7 +1,6 @@
 /* SESSION */
 
 .sessionForm {
-  font-family: 'Lato', sans-serif;
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 7px;
@@ -38,8 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 38px;
-  padding-right: 38px;
+  padding: 0px 38px;
 }
 
 .firstAndLast {
@@ -59,7 +57,6 @@
 
 .sessionForm input {
   margin-bottom: 10px;
-  border-radius: 3px;
   font-size: 16px;
   color: #27374c;
   border: 1px solid #B2B2B2;
@@ -71,14 +68,8 @@
   background-color: #287fb8;
   border: 1px solid #287fb8;
   color: white;
-  text-decoration: none;
-  font-size: 15px;
-  border-radius: 3px;
-  padding: 8px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 8px 25px;
   margin: 0px 0px 13px 0px;
-  text-align: center;
   transition: background-color 0.3s;
   font-weight: 300;
   flex: 1;
@@ -107,6 +98,7 @@
   margin-bottom: 32px;
   background-color: white;
   border: 1px solid #287fb8;
+  padding: 8px 25px;
   color: #287fb8;
 }
 
@@ -117,9 +109,7 @@
 
 .errorList {
   padding: 12px;
-  list-style-type: none;
   background-color: rgba(198,61,67,0.25);
-  margin: 0px;
 }
 
 .errorMessage {

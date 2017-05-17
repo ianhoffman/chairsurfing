@@ -3,11 +3,9 @@ import ChairMap from './chair_map';
 import ChairIndex from './chair_index';
 import FilterForm from './filter_form';
 import ChairShowContainer from './chair_show_container';
-import SessionFormContainer from './session_form_container';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import Modal from 'react-modal';
-const style = require('../modals/login_modal_style');
+import SessionModal from '../modals/session_modal';
 
 
 class Search extends React.Component {
@@ -19,6 +17,7 @@ class Search extends React.Component {
     };
     this.toggleState = this.toggleState.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleClick(bool) {
@@ -60,16 +59,12 @@ class Search extends React.Component {
     return (
       <main>
 
-        <Modal
-          isOpen={this.state.modalOpen}
-          style={style}
-          contentLabel="Modal">
-          <SessionFormContainer
-            closeModal={this.closeModal.bind(this)}
-            openModal={this.openModal}
-            toggleState={this.toggleState}
-            logIn={this.state.logIn} />
-        </Modal>
+        <SessionModal
+          modalOpen={this.state.modalOpen}
+          closeModal={this.closeModal}
+          openModal={this.openModal}
+          toggleState={this.toggleState}
+          logIn={this.state.logIn} />
 
         <div id='heroContainer'>
           <img id='bannerImg' src="/assets/hero-img.png" />

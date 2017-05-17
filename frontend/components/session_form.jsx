@@ -39,24 +39,17 @@ class SessionForm extends React.Component {
   }
 
   switchView() {
-    if(this.props.logIn) {
-      this.props.closeModal();
-      this.props.history.push('/signup');
-      this.props.toggleState();
-      this.props.openModal();
-    } else {
-      this.props.closeModal();
-      this.props.history.push('/login');
-      this.props.toggleState();
-      this.props.openModal();
-    }
+    this.props.closeModal();
+    this.props.history.push(this.props.logIn ? '/signup' : '/login');
+    this.props.toggleState();
+    this.props.openModal();
   }
 
   render() {
     const { errors, logIn, loggedIn } = this.props;
     return(
       <form className='sessionForm'>
-        {loggedIn ? <Redirect to="/"/> : ""}
+        {loggedIn ? <Redirect to="/profile"/> : ""}
         {logIn ? (
           <div className='formHeader'>
             <h2>Log in to Chairsurfing</h2>
