@@ -54,13 +54,13 @@ class Greeting extends React.Component {
         <div>
           <Link to="/signup"
             onClick={this.handleClick.bind(this, false)}
-            className='signup'>
+            className='button button-blue'>
             Join
           </Link>
 
           <Link to="/login"
             onClick={this.handleClick.bind(this, true)}
-            className='login'>
+            className='button button-white'>
             Log In
           </Link>
 

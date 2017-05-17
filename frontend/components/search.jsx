@@ -53,7 +53,7 @@ class Search extends React.Component {
       <Link
         onClick={this.handleClick.bind(this)}
         to='/login'
-        className='demo button'>Demo Log In</Link>
+        className='button button-blue'>Demo Log In</Link>
     ) : (<div>Placeholder</div>);
 
     return (

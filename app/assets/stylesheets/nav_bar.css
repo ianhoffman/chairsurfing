@@ -4,7 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2px 0px 3px 15px;
+  padding: 2px 0px 3px 0px;
   border-bottom: 2px solid #bfcad2;
   position: fixed;
   width: 100%;
@@ -16,10 +16,9 @@ header {
 
 header > a {
   margin: 0px;
+  margin-left: 14px;
   margin-top: 6px;
   background-color: transparent;
-  border: 0px;
-  padding: 0px;
 }
 
 header img {
@@ -31,36 +30,22 @@ header div {
   display: flex;
 }
 
-header div a {
-  font-size: 15px;
+header .button {
   padding: 8px;
   margin: 6px 11px 10px 0px;
-  text-align: center;
-  transition: background-color 0.3s;
+  font-weight: 500;
 }
 
-
-.login {
-  background-color: white;
-  border: 1px solid #287fb8;
-  color: #287fb8;
-  margin-right: 20px
+header .button-white {
+  margin-right: 20px;
+  padding-left: 9px;
+  padding-right: 7px;
+  border-radius: 3px;
+  font-weight: 700;
 }
 
-.login:hover {
-  background-color: #f1efea;
-}
-
-.signup {
-  background-color: #287fb8;
-  border: 1px solid #287fb8;
-  color: white;
+header .button-blue {
   padding: 8px 11px;
-}
-
-.signup:hover {
-  background-color: #2371a3;
-  border: 1px solid #2371a3;
 }
 
 .loggedIn-menu {
@@ -69,11 +54,11 @@ header div a {
 }
 
 @media screen and (min-width: 1050px) {
-  .signup {
+  header .button-blue {
     width: 140px;
   }
 
-  .login {
+  header .button-white {
     width: 80px;
     margin-right: 37px;
   }

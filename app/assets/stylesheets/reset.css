@@ -2,6 +2,7 @@ html, body, div, section, main, p, h1, a, span, h2, input {
   margin: 0;
   padding: 0;
   border: 0;
+  text-decoration: none;
   font-family: 'Lato', sans-serif;
   background-color: transparent;
   font-size: 1em;
@@ -16,10 +17,6 @@ html, body, main, section {
 }
 
 .button {
-  background-color: #287fb8;
-  border: 1px solid #287fb8;
-  color: white;
-  text-decoration: none;
   font-size: 15px;
   border-radius: 3px;
   padding: 8px 25px;
@@ -30,8 +27,26 @@ html, body, main, section {
   min-width: 50px;
 }
 
-.button:hover {
-  cursor: pointer;
+
+.button-blue {
+  background-color: #287fb8;
+  border: 1px solid #287fb8;
+  color: white;
+}
+
+.button-white {
+  background-color: white;
+  border: 1px solid #287fb8;
+  color: #287fb8;
+}
+
+.button-white:hover {
+  background-color: #f1efea;
+}
+
+.button-blue:hover {
+  background-color: #2371a3;
+  border: 1px solid #2371a3;
 }
 
 a:hover {
