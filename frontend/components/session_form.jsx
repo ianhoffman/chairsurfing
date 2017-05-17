@@ -35,10 +35,12 @@ class SessionForm extends React.Component {
         {logIn ? (
           <div className='formHeader'>
             <h2>log in to chairsurfing</h2>
+            <p onClick={this.props.closeModal}>X</p>
           </div>
         ) : (
           <div className='formHeader'>
             <h2>Join Chairsurfing for free</h2>
+            <p onClick={this.props.closeModal}>X</p>
           </div>
         ) }
 

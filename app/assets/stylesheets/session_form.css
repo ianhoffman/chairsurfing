@@ -9,6 +9,20 @@
 
 .formHeader {
   border-bottom: 1px solid #f1efea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formHeader p {
+  margin-right: 35px;
+  font-size: 20px;
+  color: #B2B2B2
+}
+
+.formHeader p:hover {
+  color: gray;
+  cursor: pointer;
 }
 
 .sessionForm h2 {

@@ -53,6 +53,7 @@ class Greeting extends React.Component {
             style={style}
             contentLabel="Modal">
             <SessionFormContainer
+              closeModal={this.closeModal.bind(this)}
               logIn={this.state.logIn} />
           </Modal>
         </div>
