@@ -7,7 +7,8 @@ const mapStateToProps = state => {
   return {
     chairs: state.chairs,
     maxSeating: state.filters.maxSeating,
-    minSeating: state.filters.minSeating
+    minSeating: state.filters.minSeating,
+    loggedIn: Boolean(state.session.currentUser)
   };
 };
 
