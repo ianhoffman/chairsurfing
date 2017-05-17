@@ -115,8 +115,22 @@
   cursor: pointer;
 }
 
+.errorList {
+  padding: 12px;
+  list-style-type: none;
+  background-color: rgba(198,61,67,0.25);
+  margin: 0px;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3e1214;
+}
+
 @media (max-width: 1147px) {
-  
+
   .sessionForm {
     width: 413px;
   }

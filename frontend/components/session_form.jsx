@@ -67,10 +67,15 @@ class SessionForm extends React.Component {
           </div>
         ) }
 
-        { errors.length > 0 ?
-          errors.map((err, i) => (
-            <li key={`err` + i}>{err}</li>
-          )) : ''
+        { errors.length > 0 ? (
+            <ul className='errorList'>
+              {errors.map((err, i) => (
+                <li
+                  className='errorMessage'
+                  key={`err` + i}>{err}</li>
+              ))}
+            </ul>
+          ) : ''
         }
         <div className='formBody'>
 
