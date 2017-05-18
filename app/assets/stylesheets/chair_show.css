@@ -69,4 +69,14 @@
 
 .chair-specs {
   padding-left: 25px;
+  height: 100%;
+}
+
+.chair-description {
+  height: 100%;
+}
+
+.show-map-container {
+  margin: 25px 25px 25px 0px;
+  height: 71%;
 }

@@ -1,3 +1,11 @@
+const defaultChair = {
+  description: '',
+  lat: 0,
+  lng: 0,
+  imageUrl: '',
+  address: ''
+};
+
 export const selectChair = (state, ownProps) => {
   let chair;
   Object.keys(state.chairs).forEach(key => {
@@ -5,5 +13,5 @@ export const selectChair = (state, ownProps) => {
       chair = state.chairs[key];
     }
   });
-  return chair || { description: '', lat: 0, lng: 0, imageUrl: '' };
+  return chair || defaultChair;
 };
