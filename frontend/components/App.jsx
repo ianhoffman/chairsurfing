@@ -7,6 +7,7 @@ import SearchContainer from './search_container';
 import ChairFormContainer from './chair_form_container';
 import ChairShowContainer from './chair_show_container';
 import UserProfile from './user_profile';
+import Footer from './footer';
 
 const App = () => (
   <main>
@@ -24,6 +25,8 @@ const App = () => (
       <ProtectedRoute path='/profile' component={UserProfile} />
       <AuthRoute path="/" component={SearchContainer} />
     </Switch>
+
+    <Footer />
   </main>
 );
 

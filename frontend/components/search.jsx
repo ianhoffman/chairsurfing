@@ -57,7 +57,7 @@ class Search extends React.Component {
     ) : (<div>Placeholder</div>);
 
     return (
-      <main id='searchMain'>
+      <main id='searchMain' className='group'>
 
         <SessionModal
           modalOpen={this.state.modalOpen}
@@ -82,10 +82,6 @@ class Search extends React.Component {
             id='searchMap'
             chairs={chairs}
             updateFilter={updateFilter} />
-
-          <ChairIndex
-            chairs={chairs}
-            fetchAllChairs={fetchAllChairs} />
         </section>
       </main>
     );

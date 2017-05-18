@@ -13,7 +13,10 @@ html, body, div, section, main, p, h1, a, span, h2, input {
 
 html, body, main, section {
   width: 100%;
-  height: 100%;
+}
+
+header, .footer, body {
+  background-color: whitesmoke;
 }
 
 .button {
@@ -60,4 +63,10 @@ input {
 ul {
   list-style-type: none;
   margin: 0px;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
