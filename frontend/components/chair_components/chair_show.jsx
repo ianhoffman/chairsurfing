@@ -1,44 +1,20 @@
 import React from 'react';
 import ChairMap from './chair_map';
 import RentalForm from '../booking_components/rental_form';
+import ChairShowMap from './chair_show_map';
+import { Link, Route } from 'react-router-dom';
 
 class ChairShow extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleChair().then(
-      ({ chair }) => this.renderChair(chair)
-    );
+    this.props.fetchSingleChair();
+      // .then(({ chair }) => this.renderChair(chair));
   }
-
-  renderChair(chair) {
-    // const mapOptions = {
-    //   center: {
-    //     lat: chair.lat,
-    //     lng: chair.lng
-    //   },
-    //   zoom: 13,
-    //   gestureHandling: 'none',
-    //   scrollwheel: false
-    // };
-    //
-    // this.map = new google.maps.Map(this.mapNode, mapOptions);
-    //
-    // var latLng = { lat: chair.lat, lng: chair.lng };
-    // new google.maps.Marker({
-    //   position: latLng,
-    //   map: this.map
-    // });
-  }
-
+  //
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
-      this.props.fetchSingleChair().then(
-        ({ chair }) => this.renderChair(chair)
-      );
+      this.props.fetchSingleChair();
+        // .then(({ chair }) => this.renderChair(chair));
     }
-  }
-
-  handleClick(e) {
-    e.preventDefault();
   }
 
   render() {
@@ -52,16 +28,17 @@ class ChairShow extends React.Component {
               {chair.description.toUpperCase()}
             </h2>
             <div className='chair-links'>
-              <a onClick={this.handleClick} href=''>Description</a>
-              <a onClick={this.handleClick} href=''>Location</a>
-              <a onClick={this.handleClick} href=''>Reviews</a>
+              <a href={`#/chairs/${chair.id}/description`}>Description</a>
+              <a href={`#/chairs/${chair.id}/location`}>Location</a>
+              <a href={`#/chairs/${chair.id}/reviews`}>Reviews</a>
             </div>
             <div className='chair-specs'>
-              <div className='chair-about'>
-                <h3>About this chair</h3>
-                <p>Placeholder text, lorem ipsum, etc, etc, etc, la la la, this is not a real sentence, OK.</p>
-                <RentalForm />
-              </div>
+              <Route
+                path={`/chairs/${chair.id}/description`}
+                component={RentalForm} />
+              <Route
+                path={`/chairs/${chair.id}/location`}
+                render={() => <ChairShowMap chair={chair}/>} />
             </div>
           </section>
           <section className='chair-map'>

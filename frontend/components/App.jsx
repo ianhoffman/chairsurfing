@@ -21,7 +21,7 @@ const App = () => (
 
     <Switch>
       <ProtectedRoute path="/chairs/new" component={ChairFormContainer} />
-      <Route exact path='/chairs/:chairId' component={ChairShowContainer} />
+      <Route path='/chairs/:chairId' component={ChairShowContainer} />
       <ProtectedRoute path='/profile' component={UserProfile} />
       <AuthRoute path="/" component={SearchContainer} />
     </Switch>
