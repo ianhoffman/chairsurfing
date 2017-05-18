@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ChairForm from './chair_form';
-import { createChair } from '../actions/chair_actions';
+import { createChair } from '../../actions/chair_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({

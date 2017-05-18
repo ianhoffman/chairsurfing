@@ -5,5 +5,5 @@ export const selectChair = (state, ownProps) => {
       chair = state.chairs[key];
     }
   });
-  return chair || { decription: '', lat: 0, lng: 0, imageUrl: '' };
+  return chair || { description: '', lat: 0, lng: 0, imageUrl: '' };
 };

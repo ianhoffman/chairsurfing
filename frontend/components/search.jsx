@@ -1,8 +1,8 @@
 import React from 'react';
-import ChairMap from './chair_map';
-import ChairIndex from './chair_index';
+import ChairMap from './chair_components/chair_map';
+import ChairIndex from './chair_components/chair_index';
 import FilterForm from './filter_form';
-import ChairShowContainer from './chair_show_container';
+import ChairShowContainer from './chair_components/chair_show_container';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import SessionModal from '../modals/session_modal';

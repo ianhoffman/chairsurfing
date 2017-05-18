@@ -4,8 +4,8 @@ import { Link, Switch, Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SearchContainer from './search_container';
-import ChairFormContainer from './chair_form_container';
-import ChairShowContainer from './chair_show_container';
+import ChairFormContainer from './chair_components/chair_form_container';
+import ChairShowContainer from './chair_components/chair_show_container';
 import UserProfile from './user_profile';
 import Footer from './footer';
 

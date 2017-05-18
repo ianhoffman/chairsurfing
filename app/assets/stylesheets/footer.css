@@ -4,6 +4,10 @@
   height: 270px;
   border-top: 1px solid #bfcad2;
   padding-left: 17px;
+  z-index: 998;
+  position: absolute;
+  /*bottom: -1155px;*/
+  background-color: white;
 }
 
 .topLinks {

@@ -1,5 +1,5 @@
 import React from 'react';
-import MarkerManager from '../util/marker_manager';
+import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router-dom';
 
 class ChairMap extends React.Component {
