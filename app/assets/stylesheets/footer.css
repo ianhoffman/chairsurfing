@@ -51,7 +51,7 @@
 .footer p {
   margin-top: 20px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #929dad;
   margin-bottom: 11px;
 }
@@ -78,4 +78,33 @@
 
 .midLinks:last-child a:last-of-type {
   padding: 6px 8px;
+}
+
+.copyright {
+  display: flex;
+  margin-top: 35px;
+}
+
+.copyright p {
+  margin-right: 43px;
+  font-weight: 700;
+  font-size: 11px;
+  color: #c7d0d7;
+}
+
+@media (max-width: 650px) {
+  .footerLinks {
+    margin-top: 34px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .footerLinks a {
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 482px) {
+
 }

@@ -78,3 +78,9 @@
     top: calc(50% - 120px);
   }
 }
+
+@media (max-width: 630px) {
+  .banner {
+    font-size: 40px;
+  }
+}

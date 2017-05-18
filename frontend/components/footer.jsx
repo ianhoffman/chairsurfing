@@ -28,8 +28,11 @@ const Footer = (props) => (
         <p>MOBILE APPS</p>
         <a href='#' className='fa fa-apple socialIcon'></a>
         <a href='#' className='fa fa-android socialIcon'></a>
-
       </div>
+    </div>
+    <div className='copyright'>
+      <p>&copy; 2017 Ian Hoffman</p>
+      <p>Hire me!</p>
     </div>
   </section>
 );
