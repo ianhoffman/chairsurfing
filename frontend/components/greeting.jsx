@@ -46,7 +46,11 @@ class Greeting extends React.Component {
         <div>
           <button onClick={() => {
               this.closeModal();
-              this.props.logout();
+              this.props.logout().then(
+                res => {
+                  this.props.history.push('/');
+                }
+              ).bind(this);
             }}> Log Out </button>
           <ul className='loggedIn-menu'>
             <li className="fa fa-search"></li>
