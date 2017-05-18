@@ -50,7 +50,7 @@ class Greeting extends React.Component {
                 res => {
                   this.props.history.push('/');
                 }
-              ).bind(this);
+              );
             }}> Log Out </button>
           <ul className='loggedIn-menu'>
             <li className="fa fa-search"></li>
