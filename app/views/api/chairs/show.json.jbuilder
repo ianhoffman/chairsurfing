@@ -1,2 +1,2 @@
-json.extract! @chair, :id, :description, :lat, :lng, :seating
-json.imageUrl @chair.imageUrl
+json.extract! @chair, :id, :description, :lat, :lng
+json.imageUrl @chair.image_url

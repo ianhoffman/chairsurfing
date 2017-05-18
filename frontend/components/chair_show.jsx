@@ -15,7 +15,8 @@ class ChairShow extends React.Component {
         lng: chair.lng
       },
       zoom: 13,
-      gestureHandling: 'none'
+      gestureHandling: 'none',
+      scrollwheel: false
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -37,11 +38,14 @@ class ChairShow extends React.Component {
 
   render() {
     return(
-      <div>
-        <div className='map-container' ref={ map => (this.mapNode = map) } />
-        <div>Description: {this.props.chair.description}</div>
-        <div>Latitude: {this.props.chair.lat}</div>
-        <div>Longitude: {this.props.chair.lng}</div>
+      <div className='chair-show'>
+        <div className='chair-container'>
+          <h1>{this.props.chair.description}</h1>
+          <img src={this.props.chair.imageUrl}/>
+        </div>
+        <div
+          className='map-container'
+          ref={ map => (this.mapNode = map) } />
       </div>
     );
   }

@@ -13,7 +13,7 @@ class ChairMap extends React.Component {
       },
       zoom: 13,
       minZoom: 12,
-      scrollwheel:  false
+      scrollwheel: false
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
