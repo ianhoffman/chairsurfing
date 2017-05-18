@@ -36,6 +36,7 @@ class ChairShowMap extends React.Component {
           let infoWindow = new google.maps.InfoWindow({
             content: results[0].formatted_address
           });
+          
           let marker = new google.maps.Marker({
             position: latLng,
             map: this.map,
@@ -43,7 +44,7 @@ class ChairShowMap extends React.Component {
           });
 
           marker.infoWindow.open(this.map, marker);
-          
+
         } else {
           this.props.chair.address = "Couldn't find address.";
         }

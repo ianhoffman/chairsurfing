@@ -7,6 +7,22 @@ import { Link, Route } from 'react-router-dom';
 class ChairShow extends React.Component {
   componentDidMount() {
     this.props.fetchSingleChair();
+    let path = this.props.location.pathname.split('/');
+    let curr = path[path.length - 1];
+
+    switch (curr) {
+      case 'description':
+        document.getElementById('description').focus();
+        break;
+      case 'location':
+        document.getElementById('location').focus();
+        break;
+      case 'reviews':
+        document.getElementById('reviews').focus();
+        break;
+      default:
+        break;
+    }
       // .then(({ chair }) => this.renderChair(chair));
   }
   //
@@ -28,9 +44,12 @@ class ChairShow extends React.Component {
               {chair.description.toUpperCase()}
             </h2>
             <div className='chair-links'>
-              <a href={`#/chairs/${chair.id}/description`}>Description</a>
-              <a href={`#/chairs/${chair.id}/location`}>Location</a>
-              <a href={`#/chairs/${chair.id}/reviews`}>Reviews</a>
+              <a href={`#/chairs/${chair.id}/description`}
+                id='description'>Description</a>
+              <a href={`#/chairs/${chair.id}/location`}
+                id='location'>Location</a>
+              <a href={`#/chairs/${chair.id}/reviews`}
+                id='reviews'>Reviews</a>
             </div>
             <div className='chair-specs'>
               <Route

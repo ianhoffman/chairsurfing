@@ -5,6 +5,7 @@
   display: flex;
   border: 1px solid #bfcad2;
   margin-bottom: 43px;
+  background-color: white;
 }
 
 .chair-info {
@@ -12,7 +13,7 @@
 }
 
 .chair-info h2 {
-  padding: 8px 0px 8px 25px;
+  padding: 8px 0px 9px 25px;
   font-weight: 700;
   font-size: 35px;
   border-bottom: 1px solid #bfcad2;
@@ -29,6 +30,7 @@
   margin: 25px;
   padding: 17px 15px 10px 15px;
   border: 1px solid #bfcad2;
+  box-shadow: inset 4px 4px 23px -12px;
 }
 
 .chair-img img {
@@ -38,7 +40,6 @@
 
 .chair-links {
   padding: 0px 0px 0px 15px;
-  border-bottom: 1px solid #bfcad2;
   line-height: 1;
   padding: 5px;
   padding-left: 25px;
@@ -48,6 +49,7 @@
   color: #2f4f4f;
   font-weight: 700;
   line-height: 1.2;
+  border-bottom: 1px solid #bfcad2;
   border-left: 1px solid #bfcad2;
   padding: inherit;
   padding-right: 10px;
@@ -63,8 +65,9 @@
 }
 
 .chair-links a:focus {
-  background-color: gray;
   color: #f18539;
+  box-shadow: inset 3px 3px 15px -8px black;
+  outline: none;
 }
 
 .chair-specs {
@@ -79,4 +82,9 @@
 .show-map-container {
   margin: 25px 25px 25px 0px;
   height: 71%;
+}
+
+.chair-about {
+  margin-left: 15px;
+  margin-right: 31px;
 }

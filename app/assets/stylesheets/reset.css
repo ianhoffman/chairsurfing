@@ -15,6 +15,10 @@ html, body, main, section {
   width: 100%;
 }
 
+html {
+  background-color: #ecf0f1;
+}
+
 .button {
   font-size: 15px;
   border-radius: 3px;

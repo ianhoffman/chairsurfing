@@ -43,7 +43,7 @@ class Search extends React.Component {
     this.setState({
       modalOpen: false
     });
-    this.props.history.push('/');
+    this.props.history.goBack();
   }
 
   render() {

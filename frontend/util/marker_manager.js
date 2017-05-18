@@ -39,7 +39,7 @@ export default class MarkerManager {
     var contentString = `<div class='infowindow'>` +
       `<p class='thumbnailHeader'>${chair.description}</p></br>` +
       `<img class='thumbnail' src=${chair.imageUrl}>` +
-      `<a class='button button-blue' href='#/chairs/${chair.id}'>Take a Seat!</a></div>`;
+      `<a class='button button-blue' href='#/chairs/${chair.id}/description'>Take a Seat!</a></div>`;
 
     var infowindow = new google.maps.InfoWindow({
       content: contentString
