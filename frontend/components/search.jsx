@@ -64,6 +64,7 @@ class Search extends React.Component {
           closeModal={this.closeModal}
           openModal={this.openModal}
           toggleState={this.toggleState}
+          demo={true}
           logIn={this.state.logIn} />
 
         <div id='heroContainer'>

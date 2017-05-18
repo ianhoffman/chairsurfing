@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
       password: ""
     };
 
-    if(this.props.logIn) {
+    if(this.props.demo) {
       this.state.email = "Jane@Doe.com";
       this.state.password = "password";
     }

@@ -76,6 +76,7 @@ class Greeting extends React.Component {
             openModal={this.openModal}
             closeModal={this.closeModal}
             toggleState={this.toggleState}
+            demo={false}
             logIn={this.state.logIn} />
         </div>
       );

@@ -7,11 +7,13 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserChair(this.props.currentUser.id);
+    // this.props.fetchUserChair(this.props.currentUser.id);
   }
 
   render() {
-    
+    return(
+      <div>Placeholder</div>
+    );
   }
 }
 

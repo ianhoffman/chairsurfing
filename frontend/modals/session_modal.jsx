@@ -8,6 +8,7 @@ const SessionModal = ({
   closeModal,
   openModal,
   toggleState,
+  demo,
   logIn
 }) => (
   <Modal
@@ -15,6 +16,7 @@ const SessionModal = ({
     style={style}
     contentLabel="Modal">
     <SessionFormContainer
+      demo={demo}
       closeModal={closeModal}
       openModal={openModal}
       toggleState={toggleState}
