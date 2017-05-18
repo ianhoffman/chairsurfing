@@ -15,10 +15,6 @@ html, body, main, section {
   width: 100%;
 }
 
-header, .footer, body {
-  background-color: whitesmoke;
-}
-
 .button {
   font-size: 15px;
   border-radius: 3px;
