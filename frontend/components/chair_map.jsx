@@ -39,12 +39,12 @@ class ChairMap extends React.Component {
       this.props.updateFilter('bounds', bounds);
     }.bind(this));
 
-    this.map.addListener('click', coords => {
-      this.props.history.push({
-        pathname: "chairs/new",
-        search: `lat=${coords.latLng.lat()}&lng=${coords.latLng.lng()}`
-      });
-    });
+    // this.map.addListener('click', coords => {
+    //   this.props.history.push({
+    //     pathname: "chairs/new",
+    //     search: `lat=${coords.latLng.lat()}&lng=${coords.latLng.lng()}`
+    //   });
+    // });
 
     this.MarkerManager = new MarkerManager(this.map);
   }

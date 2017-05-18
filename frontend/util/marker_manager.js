@@ -6,6 +6,12 @@ export default class MarkerManager {
 
     this.createMarkersFromChair = this.createMarkersFromChair.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
+
+    this.map.addListener('click', () => {
+      for(let i = 0; i < this.infoWindows.length; i++) {
+        this.infoWindows[i].close();
+      }
+    });
   }
 
   updateMarkers(chairs, history) {
@@ -33,7 +39,7 @@ export default class MarkerManager {
     var contentString = `<div class='infowindow'>` +
       `<p class='thumbnailHeader'>${chair.description}</p></br>` +
       `<img class='thumbnail' src=${chair.imageUrl}>` +
-      `<a class='button button-blue' href='/chairs/${chair.id}'>Take a Seat!</a></div>`;
+      `<a class='button button-blue' href='#/chairs/${chair.id}'>Take a Seat!</a></div>`;
 
     var infowindow = new google.maps.InfoWindow({
       content: contentString
