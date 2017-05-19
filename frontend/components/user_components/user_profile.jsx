@@ -41,7 +41,7 @@ class UserProfile extends React.Component {
     return(currentUser.chair === 'null') ? (
       <section className='chairButtonContainer'>
         <Link
-          to='/profile/create_chair'
+          to='/profile/new'
           onClick={this.openModal}
           className='createChairButton button button-blue'>
           Create your chair!

@@ -55,7 +55,16 @@ class ChairForm extends React.Component {
       return;
     } else {
       this.submitting = true;
-      $(e.target).html('<div class="spinner"></div>')
+      const $link = $(e.target);
+      $link.addClass('activated');
+      let height = $link.height();
+      $link.html('');
+      $link.css('padding-top', '4px');
+      $link.css('padding-bottom', '4px');
+      let $loader = $(`<div class='loader'></div>`);
+      $loader.height((height - 4));
+      $loader.width(height - 4);
+      $link.append($loader);
       this.uploadImage();
     }
   }

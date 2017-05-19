@@ -85,6 +85,11 @@
   height: 71%;
 }
 
+.show-map-frame {
+  height: 100%;
+  width: 100%;
+}
+
 .chair-about {
   margin-left: 15px;
   margin-right: 31px;

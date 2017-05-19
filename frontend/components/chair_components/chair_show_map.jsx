@@ -35,10 +35,9 @@ class ChairShowMap extends React.Component {
     let marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
-      infoWindow: infoWindow
     });
 
-    marker.infoWindow.open(this.map, marker);
+    infoWindow.open(this.map, marker);
   }
 
   render() {
