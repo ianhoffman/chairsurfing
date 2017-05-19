@@ -1,6 +1,6 @@
 /* SESSION */
 
-.sessionForm {
+.baseForm {
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 7px;
@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.sessionForm h2 {
+.formHeader h2 {
   margin: 27px 38px 23px 38px;
   font-size: 20px;
   font-weight: 700;
@@ -54,7 +54,7 @@
   flex: 1
 }
 
-.sessionForm input {
+.baseForm input {
   margin-bottom: 10px;
   font-size: 16px;
   color: #27374c;
@@ -94,7 +94,7 @@
 
 @media (max-width: 1147px) {
 
-  .sessionForm {
+  .baseForm {
     width: 413px;
   }
 }
@@ -107,7 +107,7 @@
   .firstAndLast > input:first-child {
     margin-right: 0px;
   }
-  .sessionForm {
+  .baseForm {
     width: 90%;
   }
 }

@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
   render() {
     const { errors, logIn, loggedIn } = this.props;
     return(
-      <form className='sessionForm'>
+      <form className='baseForm'>
         {loggedIn ? <Redirect to="/profile"/> : ""}
         {logIn ? (
           <div className='formHeader'>
@@ -70,6 +70,7 @@ class SessionForm extends React.Component {
             </ul>
           ) : ''
         }
+
         <div className='formBody'>
 
           { !logIn ? (

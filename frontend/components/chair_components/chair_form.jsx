@@ -5,8 +5,10 @@ class ChairForm extends React.Component {
     super(props);
     this.state = {
       description: '',
-      lat: props.lat,
-      lng: props.lng
+      address: '',
+      about: '',
+      image_url: '',
+      user_id: props.currentUser.id
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,23 +29,39 @@ class ChairForm extends React.Component {
   }
 
   render() {
+    const { create, closeModal } = this.props;
+
     return(
-      <form>
-        <h1>Create A Chair!</h1>
+      <form className='baseForm'>
+        { create ? (
+          <div className='formHeader'>
+            <h2>Create your chair</h2>
+            <p onClick={closeModal}>X</p>
+          </div>
+        ) : '' }
 
-        <label>Description
-          <input onChange={this.update('description')} value={this.state.description}></input>
-        </label>
+        <div className='formBody'>
+          <input
+            onChange={this.update('description')}
+            placeholder='Title'
+            value={this.state.description}></input>
 
-        <label>Latitude
-          <input onChange={this.update('lat')} value={this.state.lat} disabled></input>
-        </label>
+          <input
+            onChange={this.update('address')}
+            placeholder='Address'
+            value={this.state.address}></input>
 
-        <label>Longitude
-          <input onChange={this.update('lng')} value={this.state.lng} disabled></input>
-        </label>
+          <textarea
+            onChange={this.update('about')}
+            placeholder='About'
+            value={this.state.about}></textarea>
 
-        <button onClick={this.handleSubmit}>Create Chair</button>
+          <a className='button button-blue'
+            onClick={this.handleSubmit}>
+            Create Chair
+          </a>
+        </div>
+
       </form>
     );
   }

@@ -1,14 +1,28 @@
-import { RECEIVE_CHAIRS, RECEIVE_CHAIR } from '../actions/chair_actions';
+import { RECEIVE_CHAIRS, RECEIVE_CHAIR, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/chair_actions';
 import merge from 'lodash/merge';
+
+const initialState = {
+  chairs: {},
+  errors: []
+};
 
 const chairsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CHAIRS:
-      return action.chairs;
+      return {
+        chairs: action.chairs,
+        errors: []
+      };
     case RECEIVE_CHAIR:
-      let newState = merge({}, state);
-      newState[action.chair.id] = action.chair;
+      newState.chairs[action.chair.id] = action.chair;
+      return newState;
+    case RECEIVE_ERRORS:
+      newState.errors = action.errors;
+      return newState;
+    case CLEAR_ERRORS:
+      newState.errors = [];
       return newState;
     default:
       return state;
