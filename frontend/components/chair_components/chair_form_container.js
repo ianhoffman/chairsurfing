@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
 
   return ({
     currentUser: state.session.currentUser,
-    lastChairId: chairId
+    lastChairId: chairId,
+    errors: state.chairs.errors
   });
 };
 

@@ -30,7 +30,7 @@ class ChairForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(newProps.lastChairId !== null) {
+    if(newProps.lastChairId !== null && newProps.lastChairId !== "undefined" ) {
       this.props.history.push(`/chairs/${newProps.lastChairId}/description`);
       this.props.closeModal();
     }
@@ -82,8 +82,9 @@ class ChairForm extends React.Component {
       if (response.body.secure_url !== '') {
         this.state.image_url = response.body.secure_url;
         this.state.image = [];
-        this.geocodeLocation();
       }
+
+      this.geocodeLocation();
     });
   }
 
@@ -94,16 +95,16 @@ class ChairForm extends React.Component {
         if (status === 'OK') {
           this.state.lat = results[0].geometry.location.lat();
           this.state.lng = results[0].geometry.location.lng();
-          this.props.createChair(this.state);
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
+        this.props.createChair(this.state);
       }
     );
   }
 
   render() {
-    const { create, closeModal } = this.props;
+    const { errors, create, closeModal } = this.props;
 
     return(
       <form className='baseForm'>
@@ -113,6 +114,17 @@ class ChairForm extends React.Component {
             <p onClick={closeModal}>X</p>
           </div>
         ) : '' }
+
+        { errors.length > 0 ? (
+            <ul className='errorList'>
+              {errors.map((err, i) => (
+                <li
+                  className='errorMessage'
+                  key={`err` + i}>{err}</li>
+              ))}
+            </ul>
+          ) : ''
+        }
 
         <div className='formBody'>
           <input

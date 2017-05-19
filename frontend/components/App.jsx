@@ -9,25 +9,26 @@ import ChairShowContainer from './chair_components/chair_show_container';
 import UserProfileContainer from './user_components/user_profile_container';
 import Footer from './footer';
 
-const App = () => (
-  <main>
-    <header>
-      <Link to='/'>
-        <img src="https://assets.couchsurfing.com/assets/logo-orange-58ccd2edda8895d1e1742f7744683e61f2c6fa069290a9ff012ef09d51ea643b.png" />
-      </Link>
+const App = () => {
+  return(
+    <main>
+      <header>
+        <Link to='/'>
+          <img src="https://assets.couchsurfing.com/assets/logo-orange-58ccd2edda8895d1e1742f7744683e61f2c6fa069290a9ff012ef09d51ea643b.png" />
+        </Link>
 
-      <GreetingContainer />
-    </header>
+        <GreetingContainer />
+      </header>
 
-    <Switch>
-      <ProtectedRoute path="/chairs/new" component={ChairFormContainer} />
-      <Route path='/chairs/:chairId' component={ChairShowContainer} />
-      <ProtectedRoute path='/profile' component={UserProfileContainer} />
-      <AuthRoute path="/" component={SearchContainer} />
-    </Switch>
+      <Switch>
+        <Route path='/chairs/:chairId' component={ChairShowContainer} />
+        <ProtectedRoute path='/profile' component={UserProfileContainer} />
+        <AuthRoute path="/" component={SearchContainer} />
+      </Switch>
 
-    <Footer />
-  </main>
-);
+      <Footer />
+    </main>
+  );
+};
 
 export default App;

@@ -16,7 +16,7 @@ class Api::ChairsController < ApplicationController
     if @chair.save
       render :show
     else
-      render json: @chair.errors.full_messages
+      render json: @chair.errors.full_messages, status: 422
     end
   end
 
