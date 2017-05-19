@@ -1,0 +1,78 @@
+.chairButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.createChairButton {
+  position: absolute;
+  top: 73px;
+  z-index: 999;
+
+  /*-webkit-animation: Bounce1 .5s infinite alternate, Bounce2 .5s infinite alternate, Bounce1 .5s infinite alternate, Bounce2 .5s infinite alternate;
+  -webkit-animation-delay: 0s, .5s, 1s, 1.5s;
+  -webkit-animation-iteration-count: 1;
+
+  animation: Bounce1 .5s infinite alternate, Bounce2 .5s infinite alternate, Bounce1 .5s infinite alternate, Bounce2 .5s infinite alternate;
+  animation-delay: 0s, .5s, 1s, 1.5s;
+  animation-iteration-count: 1;
+
+  -webkit-transform: translateY(2em);
+  transform: translateY(2em);*/
+   /*-webkit-transform-origin: 0 -250px;
+   transform-origin: 0 -250px;
+   transition: all 0.5s ease-in;*/
+
+   /*-webkit-transition: margin-left 4s;*/
+
+
+  /*-webkit-animation: bounce .3s infinite alternate;
+  -webkit-animation: bounce .3s infinite alternate;*/
+  /*-webkit-animation: bounce2 .3s infinite alternate;*/
+  /*-moz-animation: bounce .3s infinite alternate;
+  animation: bounce .3s infinite alternate;*/
+  /*-moz-animation-iteration-count: 8;
+  animation-iteration-count: 8;*/
+}
+
+/*@-webkit-keyframes Bounce1 {
+  to { -webkit-transform: rotate(5deg) }
+}
+
+@-webkit-keyframes Bounce2 {
+  to { -webkit-transform: rotate(-5deg); }
+}
+
+@keyframes Bounce1 {
+  to { transform: rotate(5deg) }
+}
+
+@keyframes Bounce2 {
+  to { transform: rotate(-5deg); }
+}*/
+/*@-moz-keyframes bounce {
+  to { -moz-transform: scale(1.2); }
+}
+@keyframes bounce {
+  to { transform: scale(1.2); }
+}*/
+
+.auto-enter {
+  opacity: 0.01;
+  transform: translateY(500%);
+}
+
+.auto-enter.auto-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms ease-in, transform 700ms ease-in;
+}
+
+.auto-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.auto-leave.auto-leave-active {
+  opacity: 0.01;
+  transform: translateY(500%);
+  transition: opacity 700ms ease-in, transform 700ms ease-in;
