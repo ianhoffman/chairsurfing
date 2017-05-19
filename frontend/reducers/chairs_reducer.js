@@ -6,7 +6,7 @@ const initialState = {
   errors: []
 };
 
-const chairsReducer = (state = {}, action) => {
+const chairsReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {

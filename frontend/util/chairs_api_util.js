@@ -7,13 +7,14 @@ export const fetchAllChairs = filters => {
   });
 };
 
-export const createChair = chair => (
-  $.ajax({
+export const createChair = chair => {
+  return $.ajax({
     url: '/api/chairs',
     method: 'POST',
-    data: { chair }
-  })
-);
+    data: { chair },
+    error: err => console.log(err)
+  });
+};
 
 export const fetchSingleChair = id => {
   return $.ajax({

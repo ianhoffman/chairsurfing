@@ -8,9 +8,9 @@ const defaultChair = {
 
 export const selectChair = (state, ownProps) => {
   let chair;
-  Object.keys(state.chairs).forEach(key => {
+  Object.keys(state.chairs.chairs).forEach(key => {
     if(key == ownProps.match.params.chairId) {
-      chair = state.chairs[key];
+      chair = state.chairs.chairs[key];
     }
   });
   return chair || defaultChair;

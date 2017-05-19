@@ -7,7 +7,8 @@ module.exports = {
     bottom            : 0,
     backgroundColor   :'rgba(0,0,0,0.9)',
     // opacity           : 0.9,
-    zIndex            : '1000'
+    zIndex            : '1000',
+    overflow          : 'scroll'
   },
   content : {
     overflow                   : 'none',

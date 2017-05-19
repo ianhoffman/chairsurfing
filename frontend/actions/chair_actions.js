@@ -33,7 +33,10 @@ export const fetchSingleChair = id => dispatch => (
 
 export const createChair = chair => dispatch => (
   ChairsAPIUtil.createChair(chair).then(
-    res => dispatch(receiveChair(chair)),
+    res => {
+      dispatch(receiveChair(res));
+      return res;
+    },
     err => dispatch(receiveErrors(err))
   )
 );

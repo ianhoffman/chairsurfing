@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-blue_armchair = Chair.create!(description: 'Plush blue armchair',
+blue_armchair = Chair.create!(
+    description: 'Plush blue armchair',
     lat: 37.768709,
     lng: -122.448687,
     image_url: 'https://res.cloudinary.com/dfuh8ucrc/image/upload/v1495050265/blue-armchair_slntig.jpg',
     user_id: 1,
+    address: '1501 Waller St, San Francisco, CA 94117, USA',
     about: 'Once you sink into this plush blue armchair, you won\'t want to get up for DAYS. Sip some wine and look out the window contemplatively and, before you know it, you\'ll be around 65.'
   );
 #
@@ -63,5 +65,5 @@ blue_armchair = Chair.create!(description: 'Plush blue armchair',
 #   lng: -122.394093,
 #   image_url: 'https://res.cloudinary.com/dfuh8ucrc/image/upload/v1495050253/racing-chair_ou4tkd.jpg'
 #   )
-
-  jane_doe = User.create!(email: 'Jane@Doe.com', password: 'password', firstName: 'Jane', lastName: 'Doe')
+  # 
+  # jane_doe = User.create!(email: 'Jane@Doe.com', password: 'password', firstName: 'Jane', lastName: 'Doe')

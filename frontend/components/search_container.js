@@ -5,7 +5,7 @@ import { updateFilter } from '../actions/filter_actions';
 
 const mapStateToProps = state => {
   return {
-    chairs: state.chairs,
+    chairs: state.chairs.chairs,
     maxSeating: state.filters.maxSeating,
     minSeating: state.filters.minSeating,
     loggedIn: Boolean(state.session.currentUser)
