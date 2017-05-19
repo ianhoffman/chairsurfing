@@ -3,10 +3,16 @@ import * as ChairsAPIUtil from '../util/chairs_api_util';
 export const RECEIVE_CHAIRS = 'RECEIVE_CHAIRS';
 export const RECEIVE_CHAIR = 'RECEIVE_CHAIR';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const SET_USER_CHAIR = 'SET_USER_CHAIR';
 
 const receiveChairs = chairs => ({
   type: RECEIVE_CHAIRS,
   chairs
+});
+
+const setUserChair = chair => ({
+  type: SET_USER_CHAIR,
+  chair
 });
 
 const receiveChair = chair => ({
@@ -35,6 +41,7 @@ export const createChair = chair => dispatch => (
   ChairsAPIUtil.createChair(chair).then(
     res => {
       dispatch(receiveChair(res));
+      dispatch(setUserChair(res));
       return res;
     },
     err => dispatch(receiveErrors(err))

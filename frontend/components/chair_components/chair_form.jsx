@@ -55,6 +55,7 @@ class ChairForm extends React.Component {
       return;
     } else {
       this.submitting = true;
+      $(e.target).html('<div class="spinner"></div>')
       this.uploadImage();
     }
   }
@@ -128,7 +129,9 @@ class ChairForm extends React.Component {
               { this.state.image.length > 0 ? (
                 <img className="image-holder" src={this.state.image[0].preview} />
               ) : (
-                'Please upload an image!'
+                <div className="placeholder">
+                  <span>Please upload an image!</span>
+                </div>
               ) }
             </Dropzone>
           </div>

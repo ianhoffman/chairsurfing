@@ -42,20 +42,23 @@ class Greeting extends React.Component {
   }
 
   render() {
+    // for later:
+    // <ul className='loggedIn-menu'>
+    //   <li className="fa fa-search"></li>
+    //   <li className='fa fa-navicon'></li>
+    // </ul>
+
     return (this.props.loggedIn) ? (
         <div>
-          <button onClick={() => {
+          <a className='button button-white'
+             onClick={() => {
               this.closeModal();
               this.props.logout().then(
                 res => {
                   this.props.history.push('/');
                 }
               );
-            }}> Log Out </button>
-          <ul className='loggedIn-menu'>
-            <li className="fa fa-search"></li>
-            <li className='fa fa-navicon'></li>
-          </ul>
+            }}> Log Out </a>
         </div>
       ) : (
         <div>
