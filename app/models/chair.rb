@@ -1,5 +1,6 @@
 class Chair < ApplicationRecord
-  validates :description, :lat, :lng, :image_url, :about, :address, :accepting_guests, presence: true
+  validates :description, :lat, :lng, :image_url, :about, :address, presence: true
+  validates :accepting_guests, inclusion: { in: [true, false] }
   validates :user_id, uniqueness: true
   # validates :seating, numericality: { greater_than: 0 }
 
