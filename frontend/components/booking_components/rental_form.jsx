@@ -1,12 +1,14 @@
 import React from 'react';
 
-const RentalForm = props => {
+const RentalForm = ({ chair }) => {
   return (
     <div className='chair-about'>
       <h3>About this chair</h3>
-      <p>Placeholder text, lorem ipsum, etc, etc, etc, la la la, this is not a real sentence, OK.</p>
+      <p>{chair.about}</p>
+      <br />
+      <span>{chair.accepting_guests ? 'Available to rent!' : 'The owner is currently not accepting guests.'}</span>
     </div>
   );
-}
+};
 
 export default RentalForm;

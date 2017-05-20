@@ -17,6 +17,7 @@ class ChairForm extends React.Component {
       lng: 0,
       image_url: '',
       image: [],
+      accepting_guests: true,
       user_id: props.currentUser.id
     };
 
@@ -111,6 +112,10 @@ class ChairForm extends React.Component {
     );
   }
 
+  toggleChecked() {
+    this.setState({accepting_guests: !this.state.accepting_guests});
+  }
+
   render() {
     const { errors, create, closeModal } = this.props;
 
@@ -144,6 +149,14 @@ class ChairForm extends React.Component {
             onChange={this.update('address')}
             placeholder='Address'
             value={this.state.address}></input>
+
+          <div className='checkbox-div'>
+            <input
+              type='checkbox'
+              checked={this.state.accepting_guests}
+              onChange={this.toggleChecked.bind(this)} />
+            I am currently accepting guests<br/>
+          </div>
 
           <textarea
             onChange={this.update('about')}

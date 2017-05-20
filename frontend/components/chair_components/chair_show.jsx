@@ -44,6 +44,15 @@ class ChairShow extends React.Component {
         $(show).css('display', 'block');
       }
     });
+
+    window.addEventListener('resize', () => {
+      let p = this.props.location.pathname.split('/');
+      let c = path[path.length - 1];
+      if($(window).width() <= 840 && c !== 'description') {
+        show = document.getElementsByClassName('chair-img')[0];
+        $(show).css('display', 'none');
+      }
+    });
   }
 
   componentWillReceiveProps(newProps) {
@@ -95,7 +104,7 @@ class ChairShow extends React.Component {
             <div className='chair-specs'>
               <Route
                 path={`/chairs/${chair.id}/description`}
-                component={RentalForm} />
+                render={() => <RentalForm chair={chair}/>} />
               <Route
                 path={`/chairs/${chair.id}/location`}
                 render={() => <ChairShowMap chair={chair}/>} />

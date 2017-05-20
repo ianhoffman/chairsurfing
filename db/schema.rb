@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519173025) do
+ActiveRecord::Schema.define(version: 20170520165107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chairs", force: :cascade do |t|
-    t.string   "description", null: false
-    t.float    "lat",         null: false
-    t.float    "lng",         null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "image_url",   null: false
-    t.integer  "user_id",     null: false
-    t.text     "about",       null: false
-    t.string   "address",     null: false
+    t.string   "description",      null: false
+    t.float    "lat",              null: false
+    t.float    "lng",              null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "image_url",        null: false
+    t.integer  "user_id",          null: false
+    t.text     "about",            null: false
+    t.string   "address",          null: false
+    t.boolean  "accepting_guests", null: false
     t.index ["user_id"], name: "index_chairs_on_user_id", using: :btree
   end
 
