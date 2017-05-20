@@ -74,15 +74,19 @@
   padding-left: 25px;
   height: 100%;
   margin-top: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .chair-description {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .show-map-container {
-  margin: 25px 25px 25px 0px;
-  height: 71%;
+  margin: 0px 25px 25px 0px;
+  height: 100%;
 }
 
 .show-map-frame {
@@ -93,4 +97,28 @@
 .chair-about {
   margin-left: 15px;
   margin-right: 31px;
+}
+
+@media (max-width: 840px) {
+  /*html, body, div, section, main {
+    height: 100%;
+  }*/
+
+  .chair-show {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chair-img {
+    width: 100%;
+    border-left: 0px;
+  }
+
+  .chair-container {
+    margin: 41px;
+  }
+
+  .chair-specs {
+    margin-top: 12px;
+  }
 }

@@ -42,9 +42,7 @@ class ChairShowMap extends React.Component {
 
   render() {
     return(
-      <div className='show-map-frame'>
-        <div className='show-map-container' ref={ map => (this.mapNode = map) }/>
-      </div>
+      <div className='show-map-container' ref={ map => (this.mapNode = map) }/>
     );
   }
 }

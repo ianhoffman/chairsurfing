@@ -64,7 +64,7 @@
   border-radius: 50%;
   border: 2px solid #eff3f3;
   color: darkslategray;
-  padding: 6px;
+  padding: 6px 8px;
   margin-right: 14px;
 }
 
@@ -72,12 +72,12 @@
   padding: 6px 9.5px;
 }
 
-.midLinks div:first-of-type {
-  margin-right: 90px;
+#twitter {
+  padding: 6px 7px;
 }
 
-.midLinks:last-child a {
-  padding: 6px 7px;
+.midLinks div:first-of-type {
+  margin-right: 90px;
 }
 
 .midLinks:last-child a:last-of-type {

@@ -30,6 +30,14 @@ class ChairForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    if(newProps.errors.length > 0) {
+      const $link = $('.formBody .button');
+      $link.html('Create Chair');
+      $link.css('padding-top', '8px');
+      $link.css('padding-bottom', '8px');
+      this.submitting = false;
+    }
+
     if(newProps.lastChairId !== null && newProps.lastChairId !== "undefined" ) {
       this.props.history.push(`/chairs/${newProps.lastChairId}/description`);
       this.props.closeModal();
@@ -107,7 +115,7 @@ class ChairForm extends React.Component {
     const { errors, create, closeModal } = this.props;
 
     return(
-      <form className='baseForm'>
+      <form className='baseForm' style={{'marginBottom' : '20px'}}>
         { create ? (
           <div className='formHeader'>
             <h2>Create your chair</h2>
