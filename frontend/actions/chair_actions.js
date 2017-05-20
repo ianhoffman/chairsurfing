@@ -25,6 +25,12 @@ const receiveChairErrors = errors => ({
   errors
 });
 
+export const updateChair = chair => dispatch => (
+  ChairsAPIUtil.updateChair(chair).then(
+    res => dispatch(receiveChair(res))
+  )
+);
+
 export const fetchAllChairs = filters => dispatch => (
   ChairsAPIUtil.fetchAllChairs(filters).then(
     res => dispatch(receiveChairs(res))

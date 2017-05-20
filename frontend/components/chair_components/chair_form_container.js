@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ChairForm from './chair_form';
-import { createChair } from '../../actions/chair_actions';
+import { createChair, updateChair } from '../../actions/chair_actions';
 import isEmpty from 'lodash/isEmpty';
 
 const initialChair = {
@@ -9,7 +9,7 @@ const initialChair = {
   about: '',
   lat: 0,
   lng: 0,
-  image_url: '',
+  imageUrl: '',
   image: [],
   accepting_guests: true,
   user_id: 'NEW'
@@ -34,7 +34,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createChair: (chair) => dispatch(createChair(chair))
+  createChair: (chair) => dispatch(createChair(chair)),
+  updateChair: (chair) => dispatch(updateChair(chair))
 });
 
 export default connect(

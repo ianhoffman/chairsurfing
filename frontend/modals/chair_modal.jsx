@@ -10,8 +10,7 @@ class ChairModal extends React.Component {
   }
 
   render() {
-    const { modalOpen, closeModal, create } = this.props;
-
+    const { modalOpen, closeModal } = this.props;
     return(
       <Modal
         style={style}
@@ -19,7 +18,6 @@ class ChairModal extends React.Component {
         contentLabel="Modal">
         <ChairFormContainer
           closeModal={closeModal}
-          create={create}
           />
       </Modal>
     );

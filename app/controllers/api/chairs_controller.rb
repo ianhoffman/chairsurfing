@@ -20,6 +20,16 @@ class Api::ChairsController < ApplicationController
     end
   end
 
+  def update
+    @chair = Chair.find(params[:id])
+
+    if @chair.update_attributes(chair_params)
+      render :show
+    else
+      render json: @chair.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def chair_params

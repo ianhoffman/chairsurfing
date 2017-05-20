@@ -1,99 +1,116 @@
 .chairButtonContainer {
   display: flex;
   justify-content: center;
+  width: auto;
 }
 
 .createChairButton {
-  position: absolute;
-  top: 73px;
-  z-index: 999;
-
-  -webkit-animation: swing 1s ease;
-  animation: swing 1s ease;
+  -webkit-animation: swing 3s ease;
+  animation: swing 3s ease;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
 
-@-webkit-keyframes Bounce1 {
-  to { -webkit-transform: rotate(5deg) }
-}
-
-@-webkit-keyframes Bounce2 {
-  to { -webkit-transform: rotate(-5deg); }
-}
-
-@keyframes Bounce1 {
-  to { transform: rotate(5deg) }
-}
-
-@keyframes Bounce2 {
-  to { transform: rotate(-5deg); }
-}
-
 @-webkit-keyframes swing
 {
-    15%
+    10%
     {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
-    30%
+    20%
     {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+    30% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
-    65%
+    40%
     {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
+        -webkit-transform: translateY(0px);
+       transform: translateY(0px);
+    }
+    50% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+    60%
+    {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    70%
+    {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
     80%
     {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    90% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
     100%
     {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
+
 }
 
 @keyframes swing
 {
-    15%
+    10%
     {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
-    30%
+    20%
     {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+    30% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
-    65%
+    40%
     {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
+        -webkit-transform: translateY(0px);
+       transform: translateY(0px);
+    }
+    50% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+    60%
+    {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    70%
+    {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
     80%
     {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    90% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
     }
     100%
     {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
+
 }

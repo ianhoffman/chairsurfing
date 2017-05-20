@@ -23,3 +23,12 @@ export const fetchSingleChair = id => {
     error: err => console.log(err)
   });
 };
+
+export const updateChair = chair => {
+  return $.ajax({
+    url: `/api/chairs/${chair.id}`,
+    method: 'PATCH',
+    data: { chair },
+    error: err => console.log(err)
+  });
+};

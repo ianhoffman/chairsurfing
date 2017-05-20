@@ -13,6 +13,7 @@ class ChairForm extends React.Component {
     const { chair } = props;
 
     this.state = {
+      id: chair.id,
       description: chair.description,
       address: chair.address,
       about: chair.about,
@@ -31,6 +32,7 @@ class ChairForm extends React.Component {
     this.geocodeLocation = this.geocodeLocation.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+    this.submitChair = this.submitChair.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -41,10 +43,21 @@ class ChairForm extends React.Component {
       $link.css('padding-bottom', '8px');
       this.submitting = false;
     }
+  }
 
-    if(newProps.lastChairId !== null && newProps.lastChairId !== "undefined" ) {
-      this.props.history.push(`/chairs/${newProps.lastChairId}/description`);
-      this.props.closeModal();
+  submitChair() {
+    if(this.props.chair.user_id !== 'NEW') {
+      this.props.updateChair(this.state)
+        .then(res => {
+          this.props.history.push(`/chairs/${res.chair.id}`);
+          this.props.closeModal();
+        });
+    } else {
+      this.props.createChair(this.state)
+        .then(res => {
+          this.props.history.push(`/chairs/${res.id}`);
+          this.props.closeModal();
+        });
     }
   }
 
@@ -77,7 +90,18 @@ class ChairForm extends React.Component {
       $loader.height((height - 4));
       $loader.width(height - 4);
       $link.append($loader);
-      this.uploadImage();
+
+      if(this.props.chair.user_id !== 'NEW') {
+        if(this.state.image.length > 0) {
+          this.uploadImage();
+        } else if(this.props.chair.address !== this.state.address) {
+          this.geocodeLocation();
+        } else {
+          this.submitChair();
+        }
+      } else {
+        this.uploadImage();
+      }
     }
   }
 
@@ -96,7 +120,11 @@ class ChairForm extends React.Component {
         this.state.image = [];
       }
 
-      this.geocodeLocation();
+      if(this.props.chair.user_id === 'NEW' || (this.props.chair.address !== this.state.adress )) {
+        this.geocodeLocation();
+      } else {
+        this.submitChair();
+      }
     });
   }
 
@@ -110,7 +138,8 @@ class ChairForm extends React.Component {
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
-        this.props.createChair(this.state);
+
+        this.submitChair();
       }
     );
   }
@@ -120,16 +149,21 @@ class ChairForm extends React.Component {
   }
 
   render() {
-    const { errors, create, closeModal, chair } = this.props;
+    const { errors, chair, closeModal } = this.props;
 
     let img;
     let text = 'Create your chair';
+    let text2= 'Create chair';
+    if(chair.user_id !== 'NEW') {
+      text = 'Update your chair';
+      text2 = 'Update chair';
+    }
+
     if(this.state.image.length > 0) {
       img = (<img className="image-holder" src={this.state.image[0].preview} />);
     }
     else if(chair.user_id !== 'NEW') {
       img = (<img className="image-holder" src={chair.imageUrl} />);
-      text = 'Update your chair';
     }
     else {
       img = (<div className="placeholder">
@@ -139,12 +173,10 @@ class ChairForm extends React.Component {
 
     return(
       <form className='baseForm' style={{'marginBottom' : '20px'}}>
-        { create ? (
-          <div className='formHeader'>
-            <h2>{text}</h2>
-            <p onClick={closeModal}>X</p>
-          </div>
-        ) : '' }
+        <div className='formHeader'>
+          <h2>{text}</h2>
+          <p onClick={closeModal}>X</p>
+        </div>
 
         { errors.length > 0 ? (
             <ul className='errorList'>
@@ -192,7 +224,7 @@ class ChairForm extends React.Component {
 
           <a className='button button-blue'
             onClick={this.handleSubmit}>
-            Create Chair
+            {text2}
           </a>
         </div>
 

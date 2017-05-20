@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SessionModal from '../modals/session_modal';
 import { withRouter } from 'react-router-dom';
+import CreateEditButton from './chair_components/create_edit_button';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class Greeting extends React.Component {
 
     return (this.props.loggedIn) ? (
         <div>
+          <CreateEditButton currentUser={this.props.currentUser} />
           <a className='button button-white'
              onClick={() => {
               this.closeModal();
