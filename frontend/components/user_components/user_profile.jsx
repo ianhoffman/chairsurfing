@@ -37,24 +37,27 @@ class UserProfile extends React.Component {
 
   render() {
     const {currentUser} = this.props;
+    let buttonColor = 'button-white'
+    let buttonText = 'Upate your chair'
 
-    return(currentUser.chair === 'null') ? (
+    if (currentUser.chair === null) {
+      buttonColor = 'button-blue';
+      buttonText = 'Create your chair!'
+    }
+
+    return(
       <section className='chairButtonContainer'>
         <Link
           to='/profile/new'
           onClick={this.openModal}
-          className='createChairButton button button-blue'>
-          Create your chair!
+          className={`createChairButton button ${buttonColor}`}>
+          {buttonText}
         </Link>
         <ChairModal
           modalOpen={this.state.modalOpen}
           create={true}
           closeModal={this.closeModal} />
       </section>
-    ) : (
-      <a>
-        'YOU HAVE A CHAIR'
-      </a>
     );
 
   }

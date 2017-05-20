@@ -9,15 +9,18 @@ const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dfuh8ucrc/image/u
 class ChairForm extends React.Component {
   constructor(props) {
     super(props);
+
+    const { chair } = props;
+
     this.state = {
-      description: '',
-      address: '',
-      about: '',
-      lat: 0,
-      lng: 0,
-      image_url: '',
+      description: chair.description,
+      address: chair.address,
+      about: chair.about,
+      lat: chair.lat,
+      lng: chair.lng,
+      image_url: chair.imageUrl,
       image: [],
-      accepting_guests: true,
+      accepting_guests: chair.accepting_guests,
       user_id: props.currentUser.id
     };
 
@@ -117,13 +120,28 @@ class ChairForm extends React.Component {
   }
 
   render() {
-    const { errors, create, closeModal } = this.props;
+    const { errors, create, closeModal, chair } = this.props;
+
+    let img;
+    let text = 'Create your chair';
+    if(this.state.image.length > 0) {
+      img = (<img className="image-holder" src={this.state.image[0].preview} />);
+    }
+    else if(chair.user_id !== 'NEW') {
+      img = (<img className="image-holder" src={chair.imageUrl} />);
+      text = 'Update your chair';
+    }
+    else {
+      img = (<div className="placeholder">
+        <span>Please upload an image!</span>
+      </div>);
+    }
 
     return(
       <form className='baseForm' style={{'marginBottom' : '20px'}}>
         { create ? (
           <div className='formHeader'>
-            <h2>Create your chair</h2>
+            <h2>{text}</h2>
             <p onClick={closeModal}>X</p>
           </div>
         ) : '' }
@@ -168,13 +186,7 @@ class ChairForm extends React.Component {
               multiple={false}
               accept="image/*"
               onDrop={this.onDrop.bind(this)} >
-              { this.state.image.length > 0 ? (
-                <img className="image-holder" src={this.state.image[0].preview} />
-              ) : (
-                <div className="placeholder">
-                  <span>Please upload an image!</span>
-                </div>
-              ) }
+              {img}
             </Dropzone>
           </div>
 

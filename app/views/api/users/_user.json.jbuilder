@@ -8,6 +8,8 @@ if user.chair
     json.lng user.chair.lng
     json.imageUrl user.chair.image_url
     json.about user.chair.about
+    json.address user.chair.address
+    json.accepting_guests user.chair.accepting_guests
   end
 else
   json.chair 'null'
