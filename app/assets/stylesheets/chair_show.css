@@ -119,6 +119,15 @@
   }
 
   .chair-specs {
-    margin-top: 12px;
+    margin-top: 25px;
   }
+
+  .show-map-container {
+    height: 70vh;
+  }
+
+  html, body, section, main {
+    /*height: 100%;*/
+  }
+
 }

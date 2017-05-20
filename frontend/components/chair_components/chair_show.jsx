@@ -9,52 +9,64 @@ class ChairShow extends React.Component {
     this.props.fetchSingleChair();
     let path = this.props.location.pathname.split('/');
     let curr = path[path.length - 1];
-    let img;
+    let img = document.getElementsByClassName('chair-img')[0];
+    let show = document.getElementsByClassName('chair-show')[0];
 
     switch (curr) {
       case 'description':
         document.getElementById('description').focus();
-        img = document.getElementsByClassName('chair-img')[0];
         $(img).css('display', 'block');
+        if(window.innerWidth <= 840) {
+          $(show).height('auto');
+        }
         break;
       case 'location':
         document.getElementById('location').focus();
-        if($('window').width() <= 840) {
-          img = document.getElementsByClassName('chair-img')[0];
+        if(window.innerWidth <= 840) {
           $(img).css('display', 'none');
+          $(show).height('100%');
         }
         break;
       case 'reviews':
         document.getElementById('reviews').focus();
-        if($('window').width() <= 840) {
-          img = document.getElementsByClassName('chair-img')[0];
+        if(window.innerWidth <= 840) {
           $(img).css('display', 'none');
+          $(show).height('100%');
         }
         break;
       default:
         break;
     }
-      // .then(({ chair }) => this.renderChair(chair));
+
+    window.addEventListener('resize', () => {
+      if($(window).width() > 840) {
+        show = document.getElementsByClassName('chair-img')[0];
+        $(show).css('display', 'block');
+      }
+    });
   }
-  //
+
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
       this.props.fetchSingleChair();
-        // .then(({ chair }) => this.renderChair(chair));
     }
   }
 
   hideImg(e) {
-    if($('window').width() <= 840) {
+    if(window.innerWidth <= 840) {
       let img = document.getElementsByClassName('chair-img')[0];
+      let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'none');
+      $(show).height('100%');
     }
   }
 
   showImg(e) {
-    if($('window').width() <= 840) {
+    if(window.innerWidth <= 840) {
       let img = document.getElementsByClassName('chair-img')[0];
+      let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'block');
+      $(show).height('auto');
     }
   }
 
@@ -88,9 +100,6 @@ class ChairShow extends React.Component {
                 path={`/chairs/${chair.id}/location`}
                 render={() => <ChairShowMap chair={chair}/>} />
             </div>
-          </section>
-          <section className='chair-map'>
-
           </section>
         </section>
         <section className='chair-img'>
