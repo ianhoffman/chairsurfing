@@ -11,22 +11,58 @@ class SessionForm extends React.Component {
       password: ""
     };
 
-    if(this.props.demo) {
-      this.state.email = "Jane@Doe.com";
-      this.state.password = "password";
-    }
+    this.clickable = true;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.switchView = this.switchView.bind(this);
   }
 
+  componentDidMount() {
+    if(this.props.demo) {
+      $('input').prop('disabled', true);
+      this.clickable = false;
+      const email = "Jane@Doe.com";
+      const password = "password";
+      let i = 0;
+      let j = 0;
+
+      const fillIn = setInterval(() => {
+        if(i < 12) {
+          this.setState({email: this.state.email += email[i]});
+          i += 1;
+        } else {
+          this.setState({password: this.state.password += password[j]});
+          j += 1;
+          if(j === 8) {
+            clearInterval(fillIn);
+            this.demoLogin();
+          }
+        }
+      }, 100)
+
+    }
+  }
+
+  demoLogin() {
+    const user = Object.assign({}, this.state);
+    $('.formBody a').addClass('demoShake');
+
+    setTimeout(() => {
+      this.props.processForm(this.props.logIn, user).then(
+        res => (this.props.history.push('/profile'))
+      );
+    }, 1500);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(this.props.logIn, user).then(
-      res => (this.props.history.push('/profile'))
-    );
+    if (this.clickable) {
+      this.props.processForm(this.props.logIn, user).then(
+        res => (this.props.history.push('/profile'))
+      );
+    }
   }
 
   handleUpdate(field) {
@@ -37,10 +73,12 @@ class SessionForm extends React.Component {
   }
 
   switchView() {
-    this.props.closeModal();
-    this.props.history.push(this.props.logIn ? '/signup' : '/login');
-    this.props.toggleState();
-    this.props.openModal();
+    if(this.clickable) {
+      this.props.closeModal();
+      this.props.history.push(this.props.logIn ? '/signup' : '/login');
+      this.props.toggleState();
+      this.props.openModal();
+    }
   }
 
   render() {
@@ -102,7 +140,9 @@ class SessionForm extends React.Component {
             value={this.state.password}
             placeholder="Password" />
 
-          <a className='button button-blue' onClick={this.handleSubmit}>{
+          <a
+            className='button button-blue'
+            onClick={this.handleSubmit}>{
               logIn ? (
                 'Log in'
               ) : (

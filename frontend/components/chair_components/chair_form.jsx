@@ -49,13 +49,13 @@ class ChairForm extends React.Component {
     if(this.props.chair.user_id !== 'NEW') {
       this.props.updateChair(this.state)
         .then(res => {
-          this.props.history.push(`/chairs/${res.chair.id}`);
+          this.props.history.push(`/chairs/${res.chair.id}/description`);
           this.props.closeModal();
         });
     } else {
       this.props.createChair(this.state)
         .then(res => {
-          this.props.history.push(`/chairs/${res.id}`);
+          this.props.history.push(`/chairs/${res.id}/description`);
           this.props.closeModal();
         });
     }
