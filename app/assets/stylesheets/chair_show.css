@@ -90,7 +90,7 @@
 
 .show-map-container {
   margin: 0px 25px 25px 0px;
-  height: 100%;
+  height: 100vh;
 }
 
 .show-map-frame {
@@ -116,6 +116,7 @@
   .chair-show {
     flex-direction: column;
     align-items: center;
+    width: 50%;
   }
 
   .chair-img {
@@ -139,4 +140,38 @@
     /*height: 100%;*/
   }
 
+}
+
+@media(max-width: 780px) {
+  .chair-show {
+    width: 390px;
+  }
+}
+
+@media(max-width: 400px) {
+  .chair-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .chair-specs {
+    padding-left: 0px;
+  }
+
+  .chair-about {
+    margin-right: 10px;
+  }
+
+  .chair-links {
+    padding-left: 10px;
+  }
+
+  .chair-description h2 {
+    padding-left: 10px;
+  }
+
+  .chair-about {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }

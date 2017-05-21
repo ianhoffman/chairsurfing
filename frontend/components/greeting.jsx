@@ -48,9 +48,20 @@ class Greeting extends React.Component {
     //   <li className="fa fa-search"></li>
     //   <li className='fa fa-navicon'></li>
     // </ul>
+    const {currentUser} = this.props;
+
     return (this.props.loggedIn) ? (
         <div>
-          <CreateEditButton currentUser={this.props.currentUser} />
+          {
+            currentUser.chair === 'null' ? (
+              <CreateEditButton currentUser={this.props.currentUser} />
+            ) : (
+              <Link to={`/chairs/${currentUser.chair.id}/description`}
+                className='button button-blue'>
+                Your Chair
+              </Link>
+            )
+          }
           <a className='button button-white'
              onClick={() => {
               this.closeModal();
