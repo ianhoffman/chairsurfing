@@ -104,7 +104,11 @@ class ChairShow extends React.Component {
             <div className='chair-specs'>
               <Route
                 path={`/chairs/${chair.id}/description`}
-                render={() => <RentalForm chair={chair}/>} />
+                render={() =>
+                  <RentalForm
+                    chair={chair}
+                    currentUser={this.props.currentUser} />} />
+                  
               <Route
                 path={`/chairs/${chair.id}/location`}
                 render={() => <ChairShowMap chair={chair}/>} />

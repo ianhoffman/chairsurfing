@@ -19,7 +19,8 @@ class CreateEditButton extends React.Component {
     });
   }
 
-  openModal() {
+  openModal(e) {
+    e.preventDefault();
     this.setState({
       modalOpen: true
     });

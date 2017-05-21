@@ -4,7 +4,8 @@ import { selectChair } from '../../reducers/selectors';
 import { fetchSingleChair } from '../../actions/chair_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  chair: selectChair(state, ownProps)
+  chair: selectChair(state, ownProps),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
