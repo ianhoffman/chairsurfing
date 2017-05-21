@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
             this.demoLogin();
           }
         }
-      }, 100)
+      }, 100);
 
     }
   }
@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
       this.props.processForm(this.props.logIn, user).then(
         res => (this.props.history.push('/profile'))
       );
-    }, 100000);
+    }, 2000);
   }
 
   handleSubmit(e) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ChairMap from './chair_map';
-import RentalForm from '../booking_components/rental_form';
+import RentalFormContainer from '../booking_components/rental_form_container';
 import ChairShowMap from './chair_show_map';
 import { Link, Route } from 'react-router-dom';
 
@@ -105,10 +105,9 @@ class ChairShow extends React.Component {
               <Route
                 path={`/chairs/${chair.id}/description`}
                 render={() =>
-                  <RentalForm
-                    chair={chair}
-                    currentUser={this.props.currentUser} />} />
-                  
+                  <RentalFormContainer
+                    chair={chair} />} />
+
               <Route
                 path={`/chairs/${chair.id}/location`}
                 render={() => <ChairShowMap chair={chair}/>} />

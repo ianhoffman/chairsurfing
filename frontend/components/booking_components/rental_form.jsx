@@ -10,12 +10,20 @@ class RentalForm extends React.Component {
     super(props);
     this.state = {
       startDate: moment(),
-      endDate: moment()
+      endDate: moment(),
+      chairId: props.chair.id,
+      userId: props.currentUser.id
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(field) {
     return date => this.setState({[field]: date});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.submitBooking(this.state);
   }
 
   render() {
@@ -36,6 +44,7 @@ class RentalForm extends React.Component {
                 <span>Arrive:</span>
                 <DatePicker
                   className='datePicker'
+                  minDate={moment()}
                   selected={this.state.startDate}
                   selectsStart
                   startDate={this.state.startDate}
@@ -56,6 +65,8 @@ class RentalForm extends React.Component {
                   />
               </div>
             </div>
+
+            <button onClick={this.handleSubmit}>Submit Request</button>
 
           </div>
         ) : (
