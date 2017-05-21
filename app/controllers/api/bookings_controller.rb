@@ -1,4 +1,9 @@
 class Api::BookingsController < ApplicationController
+  def index
+    @bookings = Booking.includes(:chair).find_by(user_id: params[:user_id])
+    render :index
+  end
+
   def create
     @booking = Booking.new(booking_params)
 

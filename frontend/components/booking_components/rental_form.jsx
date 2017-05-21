@@ -37,7 +37,12 @@ class RentalForm extends React.Component {
 
         { (currentUser.chair === 'null' || currentUser.chair.id !== chair.id) ? (
           <div className='rental-form'>
-            <h3>Rent me!</h3>
+
+            <div className='header-holder'>
+              <h3>Rent me!</h3>
+              <div className='arrow-right'></div>
+            </div>
+
 
             <div>
               <div>
@@ -66,7 +71,10 @@ class RentalForm extends React.Component {
               </div>
             </div>
 
-            <button onClick={this.handleSubmit}>Submit Request</button>
+            <div className='header-holder'>
+              <a className='button button-white'
+                onClick={this.handleSubmit}>Submit</a>
+            </div>
 
           </div>
         ) : (

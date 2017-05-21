@@ -9,6 +9,18 @@ export const submitBooking = booking => (
         chair_id: booking.chairId,
         user_id: booking.userId
       }
-    }
+    },
+    error: err => console.log(err)
+  })
+);
+
+export const fetchUserBookings = user => (
+  $.ajax({
+    url: '/api/bookings',
+    method: 'GETS',
+    data: {
+      user_id: user.id
+    },
+    error: err => console.log(err)
   })
 );

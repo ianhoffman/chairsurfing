@@ -6,7 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SearchContainer from './search_container';
 import ChairFormContainer from './chair_components/chair_form_container';
 import ChairShowContainer from './chair_components/chair_show_container';
-import UserProfileContainer from './user_components/user_profile_container';
+import BookingIndexContainer from './booking_components/booking_index_container';
 import Footer from './footer';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
 
       <Switch>
         <Route path='/chairs/:chairId' component={ChairShowContainer} />
-        <ProtectedRoute path='/profile' component={UserProfileContainer} />
+        <ProtectedRoute path='/profile' component={BookingIndexContainer} />
         <AuthRoute path="/" component={SearchContainer} />
       </Switch>
 
