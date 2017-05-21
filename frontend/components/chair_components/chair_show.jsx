@@ -16,20 +16,20 @@ class ChairShow extends React.Component {
       case 'description':
         document.getElementById('description').focus();
         $(img).css('display', 'block');
-        if(window.innerWidth <= 840) {
+        if(window.innerWidth <= 1040) {
           $(show).height('auto');
         }
         break;
       case 'location':
         document.getElementById('location').focus();
-        if(window.innerWidth <= 840) {
+        if(window.innerWidth <= 1040) {
           $(img).css('display', 'none');
           $(show).height('100%');
         }
         break;
       case 'reviews':
         document.getElementById('reviews').focus();
-        if(window.innerWidth <= 840) {
+        if(window.innerWidth <= 1040) {
           $(img).css('display', 'none');
           $(show).height('100%');
         }
@@ -39,7 +39,7 @@ class ChairShow extends React.Component {
     }
 
     window.addEventListener('resize', () => {
-      if($(window).width() > 840) {
+      if($(window).width() > 1040) {
         show = document.getElementsByClassName('chair-img')[0];
         $(show).css('display', 'block');
       }
@@ -48,7 +48,7 @@ class ChairShow extends React.Component {
     window.addEventListener('resize', () => {
       let p = this.props.location.pathname.split('/');
       let c = path[path.length - 1];
-      if($(window).width() <= 840 && c !== 'description') {
+      if($(window).width() <= 1040 && c !== 'description') {
         show = document.getElementsByClassName('chair-img')[0];
         $(show).css('display', 'none');
       }
@@ -62,7 +62,7 @@ class ChairShow extends React.Component {
   }
 
   hideImg(e) {
-    if(window.innerWidth <= 840) {
+    if(window.innerWidth <= 1040) {
       let img = document.getElementsByClassName('chair-img')[0];
       let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'none');
@@ -71,7 +71,7 @@ class ChairShow extends React.Component {
   }
 
   showImg(e) {
-    if(window.innerWidth <= 840) {
+    if(window.innerWidth <= 1040) {
       let img = document.getElementsByClassName('chair-img')[0];
       let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'block');

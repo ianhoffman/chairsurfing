@@ -48,7 +48,6 @@ class Greeting extends React.Component {
     //   <li className="fa fa-search"></li>
     //   <li className='fa fa-navicon'></li>
     // </ul>
-
     return (this.props.loggedIn) ? (
         <div>
           <CreateEditButton currentUser={this.props.currentUser} />

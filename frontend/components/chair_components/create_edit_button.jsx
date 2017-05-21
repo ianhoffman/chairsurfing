@@ -33,14 +33,15 @@ class CreateEditButton extends React.Component {
 
   render() {
     const {currentUser} = this.props;
-    let buttonColor = 'button-blue';
     let buttonText = 'Upate your chair';
     let link = '/profile/update_chair';
 
     if (currentUser.chair === 'null') {
-      buttonColor = 'createChairButton button-blue';
       buttonText = 'Create your chair!';
       link = '/profile/new_chair';
+      setTimeout(() => {
+        $(".chairButtonContainer > a").addClass('createChairButton');
+      }, 2000);
     }
 
     return(
@@ -48,7 +49,7 @@ class CreateEditButton extends React.Component {
         <Link
           to={link}
           onClick={this.openModal}
-          className={`button ${buttonColor}`}>
+          className='button button-blue'>
           {buttonText}
         </Link>
         <ChairModal

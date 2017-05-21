@@ -10,6 +10,10 @@
 
 .chair-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .chair-info h2 {
@@ -99,7 +103,12 @@
   margin-right: 31px;
 }
 
-@media (max-width: 840px) {
+.chair-about h3 {
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+
+@media (max-width: 1040px) {
   /*html, body, div, section, main {
     height: 100%;
   }*/

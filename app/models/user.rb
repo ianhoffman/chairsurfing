@@ -5,6 +5,7 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_token
 
+  has_many :bookings
   has_one :chair
 
   def password=(password)

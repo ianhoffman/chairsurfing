@@ -50,6 +50,9 @@
   animation: shake 1s ease;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+
+  background-color: #2371a3;
+  border: 1px solid #2371a3;
 }
 
 #searchContainer .banner {

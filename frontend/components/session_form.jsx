@@ -46,13 +46,13 @@ class SessionForm extends React.Component {
 
   demoLogin() {
     const user = Object.assign({}, this.state);
-    $('.formBody a').addClass('demoShake');
+    $('.formBody > a').addClass('demoShake');
 
     setTimeout(() => {
       this.props.processForm(this.props.logIn, user).then(
         res => (this.props.history.push('/profile'))
       );
-    }, 1500);
+    }, 100000);
   }
 
   handleSubmit(e) {
