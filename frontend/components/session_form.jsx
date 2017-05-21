@@ -50,7 +50,9 @@ class SessionForm extends React.Component {
 
     setTimeout(() => {
       this.props.processForm(this.props.logIn, user).then(
-        res => (this.props.history.push('/profile'))
+        res => {
+          this.props.history.push('/profile');
+        }
       );
     }, 2000);
   }

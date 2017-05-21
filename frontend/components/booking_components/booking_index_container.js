@@ -3,7 +3,8 @@ import BookingIndex from './booking_index';
 import { fetchUserBookings } from '../../actions/booking_actions';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  bookings: state.bookings
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -11,5 +12,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(BookingIndex);

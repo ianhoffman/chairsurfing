@@ -17,7 +17,7 @@ export const submitBooking = booking => (
 export const fetchUserBookings = user => (
   $.ajax({
     url: '/api/bookings',
-    method: 'GETS',
+    method: 'GET',
     data: {
       user_id: user.id
     },
