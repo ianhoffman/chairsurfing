@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
           this.props.history.push('/profile');
         }
       );
-    }, 2000);
+    }, 1000);
   }
 
   handleSubmit(e) {

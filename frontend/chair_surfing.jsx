@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
+  // window.store = store;
 
   const root = document.getElementById('root');
 
