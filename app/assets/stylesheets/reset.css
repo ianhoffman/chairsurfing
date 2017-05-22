@@ -15,6 +15,10 @@ html, body, main, section {
   width: 100%;
 }
 
+html, body, #root, #root > main {
+  height: 100%;
+}
+
 html {
   background-color: #ecf0f1;
 }

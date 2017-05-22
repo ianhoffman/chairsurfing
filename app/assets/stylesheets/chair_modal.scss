@@ -19,7 +19,9 @@
 // }
 
 .image-holder {
-  width: 100%;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
 }
 
 .dropZone-container {
@@ -27,6 +29,11 @@
   display: flex;
   justify-content: center;
   margin-bottom: 14px;
+}
+
+.dropZone-container > div {
+  display: flex;
+  align-items: center;
 }
 
 .placeholder {
