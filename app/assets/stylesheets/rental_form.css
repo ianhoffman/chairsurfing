@@ -74,6 +74,10 @@
   border-left: 22px solid rgb(255, 64, 64);
 }
 
+.fa-thumbs-up {
+  font-size: 30px;
+}
+
 @media(max-width: 1040px) {
 
   .rental-form {

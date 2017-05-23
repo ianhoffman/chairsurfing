@@ -2,13 +2,13 @@ import React from 'react';
 import CreateEditButton from '../chair_components/create_edit_button';
 import moment from 'moment';
 
-const ApproveBookings = ({bookings, currentUser}) => {
+const ApproveBookings = ({currentUser}) => {
+  const bookings = currentUser.bookings;
 
   if(bookings.length === 0) {
     return (<div></div>);
   }
 
-  debugger
   const now = moment();
 
   return (

@@ -9,10 +9,15 @@ class Api::BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      render :show
+      render "api/bookings/show.json.jbuilder"
     else
       render json: @booking.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    render 'api/bookings/show.json.jbuilder'
   end
 
   def destroy

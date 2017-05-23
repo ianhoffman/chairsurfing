@@ -7,11 +7,11 @@ const BookingListItem = ({booking}) => {
 
   return (
     <li>
-      <a href={`/#/chairs/${booking.chairId}/description`}>
-        {booking.chairDescription}
+      <a href={`/#/chairs/${booking.chair.id}/description`}>
+        {booking.chair.description}
       </a>
-      <a href={`/#/chairs/${booking.chairId}/location`}>
-        {booking.chairAddress}
+      <a href={`/#/chairs/${booking.chair.id}/location`}>
+        {booking.chair.address}
       </a>
       PENDING
     </li>

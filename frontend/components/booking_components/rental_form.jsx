@@ -2,6 +2,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import ApproveBookings from './approve_bookings';
+import AlertContainer from 'react-alert';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
@@ -18,12 +19,31 @@ class RentalForm extends React.Component {
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.excludedDates = [];
+      this.showAlert = this.showAlert.bind(this);
       if(props.chair.bookings !== undefined) {
         this.excludedDates = this.filterDates(props.chair);
+        this.getStartDates = this.getStartDates.bind(this);
       }
       this.updateDates = this.updateDates.bind(this);
-      this.getStartDates = this.getStartDates.bind(this);
     }
+  }
+
+  alertOptions() {
+    return({
+      offset: 14,
+      position: 'bottom left',
+      theme: 'light',
+      time: 3000,
+      transition: 'scale'
+    });
+  }
+
+  showAlert() {
+    this.msg.show('Booking successful!', {
+      time: 2000,
+      type: 'success',
+      icon: <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+    });
   }
 
   componentDidMount() {
@@ -52,6 +72,9 @@ class RentalForm extends React.Component {
 
   handleStart(date) {
     this.setState({startDate: date});
+    if(this.state.endDate < date) {
+      this.setState({endDate: date});
+    }
   }
 
   handleEnd(date) {
@@ -74,7 +97,7 @@ class RentalForm extends React.Component {
     e.preventDefault();
     this.props.submitBooking(this.state).then(
       res => {
-        alert('Booking successful!');
+        this.showAlert();
         this.updateDates();
       }
     );
@@ -173,7 +196,7 @@ class RentalForm extends React.Component {
                 <DatePicker
                   className='datePicker'
                   selected={this.state.endDate}
-                  minDate={moment()}
+                  minDate={this.state.startDate}
                   selectsEnd
                   excludeDates={this.excludedDates}
                   startDate={this.state.startDate}
@@ -187,12 +210,13 @@ class RentalForm extends React.Component {
               <a className='button button-white'
                 onClick={this.handleSubmit}>Submit</a>
             </div>
-
           </div>
         ) : (
           <ApproveBookings currentUser={currentUser}
             bookings={chair.bookings} />
         )}
+        <AlertContainer
+          ref={a => (this.msg = a)} {...this.alertOptions()} />
       </div>
     );
   }

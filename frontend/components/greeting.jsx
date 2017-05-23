@@ -14,6 +14,7 @@ class Greeting extends React.Component {
     this.toggleState = this.toggleState.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   handleClick(bool) {
@@ -42,6 +43,20 @@ class Greeting extends React.Component {
     this.props.history.goBack();
   }
 
+  logout(e) {
+    e.preventDefault();
+    this.props.logout().then(
+      res => {
+        this.props.history.push('/');
+      }
+    );
+    if (this.state.modalOpen) {
+      this.setState({
+        modalOpen: false
+      });
+    }
+  }
+
   render() {
     // for later:
     // <ul className='loggedIn-menu'>
@@ -63,14 +78,7 @@ class Greeting extends React.Component {
             )
           }
           <a className='button button-white'
-             onClick={() => {
-              this.props.logout().then(
-                res => {
-                  this.props.history.push('/');
-                }
-              );
-              this.closeModal();
-            }}> Log Out </a>
+              onClick={this.logout}> Log Out </a>
         </div>
       ) : (
         <div>

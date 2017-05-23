@@ -20,7 +20,7 @@ const chairsReducer = (state = initialState, action) => {
       newState.chairs[action.chair.id] = action.chair;
       return newState;
     case ADD_BOOKING:
-      newState.chairs[action.booking.chair_id].bookings.push(action.booking);
+      newState.chairs[action.booking.chair.id].bookings.push(action.booking);
       return newState;
     case RECEIVE_CHAIR_ERRORS:
       newState.errors = action.errors;

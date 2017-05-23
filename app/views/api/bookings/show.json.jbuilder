@@ -1,9 +1,14 @@
-json.extract! @booking, :id, :user_id, :chair_id, :start_date, :end_date
+json.startDate @booking.start_date
+json.endDate @booking.end_date
+json.user_id @booking.user_id
+json.id @booking.id
+json.chairId @booking.chair_id
 
 json.chair do
   json.id @booking.chair.id
   json.owner @booking.chair.user_id
   json.description @booking.chair.description
+  json.address @booking.chair.address
   json.about @booking.chair.about
   json.chair_img @booking.chair.image_url
 end
