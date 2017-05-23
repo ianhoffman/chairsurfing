@@ -20,7 +20,7 @@
   display: flex;
 }
 
-.header-holder:last-of-type {
+.rental-form .header-holder:last-of-type {
   top: 129px;
 }
 

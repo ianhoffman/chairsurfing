@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateEditButton from '../chair_components/create_edit_button';
+import moment from 'moment';
 
 const ApproveBookings = ({bookings, currentUser}) => {
 
@@ -7,21 +8,65 @@ const ApproveBookings = ({bookings, currentUser}) => {
     return (<div></div>);
   }
 
+  const now = moment();
+
   return (
     <section className='approve-bookings'>
-      <ul>
-        {
-          bookings.map((booking, idx) => (
-            <li key={`booking${idx}`}>
-              {`${booking.userFirstName} ${booking.userLastName}`}
-              {booking.startDate}
-              {booking.endDate}
-            </li>
-          ))
-        }
-      </ul>
-      <CreateEditButton
-        currentUser={currentUser} />
+      <div className='header-holder'>
+        <div className='arrow-left'></div>
+        <h3>Booking Requests</h3>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Dates
+            </th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            bookings.map((booking, idx) => {
+              let startDate = moment(booking.startDate).format('DD/MM/YY');
+              let endDate = moment(booking.endDate).format('DD/MM/YY');
+              let checkDate = moment(booking.startDate);
+
+              if(checkDate > now ||
+                checkDate.format('YYYY-MM-DD') ===
+                now.format('YYYY-MM-DD') ) {
+                  return(
+                    <tr key={`booking${idx}`}>
+                      <td>
+                        {`${booking.userFirstName} ${booking.userLastName}`}
+                      </td>
+                      <td>
+                        {`${startDate} - ${endDate}`}
+                      </td>
+                      <td>
+                        <a>APPROVE</a>
+                        <a>DENY</a>
+                      </td>
+                    </tr>
+                  );
+                }
+
+              }
+            )
+
+          }
+        </tbody>
+      </table>
+      <div className='floatHelper'>
+        <div className='header-holder'>
+          <CreateEditButton
+            currentUser={currentUser} />
+        </div>
+      </div>
     </section>
   );
 };

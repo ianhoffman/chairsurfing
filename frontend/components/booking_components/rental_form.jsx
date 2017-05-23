@@ -32,7 +32,8 @@ class RentalForm extends React.Component {
     var checkDate = moment(this.state.startDate);
     while (checkDate.format('YYYY-MM-DD') !== date.format('YYYY-MM-DD')) {
       for(let i = 0; i < this.excludedDates.length; i++ ) {
-        if(this.excludedDates[i].format('YYYY-MM-DD') === checkDate.format('YYYY-MM-DD')) {
+        if(this.excludedDates[i].format('YYYY-MM-DD') ===
+         checkDate.format('YYYY-MM-DD')) {
           return;
         }
       }
@@ -70,7 +71,8 @@ class RentalForm extends React.Component {
     while (startFound === false) {
       startFound = true;
       for (let i = 0; i < this.excludedDates.length; i++ ) {
-        if(start.format('YYYY-MM-DD') === this.excludedDates[i].format('YYYY-MM-DD')) {
+        if(start.format('YYYY-MM-DD') ===
+         this.excludedDates[i].format('YYYY-MM-DD')) {
           startFound = false;
           start.add(1, 'days');
           break;
@@ -117,11 +119,12 @@ class RentalForm extends React.Component {
         <p>{chair.about}</p>
         <br />
 
-        { (currentUser.chair === 'null' || currentUser.chair.id !== chair.id) ? (
+        { (currentUser.chair === 'null' ||
+          currentUser.chair.id !== chair.id) ? (
           <div className='rental-form'>
 
             <div className='header-holder'>
-              <h3>Rent me!</h3>
+              <h3>Rent Me!</h3>
               <div className='arrow-right'></div>
             </div>
 

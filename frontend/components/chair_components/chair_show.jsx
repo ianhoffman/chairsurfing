@@ -20,7 +20,7 @@ class ChairShow extends React.Component {
 
     if(this.selected==='description') {
       $(img).css('display', 'flex');
-    } else if(window.innerWidth <= 1040) {
+    } else if(window.innerWidth <= 1230) {
       $(img).css('display', 'none');
     } else {
       $(img).css('display', 'flex');
@@ -31,20 +31,20 @@ class ChairShow extends React.Component {
       case 'description':
         document.getElementById('description').focus();
         $(img).css('display', 'flex');
-        if(window.innerWidth <= 1040) {
+        if(window.innerWidth <= 1230) {
           $(show).height('100%');
         }
         break;
       case 'location':
         document.getElementById('location').focus();
-        if(window.innerWidth <= 1040) {
+        if(window.innerWidth <= 1230) {
           $(img).css('display', 'none');
           $(show).height('100%');
         }
         break;
       case 'reviews':
         document.getElementById('reviews').focus();
-        if(window.innerWidth <= 1040) {
+        if(window.innerWidth <= 1230) {
           $(img).css('display', 'none');
           $(show).height('100%');
         }
@@ -54,7 +54,7 @@ class ChairShow extends React.Component {
     }
 
     window.addEventListener('resize', () => {
-      if($(window).width() > 1040) {
+      if($(window).width() > 1230) {
         show = document.getElementsByClassName('img-container')[0];
         $(show).css('display', 'flex');
       }
@@ -68,7 +68,7 @@ class ChairShow extends React.Component {
       } else {
         c = this.selected;
       }
-      if($(window).width() <= 1040 && c !== 'description') {
+      if($(window).width() <= 1230 && c !== 'description') {
         show = document.getElementsByClassName('img-container')[0];
         $(show).css('display', 'none');
       }
@@ -82,7 +82,7 @@ class ChairShow extends React.Component {
       } else {
         c = this.selected;
       }
-      if($(window).width() <= 1040 && c === 'description') {
+      if($(window).width() <= 1230 && c === 'description') {
         show = document.getElementsByClassName('img-container')[0];
         $(show).css('display', 'flex');
       }
@@ -96,7 +96,7 @@ class ChairShow extends React.Component {
   }
 
   hideImg(e) {
-    if(window.innerWidth <= 1040) {
+    if(window.innerWidth <= 1230) {
       let img = document.getElementsByClassName('img-container')[0];
       let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'none');
@@ -105,7 +105,7 @@ class ChairShow extends React.Component {
   }
 
   showImg(e) {
-    if(window.innerWidth <= 1040) {
+    if(window.innerWidth <= 1230) {
       let img = document.getElementsByClassName('img-container')[0];
       let show = document.getElementsByClassName('chair-show')[0];
       $(img).css('display', 'flex');
@@ -117,7 +117,7 @@ class ChairShow extends React.Component {
   render() {
     const { chair } = this.props;
 
-    
+
 
     return(
       <section className='content'>

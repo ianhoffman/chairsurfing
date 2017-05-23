@@ -1,7 +1,13 @@
-import { RECEIVE_USER_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../actions/session_actions';
+import {
+    RECEIVE_USER_ERRORS,
+    RECEIVE_CURRENT_USER,
+    CLEAR_ERRORS
+  } from '../actions/session_actions';
+
 import { SET_USER_CHAIR } from '../actions/chair_actions';
 import { RECEIVE_BOOKINGS } from '../actions/booking_actions';
 import merge from 'lodash/merge';
+
 
 const initialState = {
   currentUser: null,
