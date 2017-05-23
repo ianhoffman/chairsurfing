@@ -10,6 +10,7 @@ import BookingIndexContainer from './booking_components/booking_index_container'
 import Footer from './footer';
 
 const App = () => {
+
   return(
     <main>
       <header>

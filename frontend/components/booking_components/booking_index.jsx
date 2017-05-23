@@ -2,8 +2,19 @@ import React from 'react';
 import BookingListItem from './booking_list_item';
 
 class BookingIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fetchInProgress: true
+    };
+  }
+
   componentDidMount() {
-    this.props.fetchUserBookings(this.props.currentUser);
+    this.props.fetchUserBookings(this.props.currentUser).then(
+      res => {
+        this.state.fetchInProgress = false;
+      }
+    );
   }
 
   render() {
@@ -28,7 +39,7 @@ class BookingIndex extends React.Component {
           </ul>
         </section>
       );
-    } else if (this.props.fetchInProgress) {
+    } else if (this.fetchInProgress) {
       return(
         <section className='bookings-index'>
           <h1>Fetching bookings...</h1>

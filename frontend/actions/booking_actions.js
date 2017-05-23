@@ -21,6 +21,9 @@ export const submitBooking = booking => dispatch => (
 
 export const fetchUserBookings = user => dispatch => (
   BookingsAPIUtil.fetchUserBookings(user).then(
-    res => dispatch(receiveBookings(res))
+    res => {
+      dispatch(receiveBookings(res));
+      return res;
+    }
   )
 );

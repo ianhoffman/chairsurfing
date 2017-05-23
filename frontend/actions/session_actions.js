@@ -13,7 +13,10 @@ export const login = (user)=> dispatch => {
 
 export const logout = ()=> dispatch => {
   return SessionAPIUtil.logout().then(
-    res => dispatch(receiveCurrentUser(null)),
+    res => {
+      dispatch(receiveCurrentUser(null));
+      return res;
+    },
     err => dispatch(receiveUserErrors(err.responseJSON))
   );
 };

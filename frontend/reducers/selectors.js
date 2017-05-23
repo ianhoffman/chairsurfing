@@ -1,9 +1,13 @@
 const defaultChair = {
+  id: 0,
   description: '',
   lat: 0,
   lng: 0,
   imageUrl: '',
-  address: ''
+  address: '',
+  accepting_guests: true,
+  about: '',
+  bookings: []
 };
 
 export const selectChair = (state, ownProps) => {

@@ -64,12 +64,12 @@ class Greeting extends React.Component {
           }
           <a className='button button-white'
              onClick={() => {
-              this.closeModal();
               this.props.logout().then(
                 res => {
                   this.props.history.push('/');
                 }
               );
+              this.closeModal();
             }}> Log Out </a>
         </div>
       ) : (

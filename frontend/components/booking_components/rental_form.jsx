@@ -1,25 +1,31 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import CreateEditButton from '../chair_components/create_edit_button';
+import ApproveBookings from './approve_bookings';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 class RentalForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      startDate: moment(),
-      endDate: moment(),
-      chairId: props.chair.id,
-      userId: props.currentUser.id
-    };
-    this.excludedDates = this.filterDates();
-    this.handleSubmit = this.handleSubmit.bind(this);
+    if(props.currentUser !== null) {
+      this.state = {
+        startDate: moment(),
+        endDate: moment(),
+        chairId: props.chair.id,
+        userId: props.currentUser.id
+      };
+      if(this.props.chair.bookings !== undefined) {
+        this.excludedDates = this.filterDates();
+      } else {
+        this.excludedDates = [];
+      }
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
   }
 
   handleStart(date) {
-    this.setState({start: date});
+    this.setState({startDate: date});
   }
 
   handleEnd(date) {
@@ -45,7 +51,6 @@ class RentalForm extends React.Component {
   filterDates() {
     const { chair } = this.props;
     const bookings = chair.bookings;
-
     const datesToExclude = [];
 
     for(let i = 0; i < bookings.length; i ++) {
@@ -62,6 +67,17 @@ class RentalForm extends React.Component {
 
   render() {
     const { currentUser, chair } = this.props;
+
+
+    if(currentUser === null) {
+      return (
+        <div className='chair-about'>
+          <h3>About this chair</h3>
+          <p>{chair.about}</p>
+          <br />
+        </div>
+      );
+    }
 
     return(
       <div className='chair-about'>
@@ -115,7 +131,8 @@ class RentalForm extends React.Component {
 
           </div>
         ) : (
-          <CreateEditButton currentUser={currentUser} />
+          <ApproveBookings currentUser={currentUser}
+            bookings={this.props.chair.bookings} />
         )}
       </div>
     );
