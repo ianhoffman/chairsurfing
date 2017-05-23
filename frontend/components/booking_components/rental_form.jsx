@@ -86,7 +86,7 @@ class RentalForm extends React.Component {
     const bookings = chair.bookings;
     const datesToExclude = [];
 
-    for(let i = 0; i < Object.keys(bookings).length; i ++) {
+    for(let i = 0; i < bookings.length; i ++) {
       let startDate = moment(bookings[i].startDate);
       let endDate = moment(bookings[i].endDate);
       while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {

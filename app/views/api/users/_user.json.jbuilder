@@ -14,3 +14,14 @@ if user.chair
 else
   json.chair 'null'
 end
+
+if user.bookings
+  json.bookings user.bookings do |booking|
+    json.id booking.id
+    json.startDate booking.start_date
+    json.endDate booking.end_date
+    json.chairId booking.chair_id
+    json.chairDescription booking.chair.description
+    json.chairAddress booking.chair.address
+  end
+end

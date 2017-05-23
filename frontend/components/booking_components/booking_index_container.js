@@ -5,15 +5,14 @@ import { fetchUserBookings } from '../../actions/booking_actions';
 const mapStateToProps = state => {
   return({
     currentUser: state.session.currentUser,
-    bookings: state.bookings
+    bookings: state.session.currentUser.bookings
   });
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchUserBookings: user => dispatch(fetchUserBookings(user))
-});
+// const mapDispatchToProps = dispatch => ({
+//   fetchUserBookings: user => dispatch(fetchUserBookings(user))
+// });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(BookingIndex);

@@ -11,11 +11,11 @@ const ApproveBookings = ({bookings, currentUser}) => {
     <section className='approve-bookings'>
       <ul>
         {
-          Object.keys(bookings).map((key) => (
-            <li key={`booking${key}`}>
-              {`${bookings[key].userFirstName} ${bookings[key].userLastName}`}
-              {bookings[key].startDate}
-              {bookings[key].endDate}
+          bookings.map((booking, idx) => (
+            <li key={`booking${idx}`}>
+              {`${booking.userFirstName} ${booking.userLastName}`}
+              {booking.startDate}
+              {booking.endDate}
             </li>
           ))
         }

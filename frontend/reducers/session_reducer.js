@@ -1,5 +1,6 @@
 import { RECEIVE_USER_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../actions/session_actions';
 import { SET_USER_CHAIR } from '../actions/chair_actions';
+import { RECEIVE_BOOKINGS } from '../actions/booking_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
@@ -21,6 +22,9 @@ const SessionReducer = (state = initialState, action) => {
         currentUser: null,
         errors: action.errors
       };
+    case RECEIVE_BOOKINGS:
+      newState.currentUser.bookings = action.bookings;
+      return newState;
     case CLEAR_ERRORS:
       newState.errors = [];
       return newState;
