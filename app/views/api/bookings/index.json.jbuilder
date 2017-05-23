@@ -3,7 +3,7 @@
     json.startDate booking.start_date
     json.endDate booking.end_date
     json.chair do
-      json.extract! booking.chair, :description, :address
+      json.extract! booking.chair, :id, :description, :address
     end
   end
 end

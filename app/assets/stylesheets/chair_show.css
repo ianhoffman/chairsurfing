@@ -6,6 +6,7 @@
   border: 1px solid #bfcad2;
   margin-bottom: 43px;
   background-color: white;
+  color: #2f4f4f;
 }
 
 .chair-info {
@@ -18,7 +19,7 @@
 }
 
 .chair-info h2 {
-  padding: 8px 0px 9px 25px;
+  padding: 10px 0px 9px 25px;
   font-weight: 700;
   font-size: 35px;
   border-bottom: 1px solid #bfcad2;

@@ -28,13 +28,13 @@ class Footer extends React.Component {
         <div className='midLinks'>
           <div>
             <p>CONNECT WITH US</p>
-            <a href='#' id='fb' className='fa fa-facebook socialIcon'></a>
-            <a href='#' id='twitter' className='fa fa-twitter socialIcon'></a>
+            <a href='#' onClick={this.preventClick} id='fb' className='fa fa-facebook socialIcon'></a>
+            <a href='#' onClick={this.preventClick} id='twitter' className='fa fa-twitter socialIcon'></a>
           </div>
           <div>
             <p>MOBILE APPS</p>
-            <a href='#' className='fa fa-apple socialIcon'></a>
-            <a href='#' className='fa fa-android socialIcon'></a>
+            <a href='#' onClick={this.preventClick} className='fa fa-apple socialIcon'></a>
+            <a href='#' onClick={this.preventClick} className='fa fa-android socialIcon'></a>
           </div>
         </div>
         <div className='copyright'>

@@ -7,7 +7,9 @@ import { Link, Route } from 'react-router-dom';
 class ChairShow extends React.Component {
   constructor(props) {
     super(props);
-    this.selected = null;
+
+    let path = this.props.location.pathname.split('/');
+    this.selected = path[path.length - 1];
   }
 
   componentDidMount() {
@@ -16,10 +18,7 @@ class ChairShow extends React.Component {
     let img = document.getElementsByClassName('img-container')[0];
     let show = document.getElementsByClassName('chair-show')[0];
 
-    let p, c;
-    p = this.props.location.pathname.split('/');
-    c = p[p.length - 1];
-    if(c==='description') {
+    if(this.selected==='description') {
       $(img).css('display', 'flex');
     } else if(window.innerWidth <= 1040) {
       $(img).css('display', 'none');

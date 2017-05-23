@@ -85,6 +85,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { errors, logIn, loggedIn } = this.props;
+    
     return(
       <form className='baseForm'>
         {loggedIn ? <Redirect to="/profile"/> : ""}

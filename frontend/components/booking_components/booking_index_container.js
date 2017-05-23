@@ -4,7 +4,8 @@ import { fetchUserBookings } from '../../actions/booking_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  bookings: state.bookings
+  bookings: state.bookings,
+  fetchInProgress: Object.keys(state.bookings).length > 0 ? false : true
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,49 +2,22 @@ import React from 'react';
 import BookingListItem from './booking_list_item';
 
 class BookingIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.fetchInProgress = true;
-  }
-
   componentDidMount() {
-    this.props.fetchUserBookings(this.props.currentUser).then(
-      res => {
-        this.fetchInProgress = false;
-        debugger
-      }
-    );
+    this.props.fetchUserBookings(this.props.currentUser);
   }
 
   render() {
     const { bookings } = this.props;
     const bookingList = [];
-    debugger
 
-    // for(let i = 1; i <= Object.keys(bookings).length; i + 2 ) {
-    //
-    //   if (bookings[i + 1] !== undefined ) {
-    //     bookingList.push(
-    //       <div>
-    //         <BookingListItem
-    //           key={`booking${i}`}
-    //           booking={bookings[i]} />
-    //         <BookingListItem
-    //           key={`booking${i + 1}`}
-    //           booking={bookings[i + 1]} />
-    //       </div>
-    //     );
-    //   } else {
-    //     bookingList.push(
-    //       <div>
-    //         <BookingListItem
-    //           key={`booking${i}`}
-    //           booking={bookings[i]} />
-    //       </div>
-    //     );
-    //   }
-    // }
-    debugger
+    for(let i = 1; i <= Object.keys(bookings).length; i++ ) {
+      bookingList.push(
+        <BookingListItem
+          key={`booking${i}`}
+          booking={bookings[i]} />
+      );
+    }
+
 
     if (bookingList.length > 0) {
       return (
@@ -53,10 +26,9 @@ class BookingIndex extends React.Component {
           <ul className='bookings-list'>
             { bookingList }
           </ul>
-          <h1 className='banner'>Discover more great seats</h1>
         </section>
       );
-    } else if (this.fetchInProgress) {
+    } else if (this.props.fetchInProgress) {
       return(
         <section className='bookings-index'>
           <h1>Fetching bookings...</h1>
@@ -65,7 +37,8 @@ class BookingIndex extends React.Component {
     } else {
       return(
         <section className='bookings-index'>
-          <h1>Looks like you have no bookings...</h1>
+          <h1>You have no bookings.</h1>
+          <h1>Make some!</h1>
         </section>
       );
     }

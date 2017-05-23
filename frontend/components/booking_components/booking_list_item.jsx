@@ -6,20 +6,14 @@ const BookingListItem = ({booking}) => {
   const endDate = moment(booking.endDate).format('MM/DD/YY');
 
   return (
-    <li
-      className='bookings-item' >
-      <div>
-        {startDate} - {endDate}
-      </div>
-      <div>
-        Chair: {booking.chair.description}
-      </div>
-      <div>
-        Address: {booking.chair.address}
-      </div>
-      <div>
-        Status: PENDING
-      </div>
+    <li>
+      <a href={`/#/chairs/${booking.chair.id}/description`}>
+        {booking.chair.description}
+      </a>
+      <a href={`/#/chairs/${booking.chair.id}/location`}>
+        {booking.chair.address}
+      </a>
+      PENDING
     </li>
   );
 };
