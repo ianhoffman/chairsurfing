@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 class RentalForm extends React.Component {
   constructor(props) {
     super(props);
+
     if(props.currentUser !== null) {
       this.state = {
         startDate: moment(),
@@ -21,7 +22,30 @@ class RentalForm extends React.Component {
         this.excludedDates = this.filterDates(props.chair);
       }
       this.updateDates = this.updateDates.bind(this);
+      this.getStartDates = this.getStartDates.bind(this);
     }
+  }
+
+  componentDidMount() {
+    this.getStartDates();
+  }
+
+  getStartDates() {
+    const startDate = this.state.startDate;
+    let newStart = false;
+
+    while(newStart === false) {
+      newStart = true;
+      for(let i = 0; i < this.excludedDates.length; i ++ ) {
+        if(startDate.format('YYYY-MM-DD') ===
+         this.excludedDates[i].format('YYYY-MM-DD')) {
+          newStart = false;
+          startDate.add(1, 'days');
+          break;
+        }
+      }
+    }
+    this.setState({startDate: startDate, endDate: moment(startDate)});
   }
 
   handleStart(date) {
@@ -63,8 +87,6 @@ class RentalForm extends React.Component {
       startDate.add(1, 'days');
     }
     this.excludedDates.push(endDate);
-
-    // get new startDate
 
     let start = moment();
     let startFound = false;
@@ -149,7 +171,7 @@ class RentalForm extends React.Component {
                 <DatePicker
                   className='datePicker'
                   selected={this.state.endDate}
-                  minDate={moment(this.state.startDate).add(1, 'days')}
+                  minDate={moment()}
                   selectsEnd
                   excludeDates={this.excludedDates}
                   startDate={this.state.startDate}

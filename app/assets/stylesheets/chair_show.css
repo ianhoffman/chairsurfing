@@ -136,6 +136,7 @@
   .img-container {
     width: 100%;
     flex: 1;
+    padding: 50px 50px 25px 50px;
   }
 
   .chair-specs {

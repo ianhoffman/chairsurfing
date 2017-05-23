@@ -8,6 +8,7 @@ const ApproveBookings = ({bookings, currentUser}) => {
     return (<div></div>);
   }
 
+  debugger
   const now = moment();
 
   return (

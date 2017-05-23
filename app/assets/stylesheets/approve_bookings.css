@@ -9,7 +9,10 @@
   flex-direction: column;
   align-items: center;
   padding: 25px;
-  /*min-width: 333.5px;*/
+}
+
+.approve-bookings > .header-holder {
+  padding-right: 16px;
 }
 
 .approve-bookings h3 {

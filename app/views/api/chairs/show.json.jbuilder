@@ -7,4 +7,5 @@ json.bookings @chair.bookings do |booking|
   json.userId booking.user_id
   json.userFirstName booking.user.firstName
   json.userLastName booking.user.lastName
+  json.status booking.status
 end
