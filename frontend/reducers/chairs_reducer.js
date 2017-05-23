@@ -1,4 +1,5 @@
 import { RECEIVE_CHAIRS, RECEIVE_CHAIR, RECEIVE_CHAIR_ERRORS, CLEAR_ERRORS } from '../actions/chair_actions';
+import { ADD_BOOKING } from '../actions/booking_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
@@ -17,6 +18,9 @@ const chairsReducer = (state = initialState, action) => {
       };
     case RECEIVE_CHAIR:
       newState.chairs[action.chair.id] = action.chair;
+      return newState;
+    case ADD_BOOKING:
+      newState.chairs[action.booking.chair_id].bookings.push(action.booking);
       return newState;
     case RECEIVE_CHAIR_ERRORS:
       newState.errors = action.errors;

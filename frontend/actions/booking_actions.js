@@ -1,10 +1,10 @@
-export const CREATE_BOOKING = 'CREATE_BOOKING';
+export const ADD_BOOKING = 'ADD_BOOKING';
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
 
 import * as BookingsAPIUtil from '../util/bookings_api_util';
 
-const createBooking = booking => ({
-  type: CREATE_BOOKING,
+const addBooking = booking => ({
+  type: ADD_BOOKING,
   booking
 });
 
@@ -15,7 +15,10 @@ const receiveBookings = bookings => ({
 
 export const submitBooking = booking => dispatch => (
   BookingsAPIUtil.submitBooking(booking).then(
-    res => dispatch(createBooking(res))
+    res => {
+      dispatch(addBooking(res));
+      return res;
+    }
   )
 );
 

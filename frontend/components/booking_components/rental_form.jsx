@@ -15,12 +15,12 @@ class RentalForm extends React.Component {
         chairId: props.chair.id,
         userId: props.currentUser.id
       };
-      if(this.props.chair.bookings !== undefined) {
-        this.excludedDates = this.filterDates();
-      } else {
-        this.excludedDates = [];
-      }
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.excludedDates = [];
+      if(props.chair.bookings !== undefined) {
+        this.excludedDates = this.filterDates(props.chair);
+      }
+      this.updateDates = this.updateDates.bind(this);
     }
   }
 
@@ -45,15 +45,48 @@ class RentalForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitBooking(this.state);
+    this.props.submitBooking(this.state).then(
+      res => {
+        alert('Booking successful!');
+        this.updateDates();
+      }
+    );
   }
 
-  filterDates() {
-    const { chair } = this.props;
+  updateDates() {
+    const startDate = this.state.startDate;
+    const endDate = this.state.endDate;
+
+    while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
+      this.excludedDates.push(moment(startDate));
+      startDate.add(1, 'days');
+    }
+    this.excludedDates.push(endDate);
+
+    // get new startDate
+
+    let start = moment();
+    let startFound = false;
+    while (startFound === false) {
+      startFound = true;
+      for (let i = 0; i < this.excludedDates.length; i++ ) {
+        if(start.format('YYYY-MM-DD') === this.excludedDates[i].format('YYYY-MM-DD')) {
+          startFound = false;
+          start.add(1, 'days');
+          break;
+        }
+      }
+    }
+
+    this.setState({startDate: start, endDate: moment(start)});
+  }
+
+
+  filterDates(chair) {
     const bookings = chair.bookings;
     const datesToExclude = [];
 
-    for(let i = 0; i < bookings.length; i ++) {
+    for(let i = 0; i < Object.keys(bookings).length; i ++) {
       let startDate = moment(bookings[i].startDate);
       let endDate = moment(bookings[i].endDate);
       while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
@@ -67,7 +100,6 @@ class RentalForm extends React.Component {
 
   render() {
     const { currentUser, chair } = this.props;
-
 
     if(currentUser === null) {
       return (
@@ -132,7 +164,7 @@ class RentalForm extends React.Component {
           </div>
         ) : (
           <ApproveBookings currentUser={currentUser}
-            bookings={this.props.chair.bookings} />
+            bookings={chair.bookings} />
         )}
       </div>
     );

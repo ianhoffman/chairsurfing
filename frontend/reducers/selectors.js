@@ -19,3 +19,14 @@ export const selectChair = (state, ownProps) => {
   });
   return chair || defaultChair;
 };
+
+export const selectBookings = (state, ownProps) => {
+  const bookings = [];
+  const chairId = parseInt(ownProps.match.path.split('/'));
+  Object.keys(state.bookings).forEach(key => {
+    if(state.bookings[key].chairId === chairId) {
+      bookings.push(state.bookings[key]);
+    }
+  });
+  return bookings;
+};
