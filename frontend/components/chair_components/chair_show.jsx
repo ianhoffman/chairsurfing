@@ -117,8 +117,6 @@ class ChairShow extends React.Component {
   render() {
     const { chair } = this.props;
 
-
-
     return(
       <section className='content'>
         <section className='chair-show'>

@@ -27,7 +27,9 @@ class RentalForm extends React.Component {
   }
 
   componentDidMount() {
-    this.getStartDates();
+    if(this.props.chair.bookings !== undefined) {
+      this.getStartDates();
+    }
   }
 
   getStartDates() {
