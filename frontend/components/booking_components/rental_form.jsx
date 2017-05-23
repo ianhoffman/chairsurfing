@@ -14,16 +14,50 @@ class RentalForm extends React.Component {
       chairId: props.chair.id,
       userId: props.currentUser.id
     };
+    this.excludedDates = this.filterDates();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(field) {
-    return date => this.setState({[field]: date});
+  handleStart(date) {
+    this.setState({start: date});
+  }
+
+  handleEnd(date) {
+    var checkDate = moment(this.state.startDate);
+    while (checkDate.format('YYYY-MM-DD') !== date.format('YYYY-MM-DD')) {
+      for(let i = 0; i < this.excludedDates.length; i++ ) {
+        if(this.excludedDates[i].format('YYYY-MM-DD') === checkDate.format('YYYY-MM-DD')) {
+          return;
+        }
+      }
+      checkDate.add(1, 'days');
+    }
+    this.setState({
+      endDate: date
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitBooking(this.state);
+  }
+
+  filterDates() {
+    const { chair } = this.props;
+    const bookings = chair.bookings;
+
+    const datesToExclude = [];
+
+    for(let i = 0; i < bookings.length; i ++) {
+      let startDate = moment(bookings[i].startDate);
+      let endDate = moment(bookings[i].endDate);
+      while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
+        datesToExclude.push(moment(startDate));
+        startDate = startDate.add(1, 'days');
+      }
+      datesToExclude.push(endDate);
+    }
+    return datesToExclude;
   }
 
   render() {
@@ -52,9 +86,10 @@ class RentalForm extends React.Component {
                   minDate={moment()}
                   selected={this.state.startDate}
                   selectsStart
+                  excludeDates={this.excludedDates}
                   startDate={this.state.startDate}
                   endDate={this.state.endDate}
-                  onChange={this.handleChange('startDate').bind(this)}
+                  onChange={this.handleStart.bind(this)}
                   />
               </div>
 
@@ -63,10 +98,12 @@ class RentalForm extends React.Component {
                 <DatePicker
                   className='datePicker'
                   selected={this.state.endDate}
+                  minDate={moment(this.state.startDate).add(1, 'days')}
                   selectsEnd
+                  excludeDates={this.excludedDates}
                   startDate={this.state.startDate}
                   endDate={this.state.endDate}
-                  onChange={this.handleChange('endDate').bind(this)}
+                  onChange={this.handleEnd.bind(this)}
                   />
               </div>
             </div>

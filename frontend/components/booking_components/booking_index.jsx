@@ -22,7 +22,7 @@ class BookingIndex extends React.Component {
     if (bookingList.length > 0) {
       return (
         <section className='bookings-index'>
-          <h2>Your bookings</h2>
+          <h2>Your Bookings</h2>
           <ul className='bookings-list'>
             { bookingList }
           </ul>

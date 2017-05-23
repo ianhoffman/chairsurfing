@@ -6,8 +6,8 @@ class Api::ChairsController < ApplicationController
   end
 
   def show
-    @chair = Chair.find(params[:id])
-    render :show
+    @chair = Chair.includes(:bookings).find_by(id: params[:id])
+    render "api/chairs/show.json.jbuilder"
   end
 
   def create
