@@ -13,6 +13,7 @@
 
 .bookings-list {
   margin-top: 8px;
+  margin-bottom: 20px;
   padding: 0px;
   width: auto;
   overflow: scroll;
