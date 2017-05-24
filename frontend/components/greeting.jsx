@@ -45,7 +45,7 @@ class Greeting extends React.Component {
 
   showMenu() {
     const $menu = $('.dropdown-menu');
-    const $icon = $('.fa');
+    const $icon = $('.dropdown .fa');
     if($menu.css('display')==='flex') {
       $menu.css('display', 'none');
       $icon.removeClass('fa-caret-down');
@@ -129,7 +129,7 @@ class Greeting extends React.Component {
                 </Link>
                 <Link to={`/chairs/${currentUser.chair.id}/description`}
                   className=''>
-                  View Chair
+                  Your Chair
                 </Link>
               </div>
             )

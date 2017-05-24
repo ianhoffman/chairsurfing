@@ -24,7 +24,12 @@ const SessionReducer = (state = initialState, action) => {
         errors: []
       };
     case ADD_BOOKING:
-      newState.currentUser.bookings.push(action.booking);
+      newState.currentUser.chair.bookings.forEach((booking, idx) => {
+        if(booking.id === action.booking.id) {
+          debugger
+          newState.currentUser.chair.bookings[idx] = action.booking;
+        }
+      });
       return newState;
     case RECEIVE_USER_ERRORS:
       return {

@@ -30,3 +30,12 @@ export const fetchUserBookings = user => dispatch => (
     }
   )
 );
+
+export const updateBooking = booking => dispatch => (
+  BookingsAPIUtil.updateBooking(booking).then(
+    res => {
+      dispatch(addBooking(res));
+      return res;
+    }
+  )
+);

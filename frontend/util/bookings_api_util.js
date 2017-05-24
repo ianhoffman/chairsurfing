@@ -30,9 +30,9 @@ export const updateBooking = booking => (
   $.ajax({
     url: `/api/bookings/${booking.id}`,
     method: 'PATCH',
-    data: {
-      booking
-    },
+    data: { booking: {
+      status: booking.status
+    } },
     error: err => console.log(err)
   })
 );

@@ -86,6 +86,7 @@ header .button-blue {
 
 .dropdown-menu a:hover{
   cursor: pointer;
+  color: #287fb8;
 }
 
 .view-edit-chair {

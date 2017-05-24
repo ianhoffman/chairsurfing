@@ -20,6 +20,16 @@ class Api::BookingsController < ApplicationController
     render 'api/bookings/show.json.jbuilder'
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+
+    if @booking.update_attributes(booking_params)
+      render "api/bookings/show.json.jbuilder"
+    else
+      render json: @booking.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy

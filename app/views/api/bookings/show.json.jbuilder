@@ -3,6 +3,10 @@ json.endDate @booking.end_date
 json.user_id @booking.user_id
 json.id @booking.id
 json.chairId @booking.chair_id
+json.status @booking.status
+json.firstName @booking.user.firstName
+json.lastName @booking.user.lastName
+
 
 json.chair do
   json.id @booking.chair.id

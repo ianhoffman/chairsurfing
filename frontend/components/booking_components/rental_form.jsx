@@ -1,7 +1,7 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import ApproveBookings from './approve_bookings';
+import ApproveBookingsContainer from './approve_bookings_container';
 import AlertContainer from 'react-alert';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -221,8 +221,7 @@ class RentalForm extends React.Component {
             </div>
           </div>
         ) : (
-          <ApproveBookings currentUser={currentUser}
-            bookings={chair.bookings} />
+          <ApproveBookingsContainer currentUser={currentUser} />
         )}
         <AlertContainer
           ref={a => (this.msg = a)} {...this.alertOptions()} />

@@ -16,6 +16,8 @@ if user.chair
       json.endDate booking.end_date
       json.firstName booking.user.firstName
       json.lastName booking.user.lastName
+      json.user_id booking.user_id
+      json.status booking.status
     end
   end
 else

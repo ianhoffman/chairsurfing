@@ -1,15 +1,21 @@
 import React from 'react';
-import CreateEditButton from '../chair_components/create_edit_button';
 import moment from 'moment';
+// window.moment = moment;
 
-const ApproveBookings = ({currentUser}) => {
-  const bookings = currentUser.chair.bookings;
+const ApproveBookings = ({currentUser, updateBooking}) => {
+  const bookings = [];
+  const now = moment();
+
+  currentUser.chair.bookings.forEach(booking => {
+    if(moment(booking.startDate) > now || moment(booking.startDate).format('YYYY-MM-DD')
+    === now.format('YYYY-MM-DD')) {
+      bookings.push(booking);
+    }
+  });
 
   if(bookings.length === 0) {
     return (<div></div>);
   }
-
-  const now = moment();
 
   return (
     <section className='approve-bookings'>
@@ -18,7 +24,7 @@ const ApproveBookings = ({currentUser}) => {
         <h3>Booking Requests</h3>
       </div>
 
-      { (bookings.lenght > 0) ? (
+      { (bookings.length > 0) ? (
         <table>
           <thead>
             <tr>
@@ -44,15 +50,29 @@ const ApproveBookings = ({currentUser}) => {
                     return(
                       <tr key={`booking${idx}`}>
                         <td>
-                          {`${booking.userFirstName} ${booking.userLastName}`}
+                          {`${booking.firstName} ${booking.lastName}`}
                         </td>
                         <td>
                           {`${startDate} - ${endDate}`}
                         </td>
-                        <td>
-                          <a>APPROVE</a>
-                          <a>DENY</a>
-                        </td>
+                        {
+                          booking.status === 'PENDING' ? (
+                            <td>
+                              <a onClick={() => updateBooking({
+                                  id: booking.id,
+                                  status: 'APPROVED'
+                                })}>APPROVE</a>
+                              <a onClick={() => updateBooking({
+                                  id: booking.id,
+                                  status: 'DENIED'
+                                })}>DENY</a>
+                            </td>
+                          ) : (
+                            <td>
+                              {booking.status}
+                            </td>
+                          )
+                        }
                       </tr>
                     );
                   }
