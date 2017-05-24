@@ -13,10 +13,6 @@ const ApproveBookings = ({currentUser, updateBooking}) => {
     }
   });
 
-  if(bookings.length === 0) {
-    return (<div></div>);
-  }
-
   return (
     <section className='approve-bookings'>
       <div className='header-holder'>
