@@ -24,11 +24,13 @@ const SessionReducer = (state = initialState, action) => {
         errors: []
       };
     case ADD_BOOKING:
-      newState.currentUser.chair.bookings.forEach((booking, idx) => {
-        if(booking.id === action.booking.id) {
-          newState.currentUser.chair.bookings[idx] = action.booking;
-        }
-      });
+      if(newState.currentUser.chair !== 'null') {
+        newState.currentUser.chair.bookings.forEach((booking, idx) => {
+          if(booking.id === action.booking.id) {
+            newState.currentUser.chair.bookings[idx] = action.booking;
+          }
+        });
+      }
       return newState;
     case RECEIVE_USER_ERRORS:
       return {
