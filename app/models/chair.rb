@@ -11,22 +11,25 @@ class Chair < ApplicationRecord
     bounds = filters[:bounds]
 
 
-    northEast = bounds["northEast"]
-    southWest = bounds["southWest"]
+    north_east = bounds["northEast"]
+    south_west = bounds["southWest"]
 
     chairs = Chair
-      .where("lat < ? AND lat > ?", northEast['lat'], southWest['lat'])
-      .where("lng < ? AND lng > ?", northEast['lng'], southWest['lng'])
+      .where("lat < ? AND lat > ?", north_east['lat'], south_west['lat'])
+      .where("lng < ? AND lng > ?", north_east['lng'], south_west['lng'])
 
-    # if(filters[:maxSeating] && (filters[:maxSeating] != ''))
-    #   chairs = chairs.where('seating <= ?', filters[:maxSeating])
-    # end
-    #
-    # if(filters[:minSeating] && (filters[:minSeating] != ''))
-    #   chairs = chairs.where('seating >= ?', filters[:minSeating])
-    # end
+    unless filters[:keyword] == nil || filters[:keyword] == ''
+      chairs = Chair.filter_by_keyword(chairs, filters)
+    end
 
-    return chairs
+    chairs
+  end
+
+  def self.filter_by_keyword(chairs, filters)
+    keyword = `%` + filters[:keyword] + `%`
+    chairs.where(
+      'description LIKE ? OR address LIKE ? OR about LIKE ?', keyword, keyword, keyword
+    )
   end
 
 end

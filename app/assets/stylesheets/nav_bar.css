@@ -63,6 +63,13 @@ header .button-blue {
   margin-right: 17px;
 }
 
+.dropdown .fa-search {
+  font-size: 29px;
+  margin-top: 1px;
+  margin-right: 14px;
+  display: none;
+}
+
 .dropdown > i:hover {
   cursor: pointer;
 }

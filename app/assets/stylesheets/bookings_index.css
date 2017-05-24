@@ -1,5 +1,4 @@
 .bookings-index {
-  margin-top: 80px;
   min-height: 80%;
   display: flex;
   flex-direction: column;
@@ -8,22 +7,19 @@
   color: #2f4f4f;
 }
 
-.bookings-index h2 {
-  margin-top: 20px;
-  margin-bottom: 15px;
-  font-size: 54px;
-}
-
 .bookings-index .banner {
   color: #27374c;
 }
 
 .bookings-list {
+  margin-top: 8px;
   padding: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 65%;
+  width: auto;
+  overflow: scroll;
+  height: 100vh;
+  padding: 0px 13px;
+  direction: rtl;
+  border-radius: 3px;
 }
 
 .bookings-list li {
@@ -34,6 +30,7 @@
   background-color: #ecf0f1;
   border-radius: 3px;
   box-sizing: border-box;
+  margin: 0 auto;
   margin-bottom: 20px;
   width: 412px;
   border: 1px solid #bfcad2;

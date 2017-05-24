@@ -14,6 +14,7 @@ class FilterForm extends React.Component {
   updateKeyword(e) {
     e.preventDefault();
     this.setState({keyword: e.target.value});
+    this.props.updateFilter('keyword', e.target.value);
   }
 
   /*

@@ -18,6 +18,8 @@ class Greeting extends React.Component {
     this.closeSessionModal = this.closeSessionModal.bind(this);
     this.logout = this.logout.bind(this);
     this.showMenu = this.showMenu.bind(this);
+    this.showSearch = this.showSearch.bind(this);
+    this.showBookings = this.showBookings.bind(this);
 
     this.handleChairClick = this.handleChairClick.bind(this);
     this.openChairModal = this.openChairModal.bind(this);
@@ -45,17 +47,11 @@ class Greeting extends React.Component {
 
   showMenu() {
     const $menu = $('.dropdown-menu');
-    const $icon = $('.dropdown .fa');
+    const $icon = $('.dropdown .fa-navicon');
     if($menu.css('display')==='flex') {
       $menu.css('display', 'none');
-      $icon.removeClass('fa-caret-down');
-      $icon.addClass('fa-navicon');
-      $icon.css('font-size', '32px');
     } else {
       $menu.css('display', 'flex');
-      $icon.removeClass('fa-navicon');
-      $icon.addClass('fa-caret-down');
-      $icon.css('font-size', '60px');
     }
   }
 
@@ -99,6 +95,20 @@ class Greeting extends React.Component {
     }
   }
 
+  showSearch() {
+    const $search = $('.user-cp > div');
+    const $bookings = $('.bookings-index');
+    $search.css('display', 'flex');
+    $bookings.css('display', 'none');
+  }
+
+  showBookings() {
+    const $search = $('.user-cp > div');
+    const $bookings = $('.bookings-index');
+    $search.css('display', 'none');
+    $bookings.css('display', 'flex');
+  }
+
   render() {
     // for later:
     // <ul className='loggedIn-menu'>
@@ -109,6 +119,10 @@ class Greeting extends React.Component {
 
     return (this.props.loggedIn) ? (
       <div className='dropdown'>
+        <i
+          className='fa fa-search'
+          onClick={this.showSearch}>
+        </i>
         <i
           className='fa fa-navicon'
           onClick={this.showMenu}></i>
@@ -135,6 +149,7 @@ class Greeting extends React.Component {
             )
           }
           <Link to={`/profile/`}
+            onClick={this.showBookings}
             className=''>
             Your Bookings
           </Link>

@@ -2,7 +2,7 @@ class Api::ChairsController < ApplicationController
   def index
     @chairs = Chair.includes(:bookings).in_bounds(params[:filters])
 
-    render :index
+    render 'api/chairs/index.json.jbuilder'
   end
 
   def show

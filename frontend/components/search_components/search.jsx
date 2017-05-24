@@ -12,11 +12,14 @@ class Search extends React.Component {
 
     return (
       <div>
-        <FilterForm />
+        <FilterForm
+          updateFilter={updateFilter}
+          />
         <ChairMap
           id='searchMap'
           chairs={chairs}
-          updateFilter={updateFilter} />
+          updateFilter={updateFilter}
+          />
       </div>
     );
   }

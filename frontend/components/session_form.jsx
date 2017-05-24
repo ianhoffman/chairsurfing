@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
           this.props.history.push('/profile');
         }
       );
-    }, 1000);
+    }, 700);
   }
 
   handleSubmit(e) {
@@ -85,7 +85,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { errors, logIn, loggedIn } = this.props;
-    
+
     return(
       <form className='baseForm'>
         {loggedIn ? <Redirect to="/profile"/> : ""}
