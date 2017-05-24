@@ -121,11 +121,17 @@ class Greeting extends React.Component {
                 Create Chair
               </Link>
             ) : (
-              <Link to={`/profile/edit_chair`}
-                onClick={this.handleChairClick}
-                className=''>
-                Edit Chair
-              </Link>
+              <div className='view-edit-chair'>
+                <Link to={`/profile/edit_chair`}
+                  onClick={this.handleChairClick}
+                  className=''>
+                  Edit Chair
+                </Link>
+                <Link to={`/chairs/${currentUser.chair.id}/description`}
+                  className=''>
+                  View Chair
+                </Link>
+              </div>
             )
           }
           <a className=''

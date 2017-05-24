@@ -20,7 +20,8 @@ class RentalForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.excludedDates = [];
       this.showAlert = this.showAlert.bind(this);
-      if(props.chair.bookings !== undefined) {
+      if( (props.currentUser !== null) &&
+        (props.chair.bookings !== undefined) ) {
         this.excludedDates = this.filterDates(props.chair);
         this.getStartDates = this.getStartDates.bind(this);
       }
@@ -53,11 +54,11 @@ class RentalForm extends React.Component {
     });
   }
 
-  componentDidMount() {
-    if(this.props.chair.bookings !== undefined) {
-      this.getStartDates();
-    }
-  }
+  // componentDidMount() {
+  //   if(this.props.chair.bookings !== undefined) {
+  //     this.getStartDates();
+  //   }
+  // }
 
   getStartDates() {
     const startDate = this.state.startDate;
@@ -163,6 +164,7 @@ class RentalForm extends React.Component {
           <h3>About this chair</h3>
           <p>{chair.about}</p>
           <br />
+          <p>Please create an account to rent this chair!</p>
         </div>
       );
     }

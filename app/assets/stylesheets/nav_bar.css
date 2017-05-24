@@ -57,16 +57,14 @@ header .button-blue {
   position: relative;
 }
 
-.dropdown i {
+.dropdown > i {
   font-size: 32px;
-  color: #2f4f4f;
+  color: #287fb8;
   margin-right: 17px;
 }
 
-.dropdown i:hover {
+.dropdown > i:hover {
   cursor: pointer;
-  color: #ed6504;
-  right: 9px;
 }
 
 .dropdown-menu {
@@ -88,6 +86,11 @@ header .button-blue {
 
 .dropdown-menu a:hover{
   cursor: pointer;
+}
+
+.view-edit-chair {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 1050px) {

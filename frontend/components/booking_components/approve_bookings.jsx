@@ -62,8 +62,9 @@ const ApproveBookings = ({currentUser}) => {
           </tbody>
         </table>
         ) : (
-          <div></div>
-
+          <div className='no-bookings'>
+            <p>No pending bookings!</p>
+          </div>
       ) }
 
     </section>
