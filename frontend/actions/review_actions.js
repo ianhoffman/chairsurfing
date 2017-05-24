@@ -2,6 +2,7 @@ export const ADD_REVIEW = 'ADD_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const ADD_REVIEWS = 'ADD_REVIEWS';
 export const RECIEVE_REVIEW_ERRORS = 'RECIEVE_REVIEW_ERRORS';
+export const CLEAR_REVIEW_ERRORS = 'CLEAR_ERRORS';
 
 import * as ReviewsAPIUtil from '../util/reviews_api_util';
 
@@ -25,6 +26,10 @@ const recieveReviewErrors = errors => ({
   errors
 });
 
+const clearReviewErrors = () => ({
+  type: CLEAR_REVIEW_ERRORS
+});
+
 export const fetchAllReviews = id => dispatch => (
   ReviewsAPIUtil.fetchAllReviews(id).then(
     res => {
@@ -38,6 +43,7 @@ export const createReview = review => dispatch => (
   ReviewsAPIUtil.createReview(review).then(
     res => {
       dispatch(addReview(res));
+      dispatch(clearReviewErrors());
       return res;
     },
     error => {
@@ -50,6 +56,7 @@ export const updateReview = review => dispatch => (
   ReviewsAPIUtil.updateReview(review).then(
     res => {
       dispatch(addReview(res));
+      dispatch(clearReviewErrors());
       return res;
     },
     error => {
