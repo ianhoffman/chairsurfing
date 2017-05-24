@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ReviewForm from './review_form';
+import ReviewListItem from './review_list_item';
 
 class ReviewIndex extends React.Component {
   componentDidMount() {
@@ -9,11 +10,20 @@ class ReviewIndex extends React.Component {
   }
 
   render() {
-    const { createReview, userId } = this.props;
+    const { createReview, userId, reviews } = this.props;
     const chairId = this.props.match.params.chairId;
 
     return(
       <div>
+        <ul>
+          {Object.keys(reviews).map(key => (
+            <ReviewListItem
+              key={`review${key}`}
+              review={reviews[key]} />
+            )
+          )}
+        </ul>
+
         <ReviewForm
           createReview={createReview}
           userId={userId}

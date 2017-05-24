@@ -10,7 +10,7 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.find_by(chair_id: params[:id])
+    @reviews = Review.where(chair_id: params[:id])
 
     render 'api/reviews/index.json.jbuilder'
   end
