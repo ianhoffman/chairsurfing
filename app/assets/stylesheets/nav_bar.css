@@ -53,6 +53,43 @@ header .button-blue {
   margin-right: 36px;
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown i {
+  font-size: 32px;
+  color: #2f4f4f;
+  margin-right: 17px;
+}
+
+.dropdown i:hover {
+  cursor: pointer;
+  color: #ed6504;
+  right: 9px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top: 43px;
+  opacity: .86;
+  right: 17px;
+  width: 100px;
+  background-color: #b2b2b2;
+  border-radius: 3px;
+  padding: 3px 5px 4px 9px;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+.dropdown-menu a:hover{
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1050px) {
   header .button-blue {
     width: 140px;

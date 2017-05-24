@@ -28,6 +28,13 @@ class RentalForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    document.addEventListener('hashchange', () => {
+      const $dropdown = $('dropdown-menu');
+      $dropdown.css('display', 'none');
+    });
+  }
+
   alertOptions() {
     return({
       offset: 14,

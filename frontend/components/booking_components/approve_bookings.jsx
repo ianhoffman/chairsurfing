@@ -3,7 +3,7 @@ import CreateEditButton from '../chair_components/create_edit_button';
 import moment from 'moment';
 
 const ApproveBookings = ({currentUser}) => {
-  const bookings = currentUser.bookings;
+  const bookings = currentUser.chair.bookings;
 
   if(bookings.length === 0) {
     return (<div></div>);
@@ -18,56 +18,54 @@ const ApproveBookings = ({currentUser}) => {
         <h3>Booking Requests</h3>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Dates
-            </th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            bookings.map((booking, idx) => {
-              let startDate = moment(booking.startDate).format('DD/MM/YY');
-              let endDate = moment(booking.endDate).format('DD/MM/YY');
-              let checkDate = moment(booking.startDate);
+      { (bookings.lenght > 0) ? (
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Dates
+              </th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              bookings.map((booking, idx) => {
+                let startDate = moment(booking.startDate).format('DD/MM/YY');
+                let endDate = moment(booking.endDate).format('DD/MM/YY');
+                let checkDate = moment(booking.startDate);
 
-              if(checkDate > now ||
-                checkDate.format('YYYY-MM-DD') ===
-                now.format('YYYY-MM-DD') ) {
-                  return(
-                    <tr key={`booking${idx}`}>
-                      <td>
-                        {`${booking.userFirstName} ${booking.userLastName}`}
-                      </td>
-                      <td>
-                        {`${startDate} - ${endDate}`}
-                      </td>
-                      <td>
-                        <a>APPROVE</a>
-                        <a>DENY</a>
-                      </td>
-                    </tr>
-                  );
+                if(checkDate > now ||
+                  checkDate.format('YYYY-MM-DD') ===
+                  now.format('YYYY-MM-DD') ) {
+                    return(
+                      <tr key={`booking${idx}`}>
+                        <td>
+                          {`${booking.userFirstName} ${booking.userLastName}`}
+                        </td>
+                        <td>
+                          {`${startDate} - ${endDate}`}
+                        </td>
+                        <td>
+                          <a>APPROVE</a>
+                          <a>DENY</a>
+                        </td>
+                      </tr>
+                    );
+                  }
                 }
+              )
+            }
+          </tbody>
+        </table>
+        ) : (
+          <div></div>
 
-              }
-            )
+      ) }
 
-          }
-        </tbody>
-      </table>
-      <div className='floatHelper'>
-        <div className='header-holder'>
-          <CreateEditButton
-            currentUser={currentUser} />
-        </div>
-      </div>
     </section>
   );
 };
