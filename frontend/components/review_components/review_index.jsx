@@ -10,7 +10,7 @@ class ReviewIndex extends React.Component {
   }
 
   render() {
-    const { createReview, userId, reviews } = this.props;
+    const { createReview, userId, reviews, deleteReview } = this.props;
     const chairId = this.props.match.params.chairId;
 
     return(
@@ -19,7 +19,8 @@ class ReviewIndex extends React.Component {
           {Object.keys(reviews).map(key => (
             <ReviewListItem
               key={`review${key}`}
-              review={reviews[key]} />
+              review={reviews[key]}
+              deleteReview={deleteReview} />
             )
           )}
         </ul>
