@@ -1,6 +1,6 @@
 class Api::ChairsController < ApplicationController
   def index
-    @chairs = Chair.in_bounds(params[:filters])
+    @chairs = Chair.includes(:bookings).in_bounds(params[:filters])
 
     render :index
   end
@@ -21,7 +21,7 @@ class Api::ChairsController < ApplicationController
   end
 
   def update
-    @chair = Chair.find(params[:id])
+    @chair = Chair.includes(:bookings).find_by(id: params[:id])
 
     if @chair.update_attributes(chair_params)
       render :show
@@ -33,6 +33,15 @@ class Api::ChairsController < ApplicationController
   private
 
   def chair_params
-    params.require(:chair).permit(:description, :lat, :lng, :image_url, :about, :user_id, :address, :accepting_guests)
+    params.require(:chair).permit(
+      :description,
+      :lat,
+      :lng,
+      :image_url,
+      :about,
+      :user_id,
+      :address,
+      :accepting_guests
+    )
   end
 end

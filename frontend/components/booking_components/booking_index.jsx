@@ -51,7 +51,7 @@ class BookingIndex extends React.Component {
     } else {
       return(
         <section className='bookings-index'>
-          <h1>You have no bookings.</h1>
+          <h1 className='no-bookings'>You have no bookings...</h1>
           <h1>Make some!</h1>
         </section>
       );

@@ -131,6 +131,10 @@ class Greeting extends React.Component {
                   className=''>
                   Your Chair
                 </Link>
+                <Link to={`/profile/`}
+                  className=''>
+                  Your Bookings
+                </Link>
               </div>
             )
           }

@@ -21,7 +21,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
+    @booking = Booking.includes(:user).find_by(id: params[:id])
 
     if @booking.update_attributes(booking_params)
       render "api/bookings/show.json.jbuilder"

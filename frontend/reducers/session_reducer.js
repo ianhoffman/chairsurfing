@@ -26,7 +26,6 @@ const SessionReducer = (state = initialState, action) => {
     case ADD_BOOKING:
       newState.currentUser.chair.bookings.forEach((booking, idx) => {
         if(booking.id === action.booking.id) {
-          debugger
           newState.currentUser.chair.bookings[idx] = action.booking;
         }
       });
