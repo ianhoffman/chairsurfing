@@ -21,10 +21,14 @@ class Api::BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.includes(:user).find_by(id: params[:id])
+    booking = Booking.includes(:user).find_by(id: params[:id])
 
-    if @booking.update_attributes(booking_params)
-      render "api/bookings/show.json.jbuilder"
+    if booking.update_attributes(booking_params)
+      if booking.status == 'APPROVED'
+        Booking.deny_overlapping_bookings(booking)
+      end
+      @chair = booking.chair
+      render "api/chairs/show.json.jbuilder"
     else
       render json: @booking.errors.full_messages, status: 422
     end

@@ -10,7 +10,7 @@ const receiveChairs = chairs => ({
   chairs
 });
 
-const setUserChair = chair => ({
+export const setUserChair = chair => ({
   type: SET_USER_CHAIR,
   chair
 });

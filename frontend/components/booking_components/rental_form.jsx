@@ -47,7 +47,7 @@ class RentalForm extends React.Component {
   }
 
   showAlert() {
-    this.msg.show('Booking successful!', {
+    this.msg.show('Booking pending!', {
       time: 2000,
       type: 'success',
       icon: <i className="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -106,7 +106,7 @@ class RentalForm extends React.Component {
     this.props.submitBooking(this.state).then(
       res => {
         this.showAlert();
-        this.updateDates();
+        this.setState({endDate: moment(this.state.startDate)})
       }
     );
   }
@@ -144,13 +144,15 @@ class RentalForm extends React.Component {
     const datesToExclude = [];
 
     for(let i = 0; i < bookings.length; i ++) {
-      let startDate = moment(bookings[i].startDate);
-      let endDate = moment(bookings[i].endDate);
-      while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
-        datesToExclude.push(moment(startDate));
-        startDate = startDate.add(1, 'days');
+      if(bookings[i].status === 'APPROVED') {
+        let startDate = moment(bookings[i].startDate);
+        let endDate = moment(bookings[i].endDate);
+        while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
+          datesToExclude.push(moment(startDate));
+          startDate = startDate.add(1, 'days');
+        }
+        datesToExclude.push(endDate);
       }
-      datesToExclude.push(endDate);
     }
     return datesToExclude;
   }

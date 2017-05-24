@@ -29,6 +29,7 @@ if user.bookings
     json.id booking.id
     json.startDate booking.start_date
     json.endDate booking.end_date
+    json.status booking.status
     json.chair do
       json.id booking.chair.id
       json.description booking.chair.description

@@ -64,6 +64,10 @@ input {
   border-radius: 3px;
 }
 
+input:focus {
+  outline: 0;
+}
+
 ul {
   list-style-type: none;
   margin: 0px;

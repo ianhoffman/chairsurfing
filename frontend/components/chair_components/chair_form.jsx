@@ -135,6 +135,7 @@ class ChairForm extends React.Component {
         if (status === 'OK') {
           this.state.lat = results[0].geometry.location.lat();
           this.state.lng = results[0].geometry.location.lng();
+          debugger
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }

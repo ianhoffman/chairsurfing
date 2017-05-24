@@ -1,14 +1,13 @@
 import React from 'react';
-import ChairMap from './chair_components/chair_map';
-import ChairIndex from './chair_components/chair_index';
-import FilterForm from './filter_form';
-import ChairShowContainer from './chair_components/chair_show_container';
+import SearchContainer from './search_components/search_container';
+// import ChairIndex from './chair_components/chair_index';
+// import ChairShowContainer from './chair_components/chair_show_container';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import SessionModal from '../modals/session_modal';
 
 
-class Search extends React.Component {
+class SplashPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +46,6 @@ class Search extends React.Component {
   }
 
   render() {
-    const { chairs, fetchAllChairs, updateFilter } = this.props;
 
     const demoLink = (!this.props.loggedIn) ? (
       <Link
@@ -57,7 +55,7 @@ class Search extends React.Component {
     ) : (<div>Placeholder</div>);
 
     return (
-      <main id='searchMain' className='group'>
+      <main id='searchMain'>
 
         <SessionModal
           modalOpen={this.state.modalOpen}
@@ -78,15 +76,11 @@ class Search extends React.Component {
 
         <section id='searchContainer'>
           <h1 className='banner'>Comfy San Francisco Seats</h1>
-
-          <ChairMap
-            id='searchMap'
-            chairs={chairs}
-            updateFilter={updateFilter} />
+          <SearchContainer />
         </section>
       </main>
     );
   }
 }
 
-export default Search;
+export default SplashPage;

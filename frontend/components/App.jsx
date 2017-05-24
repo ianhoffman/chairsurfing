@@ -3,7 +3,7 @@ import GreetingContainer from './greeting_container';
 import { Link, Switch, Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import SearchContainer from './search_container';
+import SplashPage from './splash_page';
 import ChairFormContainer from './chair_components/chair_form_container';
 import ChairShowContainer from './chair_components/chair_show_container';
 import BookingIndexContainer from './booking_components/booking_index_container';
@@ -24,7 +24,7 @@ const App = () => {
       <Switch>
         <Route path='/chairs/:chairId' component={ChairShowContainer} />
         <ProtectedRoute path='/profile' component={BookingIndexContainer} />
-        <AuthRoute path="/" component={SearchContainer} />
+        <AuthRoute path="/" component={SplashPage} />
       </Switch>
 
       <Footer />

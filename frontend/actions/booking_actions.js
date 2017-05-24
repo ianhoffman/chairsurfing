@@ -1,6 +1,7 @@
 export const ADD_BOOKING = 'ADD_BOOKING';
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
 export const ADD_TO_BOOKING_INDEX = 'ADD_TO_BOOKING_INDEX';
+import { setUserChair } from './chair_actions';
 
 import * as BookingsAPIUtil from '../util/bookings_api_util';
 
@@ -41,7 +42,7 @@ export const fetchUserBookings = user => dispatch => (
 export const updateBooking = booking => dispatch => (
   BookingsAPIUtil.updateBooking(booking).then(
     res => {
-      dispatch(addBooking(res));
+      dispatch(setUserChair(res));
       return res;
     }
   )
