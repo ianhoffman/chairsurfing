@@ -5,7 +5,7 @@ import {
   } from '../actions/session_actions';
 
 import { SET_USER_CHAIR } from '../actions/chair_actions';
-import { RECEIVE_BOOKINGS, ADD_BOOKING } from '../actions/booking_actions';
+import { RECEIVE_BOOKINGS, ADD_BOOKING, ADD_TO_BOOKING_INDEX } from '../actions/booking_actions';
 import merge from 'lodash/merge';
 
 
@@ -23,6 +23,9 @@ const SessionReducer = (state = initialState, action) => {
         currentUser: action.user,
         errors: []
       };
+    case ADD_TO_BOOKING_INDEX:
+      newState.currentUser.bookings.push(action.booking);
+      return newState;
     case ADD_BOOKING:
       if(newState.currentUser.chair !== 'null') {
         newState.currentUser.chair.bookings.forEach((booking, idx) => {
