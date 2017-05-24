@@ -131,13 +131,13 @@ class Greeting extends React.Component {
                   className=''>
                   Your Chair
                 </Link>
-                <Link to={`/profile/`}
-                  className=''>
-                  Your Bookings
-                </Link>
               </div>
             )
           }
+          <Link to={`/profile/`}
+            className=''>
+            Your Bookings
+          </Link>
           <a className=''
             onClick={this.logout}> Log Out </a>
         </div>
