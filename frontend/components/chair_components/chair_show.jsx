@@ -2,6 +2,7 @@ import React from 'react';
 import ChairMap from './chair_map';
 import RentalFormContainer from '../booking_components/rental_form_container';
 import ChairShowMap from './chair_show_map';
+import ReviewIndexComponent from '../review_components/review_index_container';
 import { Link, Route } from 'react-router-dom';
 
 class ChairShow extends React.Component {
@@ -160,6 +161,11 @@ class ChairShow extends React.Component {
                 path={`/chairs/${chair.id}/location`}
                 render={() => <ChairShowMap chair={chair}/>} />
             </div>
+
+            <Route
+              path={`/chairs/:chairId/reviews`}
+              component={ReviewIndexComponent}
+            />
         </section>
           <div className='img-container'>
             <img className='chair-img' src={chair.imageUrl} />

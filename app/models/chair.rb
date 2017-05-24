@@ -4,7 +4,8 @@ class Chair < ApplicationRecord
   validates :user_id, uniqueness: true
   # validates :seating, numericality: { greater_than: 0 }
 
-  has_many :bookings, :reviews
+  has_many :bookings
+  has_many :reviews
   belongs_to :user
 
   def self.in_bounds(filters)

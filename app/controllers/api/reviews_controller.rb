@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
   def index
     @reviews = Review.find_by(chair_id: params[:id])
 
-    render :index
+    render 'api/reviews/index.json.jbuilder'
   end
 
   def update
