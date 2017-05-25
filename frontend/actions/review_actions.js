@@ -47,7 +47,7 @@ export const createReview = review => dispatch => (
       return res;
     },
     error => {
-      dispatch(recieveReviewErrors(error));
+      dispatch(recieveReviewErrors(error.responseJSON));
     }
   )
 );

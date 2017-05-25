@@ -3,7 +3,10 @@ export const createReview = review => (
     method: 'POST',
     url: '/api/reviews',
     data: { review },
-    error: err => console.log(err)
+    error: err => {
+      console.log(err);
+      return err;
+    }
   })
 );
 

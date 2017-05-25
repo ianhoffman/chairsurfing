@@ -5,7 +5,7 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: '',
+      body: 'Leave a review!',
       rating: null,
       user_id: this.props.userId,
       chair_id: this.props.chairId
@@ -14,18 +14,24 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRating = this.handleRating.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createReview(this.state).then(
-      res => (
-        this.setState({
-          body: '',
-          rating: 0
-        })
-      )
-    );
+    if(this.state.body === 'Leave a review!') {
+      this.state.body = '';
+    }
+
+    this.props.createReview(this.state)
+      .then(res => this.resetForm());
+  }
+
+  resetForm() {
+    this.setState({
+      body: 'Leave a review!',
+      rating: null
+    });
   }
 
   handleRating(e) {
@@ -38,9 +44,28 @@ class ReviewForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props;
+
     return(
       <form className='review-form'>
-        <textarea onChange={this.handleChange} defaultValue='Leave a review!'></textarea>
+
+        { errors.length > 0 ? (
+          <ul className='errorList'>
+            {errors.map((err, i) => (
+              <li
+                className='errorMessage' 
+                key={`error${i}`}>{err}</li>
+            ))}
+          </ul>
+        ) : (
+          ''
+        )}
+
+        <textarea
+          onChange={this.handleChange}
+          value={this.state.body}>
+        </textarea>
+
         <div>
           <div>
             <Rating
