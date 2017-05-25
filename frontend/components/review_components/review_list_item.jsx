@@ -31,7 +31,7 @@ const ReviewListItem = ({ currentUser, review, deleteReview }) => (
         />
     </div>
     <div className='review-body'>
-      {review.body}
+        {review.body}
     </div>
   </li>
 );

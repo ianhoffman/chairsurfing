@@ -89,6 +89,12 @@
 
 .review-form .fa {
   color: gold;
+  font-size: 30px;
+  margin-top: 2px;
+}
+
+.rating {
+  margin-left: 2px;
 }
 
 .review-form .errorList {
@@ -101,6 +107,13 @@
   margin-bottom: 1px;
 }
 
-.review-body {
+.review-list li > .review-body {
   margin-bottom: 2px;
+  display: block;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.review-list li:last-of-type {
+  margin-bottom: 0px;
 }

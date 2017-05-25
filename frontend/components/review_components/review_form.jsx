@@ -53,7 +53,7 @@ class ReviewForm extends React.Component {
           <ul className='errorList'>
             {errors.map((err, i) => (
               <li
-                className='errorMessage' 
+                className='errorMessage'
                 key={`error${i}`}>{err}</li>
             ))}
           </ul>
@@ -67,7 +67,7 @@ class ReviewForm extends React.Component {
         </textarea>
 
         <div>
-          <div>
+          <div className='ratings'>
             <Rating
               start={0}
               stop={5}
@@ -83,7 +83,8 @@ class ReviewForm extends React.Component {
 
           <a
             className='button button-blue'
-            onClick={this.handleSubmit}>Submit</a>
+            onClick={this.handleSubmit}>Submit
+          </a>
         </div>
       </form>
     );
