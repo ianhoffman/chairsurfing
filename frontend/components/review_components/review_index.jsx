@@ -19,19 +19,30 @@ class ReviewIndex extends React.Component {
     } = this.props;
     const chairId = this.props.match.params.chairId;
 
-
     if(Object.keys(reviews).length === 0) {
-      return (
-        <div className='no-reviews'>
-          <div>There are no reviews...</div>
-          <ReviewForm
-            createReview={createReview}
-            userId={currentUser.id}
-            chairId={chairId}
-            errors={errors}
-            />
-        </div>
-      );
+      if(currentUser !== null &&
+        currentUser.chair !== 'null' &&
+          currentUser.chair.id != chairId) {
+            return(
+              <div className='no-reviews'>
+                <div>
+                  There are no reviews...
+                </div>
+                <ReviewForm
+                  createReview={createReview}
+                  userId={currentUser.id}
+                  chairId={chairId}
+                  errors={errors}
+                  />
+              </div>
+            );
+      } else {
+        return(
+          <div className='no-reviews'>
+            <div>Your chair has no reviews yet!</div>
+          </div>
+        );
+      }
     } else {
       return(
         <div className='review-index'>
@@ -45,7 +56,9 @@ class ReviewIndex extends React.Component {
               )
             )}
           </ul>
-          { currentUser === null ? (
+          { currentUser === null ||
+            currentUser.chair === 'null' ||
+            currentUser.chair.id == chairId ? (
               <div></div>
             ) : (
               <ReviewForm

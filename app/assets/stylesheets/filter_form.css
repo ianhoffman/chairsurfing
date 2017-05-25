@@ -14,6 +14,12 @@
   border-radius: 3px 0px 0px 3px;
 }
 
+.filterForm .button:hover {
+  cursor: default;
+  background-color: #287fb8;
+  border: 1px solid #287fb8;
+}
+
 .filterForm a {
   padding: 5px 19px 8px 18px;
   border-radius: 0px 3px 3px 0px;

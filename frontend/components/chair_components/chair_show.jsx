@@ -19,40 +19,13 @@ class ChairShow extends React.Component {
     let img = document.getElementsByClassName('img-container')[0];
     let show = document.getElementsByClassName('chair-show')[0];
 
-    if(this.selected==='description') {
-      $(img).css('display', 'flex');
-    } else if(window.innerWidth <= 1230) {
-      $(img).css('display', 'none');
-    } else {
-      $(img).css('display', 'flex');
-    }
-
-
-    switch (this.selected) {
-      case 'description':
-        document.getElementById('description').focus();
-        $(img).css('display', 'flex');
-        if(window.innerWidth <= 1230) {
-          $(show).height('100%');
-        }
-        break;
-      case 'location':
-        document.getElementById('location').focus();
-        if(window.innerWidth <= 1230) {
-          $(img).css('display', 'none');
-          $(show).height('100%');
-        }
-        break;
-      case 'reviews':
-        document.getElementById('reviews').focus();
-        if(window.innerWidth <= 1230) {
-          $(img).css('display', 'none');
-          $(show).height('100%');
-        }
-        break;
-      default:
-        break;
-    }
+    // if(this.selected==='description') {
+    //   $(img).css('display', 'flex');
+    // } else if(window.innerWidth <= 1230) {
+    //   $(img).css('display', 'none');
+    // } else {
+    //   $(img).css('display', 'flex');
+    // }
 
     window.addEventListener('resize', () => {
       if($(window).width() > 1230) {
@@ -93,6 +66,36 @@ class ChairShow extends React.Component {
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
       this.props.fetchSingleChair();
+    }
+
+    let img = document.getElementsByClassName('img-container')[0];
+    let show = document.getElementsByClassName('chair-show')[0];
+
+
+    switch (this.selected) {
+      case 'description':
+        document.getElementById('description').focus();
+        $(img).css('display', 'flex');
+        if(window.innerWidth <= 1230) {
+          $(show).height('100%');
+        }
+        break;
+      case 'location':
+        document.getElementById('location').focus();
+        if(window.innerWidth <= 1230) {
+          $(img).css('display', 'none');
+          $(show).height('100%');
+        }
+        break;
+      case 'reviews':
+        document.getElementById('reviews').focus();
+        if(window.innerWidth <= 1230) {
+          $(img).css('display', 'none');
+          $(show).height('100%');
+        }
+        break;
+      default:
+        break;
     }
   }
 
@@ -171,7 +174,7 @@ class ChairShow extends React.Component {
             <img className='chair-img' src={chair.imageUrl} />
           </div>
         </section>
-        
+
       </section>
     );
   }
