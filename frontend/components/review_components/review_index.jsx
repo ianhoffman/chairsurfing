@@ -13,30 +13,45 @@ class ReviewIndex extends React.Component {
     const { createReview, currentUser, reviews, deleteReview } = this.props;
     const chairId = this.props.match.params.chairId;
 
-    return(
-      <div className='review-index'>
-        <ul>
-          {Object.keys(reviews).map(key => (
+
+    if(Object.keys(reviews).length === 0) {
+      return (
+        <div className='no-reviews'>
+          <div>There are no reviews...</div>
+          <ReviewForm
+            createReview={createReview}
+            userId={currentUser.id}
+            chairId={chairId}
+            />
+        </div>
+      );
+    } else {
+      return(
+        <div className='review-index'>
+          <ul>
+            {Object.keys(reviews).map(key => (
               <ReviewListItem
                 key={`review${key}`}
                 review={reviews[key]}
                 deleteReview={deleteReview}
                 currentUser={currentUser} />
-            )
-          )}
-        </ul>
-
-        { currentUser === null ? (
-          <div></div> ) : (
-            <ReviewForm
-              createReview={createReview}
-              userId={currentUser.id}
-              chairId={chairId}
-              />
-        )}
-      </div>
-    );
+              )
+            )}
+          </ul>
+          { currentUser === null ? (
+              <div></div>
+            ) : (
+              <ReviewForm
+                createReview={createReview}
+                userId={currentUser.id}
+                chairId={chairId}
+                />
+            )}
+        </div>
+      );
+    }
   }
+
 }
 
 export default withRouter(ReviewIndex);

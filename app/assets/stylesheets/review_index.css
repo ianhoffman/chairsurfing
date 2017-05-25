@@ -8,6 +8,21 @@
   padding-bottom: 25px;
 }
 
+.no-reviews {
+  margin-left: 13px;
+  margin-right: 35px;
+  display: block;
+  height: 100%;
+  padding-bottom: 25px;
+}
+
+.no-reviews > div {
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 25px;
+  font-size: 30px;
+}
+
 .review-index ul {
   padding-left: 0px;
   max-height: 312px;
@@ -20,6 +35,12 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/*.no-reviews {
+  margin: 0 auto;
+  margin-top: 30px;
+  font-size: 34px;
+}*/
 
 .review-index li {
   background-color: #ecf0f1;

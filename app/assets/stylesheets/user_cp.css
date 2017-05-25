@@ -66,6 +66,16 @@
   }
 }
 
+@media(min-width: 951px) {
+  .user-cp > div {
+    display: flex;
+  }
+
+  .bookings-index {
+    display: flex;
+  }
+}
+
 @media(max-width: 950px) {
   .user-cp > div {
     display: none;
