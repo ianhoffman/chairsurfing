@@ -17,11 +17,11 @@ class ReviewIndex extends React.Component {
       <div className='review-index'>
         <ul>
           {Object.keys(reviews).map(key => (
-            <ReviewListItem
-              key={`review${key}`}
-              review={reviews[key]}
-              deleteReview={deleteReview}
-              currentUser={currentUser} />
+              <ReviewListItem
+                key={`review${key}`}
+                review={reviews[key]}
+                deleteReview={deleteReview}
+                currentUser={currentUser} />
             )
           )}
         </ul>

@@ -17,7 +17,7 @@ const ReviewListItem = ({ currentUser, review, deleteReview }) => (
         }>remove</a>
       )}
     </div>
-    <div>
+    <div className='rating'>
       <Rating
         start={0}
         stop={5}
@@ -28,9 +28,9 @@ const ReviewListItem = ({ currentUser, review, deleteReview }) => (
         full='fa fa-star'
         readonly={true}
         quiet={true}
-      />
+        />
     </div>
-    <div>
+    <div className='review-body'>
       {review.body}
     </div>
   </li>

@@ -10,6 +10,9 @@
 
 .review-index ul {
   padding-left: 0px;
+  max-height: 312px;
+  overflow: scroll;
+  margin-bottom: 13px;
 }
 
 .review-index ul li > div {
@@ -50,11 +53,23 @@
 }
 
 .review-index .button-white {
-  padding: 2px 7px;
+  padding: 0px 7px 3px 7px;
   margin-top: 1px;
   margin-bottom: 0px;
   background-color: #ff4040;
   color: white;
   font-weight: 700;
   border: 1px solid #ff4040;
+}
+
+.review-index .fa {
+  color: gold;
+}
+
+.rating {
+  margin-bottom: 1px;
+}
+
+.review-body {
+  margin-bottom: 2px;
 }
