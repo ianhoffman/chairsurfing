@@ -42,7 +42,6 @@ class SplashPage extends React.Component {
     this.setState({
       modalOpen: false
     });
-    this.props.history.goBack();
   }
 
   render() {

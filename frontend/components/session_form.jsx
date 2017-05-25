@@ -92,12 +92,18 @@ class SessionForm extends React.Component {
         {logIn ? (
           <div className='formHeader'>
             <h2>Log in to Chairsurfing</h2>
-            <p onClick={this.props.closeModal}>X</p>
+            <p onClick={() => {
+              this.props.closeModal();
+              this.props.history.goBack();
+            }}>X</p>
           </div>
         ) : (
           <div className='formHeader'>
             <h2>Join Chairsurfing for free</h2>
-            <p onClick={this.props.closeModal}>X</p>
+            <p onClick={() => {
+              this.props.closeModal();
+              this.props.history.goBack();
+            }}>X</p>
           </div>
         ) }
 

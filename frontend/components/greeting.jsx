@@ -78,7 +78,6 @@ class Greeting extends React.Component {
     this.setState({
       sessionModalOpen: false
     });
-    this.props.history.goBack();
   }
 
   logout(e) {
