@@ -3,8 +3,8 @@ unless @reviews == nil
     json.set! review.id do
       json.extract! review, :id, :body, :rating, :user_id
       json.user do
-        json.firstName review.user.firstName
-        json.lastName review.user.lastName
+        json.firstName review.user.first_name
+        json.lastName review.user.last_name
       end
     end
   end

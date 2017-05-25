@@ -4,8 +4,8 @@ json.user_id @booking.user_id
 json.id @booking.id
 json.chairId @booking.chair_id
 json.status @booking.status
-json.firstName @booking.user.firstName
-json.lastName @booking.user.lastName
+json.firstName @booking.user.first_name
+json.lastName @booking.user.last_name
 
 
 json.chair do
@@ -19,6 +19,6 @@ end
 
 json.user do
   json.id @booking.user.id
-  json.firstName @booking.user.firstName
-  json.lastName @booking.user.lastName
+  json.firstName @booking.user.first_name
+  json.lastName @booking.user.last_name
 end

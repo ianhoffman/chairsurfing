@@ -5,8 +5,8 @@ json.bookings @chair.bookings do |booking|
   json.startDate booking.start_date
   json.endDate booking.end_date
   json.userId booking.user_id
-  json.userFirstName booking.user.firstName
-  json.userLastName booking.user.lastName
+  json.userFirstName booking.user.first_name
+  json.userLastName booking.user.last_name
   json.status booking.status
 end
 
@@ -22,8 +22,8 @@ json.bookings @chair.bookings do |booking|
   json.id booking.id
   json.startDate booking.start_date
   json.endDate booking.end_date
-  json.firstName booking.user.firstName
-  json.lastName booking.user.lastName
+  json.firstName booking.user.first_name
+  json.lastName booking.user.last_name
   json.user_id booking.user_id
   json.status booking.status
 end
