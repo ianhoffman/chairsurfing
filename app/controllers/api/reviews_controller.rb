@@ -10,13 +10,13 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.where(chair_id: params[:id])
+    @reviews = Review.includes(:user).where(chair_id: params[:id])
 
     render 'api/reviews/index.json.jbuilder'
   end
 
   def update
-    @review = Review.find_by(id: params[:id])
+    @review = Review.includes(:user).find_by(id: params[:id])
 
     if @review.update_attributes(review_params)
       render :show
@@ -26,7 +26,7 @@ class Api::ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find_by(id: params[:id])
+    @review = Review.includes(:user).find_by(id: params[:id])
     @review.destroy
     render :show
   end

@@ -157,21 +157,21 @@ class ChairShow extends React.Component {
               <RentalFormContainer
                 chair={chair} />} />
 
-              <Route
-                path={`/chairs/${chair.id}/location`}
-                render={() => <ChairShowMap chair={chair}/>} />
-            </div>
+          <Route
+            path={`/chairs/${chair.id}/location`}
+            render={() => <ChairShowMap chair={chair}/>} />
 
-            <Route
-              path={`/chairs/:chairId/reviews`}
-              component={ReviewIndexComponent}
-            />
+          <Route
+            path={`/chairs/:chairId/reviews`}
+            component={ReviewIndexComponent} />
+        </div>
+
         </section>
           <div className='img-container'>
             <img className='chair-img' src={chair.imageUrl} />
           </div>
-
-      </section>
+        </section>
+        
       </section>
     );
   }

@@ -14,7 +14,7 @@ class ReviewIndex extends React.Component {
     const chairId = this.props.match.params.chairId;
 
     return(
-      <div>
+      <div className='review-index'>
         <ul>
           {Object.keys(reviews).map(key => (
             <ReviewListItem

@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class ReviewForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleRating = this.handleRating.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,47 +28,35 @@ class ReviewForm extends React.Component {
     );
   }
 
-  handleChange(field) {
-    return e => this.setState({[field]: e.target.value});
+  handleRating(e) {
+    e.preventDefault();
+    debugger
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({body: e.target.value});
   }
 
   render() {
     return(
-      <form>
-        <textarea onChange={this.handleChange('body')}></textarea>
+      <form className='review-form'>
+        <textarea onChange={this.handleChange}></textarea>
         <div>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='5'></input>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='4'></input>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='3'></input>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='2'></input>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='1'></input>
-          <input
-            name='rating'
-            type='radio'
-            onChange={this.handleChange('rating')}
-            value='0'></input>
+          <div>
+            <StarRatings
+              rating={this.state.rating}
+              isSelectable={true}
+              isAggregateRating={false}
+              changeRating={this.handleRating}
+              numOfStars={ 6 }
+            />
+          </div>
 
-          <a onClick={this.handleSubmit}>Submit</a>
+
+          <a
+            className='button button-blue'
+            onClick={this.handleSubmit}>Submit</a>
         </div>
       </form>
     );

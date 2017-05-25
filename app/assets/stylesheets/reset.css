@@ -60,11 +60,11 @@ a:hover {
   cursor: pointer
 }
 
-input {
+input, textarea {
   border-radius: 3px;
 }
 
-input:focus {
+input, textarea:focus {
   outline: 0;
 }
 
