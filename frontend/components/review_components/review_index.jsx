@@ -10,7 +10,7 @@ class ReviewIndex extends React.Component {
   }
 
   render() {
-    const { createReview, userId, reviews, deleteReview } = this.props;
+    const { createReview, currentUser, reviews, deleteReview } = this.props;
     const chairId = this.props.match.params.chairId;
 
     return(
@@ -20,16 +20,20 @@ class ReviewIndex extends React.Component {
             <ReviewListItem
               key={`review${key}`}
               review={reviews[key]}
-              deleteReview={deleteReview} />
+              deleteReview={deleteReview}
+              currentUser={currentUser} />
             )
           )}
         </ul>
 
-        <ReviewForm
-          createReview={createReview}
-          userId={userId}
-          chairId={chairId}
-           />
+        { currentUser === null ? (
+          <div></div> ) : (
+            <ReviewForm
+              createReview={createReview}
+              userId={currentUser.id}
+              chairId={chairId}
+              />
+        )}
       </div>
     );
   }

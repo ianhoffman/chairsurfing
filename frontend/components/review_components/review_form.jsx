@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
+import Rating from 'react-rating';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -22,15 +22,14 @@ class ReviewForm extends React.Component {
       res => {
         this.setState({
           body: '',
-          rating: null
+          rating: 0
         });
       }
     );
   }
 
   handleRating(e) {
-    e.preventDefault();
-    debugger
+    this.setState({rating: e});
   }
 
   handleChange(e) {
@@ -41,15 +40,18 @@ class ReviewForm extends React.Component {
   render() {
     return(
       <form className='review-form'>
-        <textarea onChange={this.handleChange}></textarea>
+        <textarea onChange={this.handleChange} defaultValue='Leave a review!'></textarea>
         <div>
           <div>
-            <StarRatings
-              rating={this.state.rating}
-              isSelectable={true}
-              isAggregateRating={false}
-              changeRating={this.handleRating}
-              numOfStars={ 6 }
+            <Rating
+              start={0}
+              stop={5}
+              step={1}
+              placeholderRate={this.state.rating}
+              placeholder='fa fa-star fa-2x'
+              empty='fa fa-star-o fa-2x'
+              full='fa fa-star fa-2x'
+              onClick={this.handleRating}
             />
           </div>
 

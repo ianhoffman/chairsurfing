@@ -1,17 +1,34 @@
 import React from 'react';
+import Rating from 'react-rating';
 
-const ReviewListItem = ({ review, deleteReview }) => (
+const ReviewListItem = ({ currentUser, review, deleteReview }) => (
   <li>
     <div>
-      <span>{`${review.user.firstName} ${review.user.lastName}`}</span>
-      <a onClick={(e) => {
-          e.preventDefault();
-          deleteReview(review.id);
-        }
-      }>Delete</a>
+      <span className='user-name'>{`${review.user.firstName} ${review.user.lastName}`}</span>
+      {currentUser === null && currentUser.id === review.userId ? (
+        <div></div>
+      ) : (
+        <a
+          className='button button-white'
+          onClick={(e) => {
+            e.preventDefault();
+            deleteReview(review.id);
+          }
+        }>remove</a>
+      )}
     </div>
     <div>
-      {review.rating}
+      <Rating
+        start={0}
+        stop={5}
+        step={1}
+        placeholderRate={review.rating}
+        empty='fa fa-star-o'
+        placeholder='fa fa-star'
+        full='fa fa-star'
+        readonly={true}
+        quiet={true}
+      />
     </div>
     <div>
       {review.body}

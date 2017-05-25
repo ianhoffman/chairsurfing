@@ -10,7 +10,7 @@ import ReviewIndex from './review_index';
 const mapStateToProps = (state) => ({
   reviews: state.reviews.reviews,
   errors: state.reviews.errors,
-  userId: state.session.currentUser.id
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
