@@ -8,111 +8,19 @@ import { Link, Route } from 'react-router-dom';
 class ChairShow extends React.Component {
   constructor(props) {
     super(props);
-
-    let path = this.props.location.pathname.split('/');
-    this.selected = path[path.length - 1];
-    this.handleResizing = this.handleResizing.bind(this);
-  }
-
-  handleResizing() {
-    let img = document.getElementsByClassName('img-container')[0];
-    let show = document.getElementsByClassName('chair-show')[0];
-
-    window.addEventListener('resize', () => {
-      if($(window).width() > 1230) {
-        show = document.getElementsByClassName('img-container')[0];
-        $(show).css('display', 'flex');
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      let p, c;
-      if(this.selected === null) {
-        p = this.props.location.pathname.split('/');
-        c = p[p.length - 1];
-      } else {
-        c = this.selected;
-      }
-      if($(window).width() <= 1230 && c !== 'description') {
-        show = document.getElementsByClassName('img-container')[0];
-        $(show).css('display', 'none');
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      let p, c;
-      if(this.selected === null) {
-        p = this.props.location.pathname.split('/');
-        c = p[p.length - 1];
-      } else {
-        c = this.selected;
-      }
-      if($(window).width() <= 1230 && c === 'description') {
-        show = document.getElementsByClassName('img-container')[0];
-        $(show).css('display', 'flex');
-      }
-    });
   }
 
   componentDidMount() {
-    this.props.fetchSingleChair(this.props.match.params.chairId);
-    this.handleResizing();
+    if(this.props.chair.id === 0) {
+      this.props.fetchSingleChair(this.props.match.params.chairId);
+    }
   }
 
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
       this.props.fetchSingleChair(newProps.match.params.chairId);
     }
-
-    let img = document.getElementsByClassName('img-container')[0];
-    let show = document.getElementsByClassName('chair-show')[0];
-
-
-    switch (this.selected) {
-      case 'description':
-        document.getElementById('description').focus();
-        $(img).css('display', 'flex');
-        if(window.innerWidth <= 1230) {
-          $(show).height('100%');
-        }
-        break;
-      case 'location':
-        document.getElementById('location').focus();
-        if(window.innerWidth <= 1230) {
-          $(img).css('display', 'none');
-          $(show).height('100%');
-        }
-        break;
-      case 'reviews':
-        document.getElementById('reviews').focus();
-        if(window.innerWidth <= 1230) {
-          $(img).css('display', 'none');
-          $(show).height('100%');
-        }
-        break;
-      default:
-        break;
-    }
   }
-
-  hideImg(e) {
-    if(window.innerWidth <= 1230) {
-      let img = document.getElementsByClassName('img-container')[0];
-      let show = document.getElementsByClassName('chair-show')[0];
-      $(img).css('display', 'none');
-      $(show).height('100%');
-    }
-  }
-
-  showImg(e) {
-    if(window.innerWidth <= 1230) {
-      let img = document.getElementsByClassName('img-container')[0];
-      let show = document.getElementsByClassName('chair-show')[0];
-      $(img).css('display', 'flex');
-      $(show).height('100%');
-    }
-  }
-
 
   render() {
     const { chair } = this.props;
@@ -127,27 +35,12 @@ class ChairShow extends React.Component {
 
             <div className='chair-links'>
               <a href={`#/chairs/${chair.id}/description`}
-                onClick={() => {
-                  this.selected = 'description';
-                  this.showImg.bind(this)();
-                }
-              }
               id='description'>Description</a>
 
               <a href={`#/chairs/${chair.id}/location`}
-                onClick={() => {
-                  this.selected = 'location';
-                  this.hideImg.bind(this)();
-                }
-              }
               id='location'>Location</a>
 
               <a href={`#/chairs/${chair.id}/reviews`}
-                onClick={() => {
-                  this.selected = 'reviews';
-                  this.hideImg.bind(this)();
-                }
-              }
               id='reviews'>Reviews</a>
             </div>
 

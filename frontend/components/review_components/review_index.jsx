@@ -44,16 +44,20 @@ class ReviewIndex extends React.Component {
     } else {
       return(
         <div className='review-index'>
-          <ul className='review-list'>
-            {Object.keys(reviews).map(key => (
-              <ReviewListItem
-                key={`review${key}`}
-                currentUser={currentUser}
-                deleteReview={deleteReview}
-                review={reviews[key]} />
+          { (Object.keys(reviews).length === 0) ? (
+            ""
+          ) : (
+            <ul className='review-list'>
+              { Object.keys(reviews).map(key => (
+                <ReviewListItem
+                  key={`review${key}`}
+                  currentUser={currentUser}
+                  deleteReview={deleteReview}
+                  review={reviews[key]} />
               )
-            )}
-          </ul>
+            ) }
+            </ul>
+          )}
           <ReviewForm
             errors={errors}
             createReview={createReview}
