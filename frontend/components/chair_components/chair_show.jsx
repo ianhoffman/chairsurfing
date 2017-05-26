@@ -27,6 +27,7 @@ class ChairShow extends React.Component {
     if(this.props.chair.id === 0) {
       this.props.fetchSingleChair(this.props.match.params.chairId);
     }
+    document.getElementById(`${this.parsePath()}`).focus();
   }
 
   componentWillReceiveProps(newProps) {
@@ -38,24 +39,26 @@ class ChairShow extends React.Component {
     const newFullPath = newProps.location.pathname.split('/');
     const newPath = newFullPath[newFullPath.length - 1];
 
+    document.getElementById(`${newPath}`).focus();
+
     if((newPath === 'reviews' || newPath === 'location') &&
       (window.innerWidth <= 1230)) {
         this.setState({imageVisible: false});
     } else {
       this.setState({imageVisible: true});
     }
-
-    $(`#${this.newPath}`).focus();
   }
 
   onResize() {
     const path = this.parsePath();
-    if (window.innerWidth <= 1230 &&
-      path === 'location' || path === 'reviews') {
-        this.setState({imageVisible: false});
-    } else {
-      this.setState({imageVisible: true});
-    }
+    setTimeout(function() {
+      if (window.innerWidth <= 1230 &&
+        (path === 'location' || path === 'reviews')) {
+          this.setState({imageVisible: false});
+        } else {
+          this.setState({imageVisible: true});
+        }
+    }.bind(this), 50);
   }
 
   render() {
