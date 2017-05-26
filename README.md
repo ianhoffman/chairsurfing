@@ -19,7 +19,28 @@ Each user can have a maximum of one chair. Users may edit their chair; once crea
 
 Repose allows users to search for chairs by keyword. To avoid making unnecessary server requests, it only searches for chairs within a map's current bounds. (It updates whenever those bounds change.)
 
-```
+```ruby
+def self.in_bounds(filters)
+  bounds = filters[:bounds]
 
 
+  north_east = bounds["northEast"]
+  south_west = bounds["southWest"]
+
+  chairs = Chair.where("lat < ? AND lat > ?", north_east['lat'], south_west['lat'])
+    .where("lng < ? AND lng > ?", north_east['lng'], south_west['lng'])
+
+  unless filters[:keyword] == nil || filters[:keyword] == ''
+    chairs = Chair.filter_by_keyword(chairs, filters)
+  end
+
+  chairs
+end
+
+def self.filter_by_keyword(chairs, filters)
+  keyword = '%' + filters[:keyword] + '%'
+  chairs.where(
+    'description ILIKE ? OR address ILIKE ? OR about ILIKE ?', keyword, keyword, keyword
+  )
+end
 ```
