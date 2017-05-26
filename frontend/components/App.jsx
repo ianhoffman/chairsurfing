@@ -15,7 +15,7 @@ const App = () => {
     <main>
       <header>
         <Link to='/'>
-          <p id='logo'>repose</p>
+          <img id='logo' src='https://res.cloudinary.com/dfuh8ucrc/image/upload/v1495839614/Screen_Shot_2017-05-26_at_15.59.37_xq4dau.png'/>
         </Link>
 
         <GreetingContainer />

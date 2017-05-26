@@ -4,7 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2px 0px 1px 0px;
+  padding: 2px 0px 0px 0px;
   border-bottom: 2px solid #bfcad2;
   position: fixed;
   width: 100%;
@@ -14,10 +14,16 @@ header {
   font-weight: 300;
 }
 
+header > h2 {
+
+}
+
 #logo {
-  font-family: 'jenna_sue_proregular';
-  color: #d85b23;
-  font-size: 41px;
+  width: 79px;
+  margin: 5px;
+  margin-top: 14px;
+  margin-left: 2px;
+  margin-bottom: 0px;
 }
 
 
@@ -27,11 +33,6 @@ header > a {
   background-color: transparent;
   position: relative;
   top: -7px
-}
-
-header img {
-  width: 110px;
-  margin: 5px;
 }
 
 header div {
