@@ -22,7 +22,7 @@ class ReviewIndex extends React.Component {
     if(Object.keys(reviews).length === 0) {
       if(currentUser !== null &&
         currentUser.chair !== 'null' &&
-          currentUser.chair.id != chairId) {
+          currentUser.chair_id != chairId) {
             return(
               <div className='no-reviews'>
                 <div>
@@ -58,7 +58,7 @@ class ReviewIndex extends React.Component {
           </ul>
           { currentUser === null ||
             currentUser.chair === 'null' ||
-            currentUser.chair.id == chairId ? (
+            currentUser.chair_id == chairId ? (
               <div></div>
             ) : (
               <ReviewForm

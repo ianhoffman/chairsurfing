@@ -5,7 +5,7 @@ import { fetchUserBookings } from '../../actions/booking_actions';
 const mapStateToProps = state => {
   return({
     currentUser: state.session.currentUser,
-    bookings: state.session.currentUser.bookings
+    bookings: state.bookings
   });
 };
 

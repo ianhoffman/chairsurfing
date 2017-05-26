@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchSingleChair: () => dispatch(fetchSingleChair(ownProps.match.params.chairId))
+  fetchSingleChair: (id) => dispatch(fetchSingleChair(id))
 });
 
 export default connect(

@@ -140,7 +140,7 @@ class Greeting extends React.Component {
                   className=''>
                   Edit Chair
                 </Link>
-                <Link to={`/chairs/${currentUser.chair.id}/description`}
+                <Link to={`/chairs/${currentUser.chair_id}/description`}
                   className=''>
                   Your Chair
                 </Link>

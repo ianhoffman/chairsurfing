@@ -1,6 +1,6 @@
 class Api::ChairsController < ApplicationController
   def index
-    @chairs = Chair.includes(:bookings).in_bounds(params[:filters])
+    @chairs = Chair.in_bounds(params[:filters])
 
     render 'api/chairs/index.json.jbuilder'
   end

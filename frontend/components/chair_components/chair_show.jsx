@@ -55,13 +55,13 @@ class ChairShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSingleChair();
+    this.props.fetchSingleChair(this.props.match.params.chairId);
     this.handleResizing();
   }
 
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
-      this.props.fetchSingleChair();
+      this.props.fetchSingleChair(newProps.match.params.chairId);
     }
 
     let img = document.getElementsByClassName('img-container')[0];
@@ -124,7 +124,7 @@ class ChairShow extends React.Component {
             <h2>
               {chair.description.toUpperCase()}
             </h2>
-            
+
             <div className='chair-links'>
               <a href={`#/chairs/${chair.id}/description`}
                 onClick={() => {
