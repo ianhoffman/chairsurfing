@@ -11,21 +11,12 @@ class ChairShow extends React.Component {
 
     let path = this.props.location.pathname.split('/');
     this.selected = path[path.length - 1];
+    this.handleResizing = this.handleResizing.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchSingleChair();
-
+  handleResizing() {
     let img = document.getElementsByClassName('img-container')[0];
     let show = document.getElementsByClassName('chair-show')[0];
-
-    // if(this.selected==='description') {
-    //   $(img).css('display', 'flex');
-    // } else if(window.innerWidth <= 1230) {
-    //   $(img).css('display', 'none');
-    // } else {
-    //   $(img).css('display', 'flex');
-    // }
 
     window.addEventListener('resize', () => {
       if($(window).width() > 1230) {
@@ -61,6 +52,11 @@ class ChairShow extends React.Component {
         $(show).css('display', 'flex');
       }
     });
+  }
+
+  componentDidMount() {
+    this.props.fetchSingleChair();
+    this.handleResizing();
   }
 
   componentWillReceiveProps(newProps) {
@@ -125,17 +121,18 @@ class ChairShow extends React.Component {
       <section className='content'>
         <section className='chair-show'>
           <section className='chair-info'>
-              <h2>
-                {chair.description.toUpperCase()}
-              </h2>
-              <div className='chair-links'>
-                <a href={`#/chairs/${chair.id}/description`}
-                  onClick={() => {
-                    this.selected = 'description';
-                    this.showImg.bind(this)();
-                  }
+            <h2>
+              {chair.description.toUpperCase()}
+            </h2>
+            
+            <div className='chair-links'>
+              <a href={`#/chairs/${chair.id}/description`}
+                onClick={() => {
+                  this.selected = 'description';
+                  this.showImg.bind(this)();
                 }
-                id='description'>Description</a>
+              }
+              id='description'>Description</a>
 
               <a href={`#/chairs/${chair.id}/location`}
                 onClick={() => {
@@ -145,31 +142,32 @@ class ChairShow extends React.Component {
               }
               id='location'>Location</a>
 
-            <a href={`#/chairs/${chair.id}/reviews`}
-              onClick={() => {
-                this.selected = 'reviews';
-                this.hideImg.bind(this)();
+              <a href={`#/chairs/${chair.id}/reviews`}
+                onClick={() => {
+                  this.selected = 'reviews';
+                  this.hideImg.bind(this)();
+                }
               }
-            }
-            id='reviews'>Reviews</a>
-        </div>
-        <div className='chair-specs'>
-          <Route
-            path={`/chairs/${chair.id}/description`}
-            render={() =>
-              <RentalFormContainer
-                chair={chair} />} />
+              id='reviews'>Reviews</a>
+            </div>
 
-          <Route
-            path={`/chairs/${chair.id}/location`}
-            render={() => <ChairShowMap chair={chair}/>} />
+            <div className='chair-specs'>
+              <Route
+                path={`/chairs/${chair.id}/description`}
+                render={() =>
+                  <RentalFormContainer
+                    chair={chair} />} />
 
-          <Route
-            path={`/chairs/:chairId/reviews`}
-            component={ReviewIndexComponent} />
-        </div>
+              <Route
+                path={`/chairs/${chair.id}/location`}
+                render={() => <ChairShowMap chair={chair}/>} />
 
-        </section>
+              <Route
+                path={`/chairs/:chairId/reviews`}
+                component={ReviewIndexComponent} />
+            </div>
+          </section>
+
           <div className='img-container'>
             <img className='chair-img' src={chair.imageUrl} />
           </div>

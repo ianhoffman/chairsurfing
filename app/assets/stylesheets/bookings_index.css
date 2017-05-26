@@ -44,9 +44,14 @@
   align-items: center;
 }*/
 
+.bookings-list > li:last-of-type { 
+  margin-bottom: 0px;
+}
+
 .bookings-list > li > a {
   margin-bottom: 6px;
   color: #2f4f4f;
+  text-align: center;
 }
 
 .bookings-list > li > a:first-of-type {

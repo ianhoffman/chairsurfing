@@ -10,6 +10,18 @@ const defaultChair = {
   bookings: []
 };
 
+const initialChair = {
+  description: '',
+  address: '',
+  about: '',
+  lat: 0,
+  lng: 0,
+  imageUrl: '',
+  image: [],
+  accepting_guests: true,
+  user_id: null
+};
+
 export const selectChair = (state, ownProps) => {
   let chair;
   Object.keys(state.chairs.chairs).forEach(key => {
@@ -29,4 +41,17 @@ export const selectBookings = (state, ownProps) => {
     }
   });
   return bookings;
+};
+
+export const getUserChair = (state) => {
+  const chairId = state.session.currentUser.chair_id;
+  const chairs = state.chairs.chairs;
+  let chair;
+
+  Object.keys(chairs).forEach(key => {
+    if(chairs[key].id == chairId) {
+      chair = chairs[key];
+    }
+  });
+  return chair || initialChair;
 };

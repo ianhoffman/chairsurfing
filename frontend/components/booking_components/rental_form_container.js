@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { submitBooking } from '../../actions/booking_actions';
+import { submitBooking, fetchBookings } from '../../actions/booking_actions';
 import RentalForm from './rental_form';
 import { selectBookings } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitBooking: booking => dispatch(submitBooking(booking))
+  submitBooking: booking => dispatch(submitBooking(booking)),
+  fetchBookings: id => dispatch(fetchBookings(id))
 });
 
 export default withRouter(connect(

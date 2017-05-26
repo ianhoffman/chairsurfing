@@ -8,7 +8,7 @@ export const signup = (user) => (
         first_name: user.firstName,
         last_name: user.lastName,
         password: user.password,
-        emai: user.email
+        email: user.email
       }
     }
   })
@@ -19,7 +19,8 @@ export const login = (user) =>(
   $.ajax({
     method:"POST",
     url:"/api/session",
-    data: {user}
+    data: {user},
+    error: err => console.log(err)
   })
 );
 

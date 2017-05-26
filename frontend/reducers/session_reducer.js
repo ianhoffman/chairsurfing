@@ -1,11 +1,10 @@
 import {
     RECEIVE_USER_ERRORS,
     RECEIVE_CURRENT_USER,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
   } from '../actions/session_actions';
 
 import { SET_USER_CHAIR } from '../actions/chair_actions';
-import { RECEIVE_BOOKINGS, ADD_BOOKING, ADD_TO_BOOKING_INDEX } from '../actions/booking_actions';
 import merge from 'lodash/merge';
 
 

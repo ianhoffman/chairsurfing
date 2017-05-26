@@ -11,7 +11,7 @@ const BookingListItem = ({booking}) => {
         {booking.chair.description}
       </a>
       <a href={`/#/chairs/${booking.chair.id}/location`}>
-        {booking.chair.address}
+          {booking.chair.address}
       </a>
       <p>
         {`${moment(booking.startDate).format('DD/MM/YY')} - ${moment(booking.endDate).format('DD/MM/YY')}`}

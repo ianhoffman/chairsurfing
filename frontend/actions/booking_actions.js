@@ -1,5 +1,6 @@
 export const ADD_BOOKING = 'ADD_BOOKING';
-export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
+export const RECEIVE_BOOKINGS = 'RECIEVE_BOOKINGS';
+export const CLEAR_BOOKINGS = 'CLEAR_BOOKINGS';
 export const ADD_TO_BOOKING_INDEX = 'ADD_TO_BOOKING_INDEX';
 import { setUserChair } from './chair_actions';
 
@@ -20,6 +21,10 @@ const addToBookingIndex = booking => ({
   booking
 });
 
+const clearBookings = () => ({
+  type: CLEAR_BOOKINGS
+});
+
 export const submitBooking = booking => dispatch => (
   BookingsAPIUtil.submitBooking(booking).then(
     res => {
@@ -33,6 +38,17 @@ export const submitBooking = booking => dispatch => (
 export const fetchUserBookings = user => dispatch => (
   BookingsAPIUtil.fetchUserBookings(user).then(
     res => {
+      dispatch(clearBookings());
+      dispatch(receiveBookings(res));
+      return res;
+    }
+  )
+);
+
+export const fetchChairBookings = id => dispatch => (
+  BookingsAPIUtil.fetchChairBookings(id).then(
+    res => {
+      dispatch(clearBookings());
       dispatch(receiveBookings(res));
       return res;
     }

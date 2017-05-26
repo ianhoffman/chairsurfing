@@ -31,7 +31,7 @@ class FilterForm extends React.Component {
         <input
           onChange={this.updateKeyword}
           value={this.state.keyword}
-          placeholder="Search by keyword ('Plush', 'vintage', etc')">
+          placeholder="Search by keyword ('Plush', 'vintage', etc)">
         </input>
 
         <a

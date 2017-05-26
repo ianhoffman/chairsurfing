@@ -186,7 +186,6 @@ class RentalForm extends React.Component {
               <div className='arrow-right'></div>
             </div>
 
-
             <div>
               <div>
                 <span>Arrive:</span>
