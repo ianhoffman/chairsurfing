@@ -13,7 +13,7 @@ class Booking < ApplicationRecord
       overlapping_booking.save!
     end
 
-    bookings
+    Booking.where(chair_id: booking.chair_id)
   end
 
   belongs_to :user

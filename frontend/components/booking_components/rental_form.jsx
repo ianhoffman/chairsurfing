@@ -34,8 +34,15 @@ class RentalForm extends React.Component {
       const $dropdown = $('dropdown-menu');
       $dropdown.css('display', 'none');
     });
+    if(this.props.chair) {
+      this.props.fetchChairBookings(this.props.chair.id);
+    }
+  }
 
-    this.props.fetchChairBookings(this.props.chair.id);
+  componentWillReceiveProps(newProps) {
+    if(newProps.chair && newProps.chair.id !== this.props.chair.id) {
+      this.props.fetchChairBookings(newProps.chair.id);
+    }
   }
 
   alertOptions() {
