@@ -5,7 +5,7 @@ const ReviewListItem = ({ currentUser, review, deleteReview }) => (
   <li>
     <div>
       <span className='user-name'>{`${review.user.firstName} ${review.user.lastName}`}</span>
-      {currentUser === null && currentUser.id === review.userId ? (
+      { currentUser === null || currentUser === undefined || currentUser.id !== review.userId ? (
         <div></div>
       ) : (
         <a

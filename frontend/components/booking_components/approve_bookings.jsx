@@ -2,7 +2,8 @@ import React from 'react';
 import ApproveBookingsListItem from './approve_bookings_list_item';
 // window.moment = moment;
 
-const ApproveBookings = ({currentUser, approveBooking, denyBooking, bookings}) => {
+const ApproveBookings = ({currentUser,
+  approveBooking, denyBooking, bookings}) => {
   return (
     <section className='approve-bookings'>
       <div className='header-holder'>
