@@ -11,22 +11,21 @@ class RentalForm extends React.Component {
     super(props);
 
     if(props.currentUser !== null) {
+
       this.state = {
         startDate: moment(),
         endDate: moment(),
         chairId: props.chair.id,
         userId: props.currentUser.id,
-        fetching: true
       };
+
       this.handleSubmit = this.handleSubmit.bind(this);
       this.excludedDates = [];
       this.showAlert = this.showAlert.bind(this);
-      if( (props.currentUser !== null) &&
-        (props.chair.bookings !== undefined) ) {
-        this.excludedDates = this.filterDates(props.chair);
-        this.getStartDates = this.getStartDates.bind(this);
-      }
+      this.filterDates = this.filterDates.bind(this);
+      this.getStartDates = this.getStartDates.bind(this);
       this.updateDates = this.updateDates.bind(this);
+
     } else {
       this.state = {
         fetching: true
@@ -48,10 +47,18 @@ class RentalForm extends React.Component {
     if(newProps.chair && newProps.chair.id !== this.props.chair.id) {
       this.props.fetchChairBookings(newProps.chair.id);
     }
+
     if(newProps.chair.id !== 0) {
       this.setState({
-        fetching: false
+        chairId: newProps.chair.id
       });
+    }
+
+    if( (newProps.currentUser !== null) &&
+      (Object.keys(newProps.bookings).length > 0) ) {
+      this.excludedDates = this.filterDates(newProps.bookings);
+      this.getStartDates();
+      // this.updateDates();
     }
   }
 
@@ -119,7 +126,7 @@ class RentalForm extends React.Component {
     this.props.submitBooking(this.state).then(
       res => {
         this.showAlert();
-        this.setState({endDate: moment(this.state.startDate)})
+        this.setState({endDate: moment(this.state.startDate)});
       }
     );
   }
@@ -140,7 +147,7 @@ class RentalForm extends React.Component {
       startFound = true;
       for (let i = 0; i < this.excludedDates.length; i++ ) {
         if(start.format('YYYY-MM-DD') ===
-         this.excludedDates[i].format('YYYY-MM-DD')) {
+          this.excludedDates[i].format('YYYY-MM-DD')) {
           startFound = false;
           start.add(1, 'days');
           break;
@@ -152,8 +159,7 @@ class RentalForm extends React.Component {
   }
 
 
-  filterDates(chair) {
-    const { bookings } = this.props;
+  filterDates(bookings) {
     const datesToExclude = [];
 
     Object.keys(bookings).forEach(key => {
@@ -181,12 +187,6 @@ class RentalForm extends React.Component {
           <br />
           <p>Please create an account to rent this chair!</p>
         </div>
-      );
-    }
-
-    if(this.state.fetching === true) {
-      return (
-        <div className='fetch'>Fetch in progress!</div>
       );
     }
 

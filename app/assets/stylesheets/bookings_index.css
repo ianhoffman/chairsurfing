@@ -85,7 +85,7 @@
 }
 
 .togglePages .button {
-  width: 90px;
+  max-height: 25px;
 }
 
 .togglePages .button:first-of-type {

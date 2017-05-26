@@ -17,6 +17,14 @@ class ReviewForm extends React.Component {
     this.resetForm = this.resetForm.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if(newProps.chairId !== 0) {
+      this.setState({
+        chair_id: newProps.chairId
+      });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if(this.state.body === 'Leave a review!') {

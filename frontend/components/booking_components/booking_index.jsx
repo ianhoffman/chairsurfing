@@ -15,14 +15,14 @@ class BookingIndex extends React.Component {
   nextBookings(e) {
     e.preventDefault();
     this.setState({
-      startBooking: this.state.startBooking + 3
+      startBooking: this.state.startBooking + 4
     });
   }
 
   prevBookings(e) {
     e.preventDefault();
     this.setState({
-      startBooking: this.state.startBooking - 3
+      startBooking: this.state.startBooking - 4
     });
   }
 
@@ -45,7 +45,7 @@ class BookingIndex extends React.Component {
     });
 
     for (let i = this.state.startBooking;
-      i < allBookings.length && i < this.state.startBooking + 3;
+      i < allBookings.length && i < this.state.startBooking + 4;
       i++ ) {
         currBookings.push(allBookings[i]);
     }
@@ -62,7 +62,7 @@ class BookingIndex extends React.Component {
             )) }
           </ul>
           <div className='togglePages'>
-            { (this.state.startBooking - 3) < 0 ? (
+            { (this.state.startBooking - 4) < 0 ? (
                 ''
             ) : (
               <a
@@ -71,7 +71,7 @@ class BookingIndex extends React.Component {
               )
             }
 
-            { (this.state.startBooking + 3) >= allBookings.length ? (
+            { (this.state.startBooking + 4) >= allBookings.length ? (
               ''
             ) : (
               <a
