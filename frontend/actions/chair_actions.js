@@ -43,7 +43,10 @@ export const fetchAllChairs = filters => dispatch => (
 
 export const fetchSingleChair = id => dispatch => (
   ChairsAPIUtil.fetchSingleChair(id).then(
-    res => dispatch(receiveChair(res))
+    res => {
+      dispatch(receiveChair(res));
+      return res;
+    }
   )
 );
 

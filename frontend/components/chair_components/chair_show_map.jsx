@@ -7,12 +7,16 @@ class ChairShowMap extends React.Component {
   }
 
   componentDidMount() {
-    this.renderChair();
+    this.renderChair(this.props.chair);
   }
 
-  renderChair() {
-    const { chair } = this.props;
+  componentWillReceiveProps(newProps) {
+    if(newProps.chair.id !== this.props.chair.id) {
+      this.renderChair(newProps.chair);
+    }
+  }
 
+  renderChair(chair) {
     const mapOptions = {
       center: {
         lat: chair.lat,

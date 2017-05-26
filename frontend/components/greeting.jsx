@@ -109,11 +109,6 @@ class Greeting extends React.Component {
   }
 
   render() {
-    // for later:
-    // <ul className='loggedIn-menu'>
-    //   <li className="fa fa-search"></li>
-    //   <li className='fa fa-navicon'></li>
-    // </ul>
     const {currentUser} = this.props;
 
     return (this.props.loggedIn) ? (
@@ -127,7 +122,7 @@ class Greeting extends React.Component {
           onClick={this.showMenu}></i>
         <div className='dropdown-menu'>
           {
-            currentUser.chair === 'null' ? (
+            currentUser.chair_id === 'null' ? (
               <Link to={`/profile/new_chair`}
                 onClick={this.handleChairClick}
                 className=''>
