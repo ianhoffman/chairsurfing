@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { updateBooking } from '../../actions/booking_actions';
+import { approveBooking, denyBooking } from '../../actions/booking_actions';
 import ApproveBookings from './approve_bookings';
 
 const mapDispatchToProps = dispatch => ({
-  updateBooking: booking => dispatch(updateBooking(booking))
+  approveBooking: booking => dispatch(approveBooking(booking)),
+  denyBooking: booking => dispatch(denyBooking(booking))
 });
 
 export default connect(

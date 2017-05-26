@@ -10,9 +10,9 @@ const receiveChairs = chairs => ({
   chairs
 });
 
-export const setUserChair = chair => ({
+export const setUserChair = id => ({
   type: SET_USER_CHAIR,
-  chair
+  id
 });
 
 const receiveChair = chair => ({
@@ -51,7 +51,7 @@ export const createChair = chair => dispatch => (
   ChairsAPIUtil.createChair(chair).then(
     res => {
       dispatch(receiveChair(res));
-      dispatch(setUserChair(res));
+      dispatch(setUserChair(res.id));
       return res;
     },
     err => {

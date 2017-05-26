@@ -1,18 +1,8 @@
 import React from 'react';
-import moment from 'moment';
+import ApproveBookingsListItem from './approve_bookings_list_item';
 // window.moment = moment;
 
-const ApproveBookings = ({currentUser, updateBooking}) => {
-  const bookings = [];
-  const now = moment();
-
-  currentUser.chair.bookings.forEach(booking => {
-    if(moment(booking.startDate) > now || moment(booking.startDate).format('YYYY-MM-DD')
-    === now.format('YYYY-MM-DD')) {
-      bookings.push(booking);
-    }
-  });
-
+const ApproveBookings = ({currentUser, approveBooking, denyBooking, bookings}) => {
   return (
     <section className='approve-bookings'>
       <div className='header-holder'>
@@ -20,7 +10,7 @@ const ApproveBookings = ({currentUser, updateBooking}) => {
         <h3>Booking Requests</h3>
       </div>
 
-      { (bookings.length > 0) ? (
+      { (Object.keys(bookings).length > 0) ? (
         <table>
           <thead>
             <tr>
@@ -35,44 +25,13 @@ const ApproveBookings = ({currentUser, updateBooking}) => {
           </thead>
           <tbody>
             {
-              bookings.map((booking, idx) => {
-                let startDate = moment(booking.startDate).format('DD/MM/YY');
-                let endDate = moment(booking.endDate).format('DD/MM/YY');
-                let checkDate = moment(booking.startDate);
-
-                if(checkDate > now ||
-                  checkDate.format('YYYY-MM-DD') ===
-                  now.format('YYYY-MM-DD') ) {
-                    return(
-                      <tr key={`booking${idx}`}>
-                        <td>
-                          {`${booking.firstName} ${booking.lastName}`}
-                        </td>
-                        <td>
-                          {`${startDate} - ${endDate}`}
-                        </td>
-                        {
-                          booking.status === 'PENDING' ? (
-                            <td>
-                              <a onClick={() => updateBooking({
-                                  id: booking.id,
-                                  status: 'APPROVED'
-                                })}>APPROVE</a>
-                              <a onClick={() => updateBooking({
-                                  id: booking.id,
-                                  status: 'DENIED'
-                                })}>DENY</a>
-                            </td>
-                          ) : (
-                            <td>
-                              {booking.status}
-                            </td>
-                          )
-                        }
-                      </tr>
-                    );
-                  }
-                }
+              Object.keys(bookings).map((key) => (
+                <ApproveBookingsListItem
+                  key={`booking${key}`}
+                  approveBooking={approveBooking}
+                  denyBooking={denyBooking}
+                  booking={bookings[key]} />
+                )
               )
             }
           </tbody>
@@ -82,7 +41,6 @@ const ApproveBookings = ({currentUser, updateBooking}) => {
             <p>No pending bookings!</p>
           </div>
       ) }
-
     </section>
   );
 };

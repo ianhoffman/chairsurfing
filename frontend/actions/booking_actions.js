@@ -1,24 +1,18 @@
-export const ADD_BOOKING = 'ADD_BOOKING';
+export const RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 export const RECEIVE_BOOKINGS = 'RECIEVE_BOOKINGS';
 export const CLEAR_BOOKINGS = 'CLEAR_BOOKINGS';
-export const ADD_TO_BOOKING_INDEX = 'ADD_TO_BOOKING_INDEX';
 import { setUserChair } from './chair_actions';
 
 import * as BookingsAPIUtil from '../util/bookings_api_util';
 
-const addBooking = booking => ({
-  type: ADD_BOOKING,
+const receiveBooking = booking => ({
+  type: RECEIVE_BOOKING,
   booking
 });
 
 const receiveBookings = bookings => ({
   type: RECEIVE_BOOKINGS,
   bookings
-});
-
-const addToBookingIndex = booking => ({
-  type: ADD_TO_BOOKING_INDEX,
-  booking
 });
 
 const clearBookings = () => ({
@@ -28,8 +22,7 @@ const clearBookings = () => ({
 export const submitBooking = booking => dispatch => (
   BookingsAPIUtil.submitBooking(booking).then(
     res => {
-      dispatch(addBooking(res));
-      dispatch(addToBookingIndex(res));
+      dispatch(receiveBooking(res));
       return res;
     }
   )
@@ -55,10 +48,20 @@ export const fetchChairBookings = id => dispatch => (
   )
 );
 
-export const updateBooking = booking => dispatch => (
+export const approveBooking = booking => dispatch => (
   BookingsAPIUtil.updateBooking(booking).then(
     res => {
-      dispatch(setUserChair(res));
+      dispatch(clearBookings());
+      dispatch(receiveBookings(res));
+      return res;
+    }
+  )
+);
+
+export const denyBooking = booking => dispatch => (
+  BookingsAPIUtil.updateBooking(booking).then(
+    res => {
+      dispatch(receiveBooking(res));
       return res;
     }
   )

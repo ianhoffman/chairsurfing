@@ -34,6 +34,8 @@ class RentalForm extends React.Component {
       const $dropdown = $('dropdown-menu');
       $dropdown.css('display', 'none');
     });
+
+    this.props.fetchChairBookings(this.props.chair.id);
   }
 
   alertOptions() {
@@ -140,20 +142,20 @@ class RentalForm extends React.Component {
 
 
   filterDates(chair) {
-    const bookings = chair.bookings;
+    const { bookings } = this.props;
     const datesToExclude = [];
 
-    for(let i = 0; i < bookings.length; i ++) {
-      if(bookings[i].status === 'APPROVED') {
-        let startDate = moment(bookings[i].startDate);
-        let endDate = moment(bookings[i].endDate);
+    Object.keys(bookings).forEach(key => {
+      if(bookings[key].status === 'APPROVED') {
+        let startDate = moment(bookings[key].startDate);
+        let endDate = moment(bookings[key].endDate);
         while(startDate.format('YYYY-MM-DD') !== endDate.format('YYYY-MM-DD')) {
           datesToExclude.push(moment(startDate));
           startDate = startDate.add(1, 'days');
         }
         datesToExclude.push(endDate);
       }
-    }
+    });
     return datesToExclude;
   }
 
@@ -178,7 +180,7 @@ class RentalForm extends React.Component {
         <br />
 
         { (currentUser.chair === 'null' ||
-          currentUser.chair.id !== chair.id) ? (
+          currentUser.chair_id !== chair.id) ? (
           <div className='rental-form'>
 
             <div className='header-holder'>
@@ -222,7 +224,9 @@ class RentalForm extends React.Component {
             </div>
           </div>
         ) : (
-          <ApproveBookingsContainer currentUser={currentUser} />
+          <ApproveBookingsContainer
+            currentUser={currentUser}
+            bookings={this.props.bookings} />
         )}
         <AlertContainer
           ref={a => (this.msg = a)} {...this.alertOptions()} />

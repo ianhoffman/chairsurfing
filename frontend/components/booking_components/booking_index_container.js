@@ -9,10 +9,11 @@ const mapStateToProps = state => {
   });
 };
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchUserBookings: user => dispatch(fetchUserBookings(user))
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchUserBookings: user => dispatch(fetchUserBookings(user))
+});
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(BookingIndex);

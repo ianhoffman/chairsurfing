@@ -1,6 +1,10 @@
 class Api::BookingsController < ApplicationController
   def index
-    @bookings = Booking.includes(:chair).where(user_id: params[:user_id])
+    if params[:user_id]
+      @bookings = Booking.includes(:user).includes(:chair).where(user_id: params[:user_id])
+    elsif params[:chair_id]
+      @bookings = Booking.includes(:user).includes(:user).where(chair_id: params[:chair_id])
+    end
 
     render :index
   end
@@ -21,14 +25,16 @@ class Api::BookingsController < ApplicationController
   end
 
   def update
-    booking = Booking.includes(:user).find_by(id: params[:id])
+    booking = Booking.includes(:user).includes(:chair).find_by(id: params[:id])
 
     if booking.update_attributes(booking_params)
       if booking.status == 'APPROVED'
-        Booking.deny_overlapping_bookings(booking)
+        @bookings = Booking.deny_overlapping_bookings(booking)
+        render :index
+      else
+        @booking = booking
+        render :show
       end
-      @chair = booking.chair
-      render "api/chairs/show.json.jbuilder"
     else
       render json: @booking.errors.full_messages, status: 422
     end

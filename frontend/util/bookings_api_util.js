@@ -26,6 +26,17 @@ export const fetchUserBookings = user => (
   })
 );
 
+export const fetchChairBookings = id => (
+  $.ajax({
+    url: '/api/bookings',
+    method: 'GET',
+    data: {
+      chair_id: id
+    },
+    error: err => console.log(err)
+  })
+);
+
 export const updateBooking = booking => (
   $.ajax({
     url: `/api/bookings/${booking.id}`,
