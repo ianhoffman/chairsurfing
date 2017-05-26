@@ -45,4 +45,4 @@ def self.filter_by_keyword(chairs, filters)
 end
 ```
 
-On the frotnend, Repose
+This is used to create the following React component, which updates in real-time as the user types:
