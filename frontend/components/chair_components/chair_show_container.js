@@ -3,9 +3,11 @@ import ChairShow from './chair_show';
 import { selectChair } from '../../reducers/selectors';
 import { fetchSingleChair } from '../../actions/chair_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  chair: selectChair(state, ownProps),
-});
+const mapStateToProps = (state, ownProps) => {
+  return({
+    chair: selectChair(state, ownProps)
+  });
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchSingleChair: (id) => dispatch(fetchSingleChair(id))

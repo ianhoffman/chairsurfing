@@ -1,6 +1,6 @@
 import React from 'react';
 import GreetingContainer from './greeting_container';
-import { Link, Switch, Route } from 'react-router-dom';
+import { withRouter, Link, Switch, Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashPage from './splash_page';
@@ -23,7 +23,7 @@ const App = () => {
 
       <Switch>
         <Route path='/chairs/:chairId' component={ChairShowContainer} />
-        <ProtectedRoute path='/profile' component={UserProfile} />
+        <ProtectedRoute exact path='/profile' component={UserProfile} />
         <AuthRoute path="/" component={SplashPage} />
       </Switch>
 
@@ -32,4 +32,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);

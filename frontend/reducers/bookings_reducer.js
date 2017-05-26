@@ -1,17 +1,17 @@
-import { RECEIVE_BOOKINGS, CLEAR_BOOKINGS, RECEIVE_BOOKING } from '../actions/booking_actions';
+import { RECEIVE_BOOKINGS, RECEIVE_BOOKING } from '../actions/booking_actions';
 import merge from 'lodash/merge';
 
 const bookingsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
+  let newState;
   switch (action.type) {
     case RECEIVE_BOOKINGS:
-      return merge(newState, action.bookings);
+      newState = merge({}, action.bookings);
+      return newState;
     case RECEIVE_BOOKING:
+      newState = merge({}, state);
       newState[action.booking.id] = action.booking;
       return newState;
-    case CLEAR_BOOKINGS:
-      return {};
     default:
       return state;
   }

@@ -5,8 +5,25 @@ class BookingIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetchInProgress: true
+      fetchInProgress: true,
+      startBooking: 0
     };
+    this.nextBookings = this.nextBookings.bind(this);
+    this.prevBookings = this.prevBookings.bind(this);
+  }
+
+  nextBookings(e) {
+    e.preventDefault();
+    this.setState({
+      startBooking: this.state.startBooking + 3
+    });
+  }
+
+  prevBookings(e) {
+    e.preventDefault();
+    this.setState({
+      startBooking: this.state.startBooking - 3
+    });
   }
 
   componentDidMount() {
@@ -17,33 +34,55 @@ class BookingIndex extends React.Component {
     );
   }
 
-  componentWillUnmount() {
-    // debugger
-  }
 
   render() {
     const { bookings } = this.props;
+    const allBookings = [];
+    const currBookings = [];
 
+    Object.keys(bookings).forEach(key => {
+      allBookings.push(bookings[key]);
+    });
 
-    if (Object.keys(bookings).length > 0) {
+    for (let i = this.state.startBooking;
+      i < allBookings.length && i < this.state.startBooking + 3;
+      i++ ) {
+        currBookings.push(allBookings[i]);
+    }
+
+    if (currBookings.length > 0) {
       return (
         <section className='bookings-index'>
           <h2>Your Bookings</h2>
           <ul className='bookings-list'>
-            { Object.keys(bookings).map(key => (
+            { currBookings.map((booking, idx) => (
               <BookingListItem
-                key={`booking${key}`}
-                booking={bookings[key]} />
+                key={`booking${idx}`}
+                booking={booking} />
             )) }
           </ul>
+          <div className='togglePages'>
+            { (this.state.startBooking - 3) < 0 ? (
+                ''
+            ) : (
+              <a
+                onClick={this.prevBookings}
+                className='button button-white'>Previous Page</a>
+              )
+            }
+
+            { (this.state.startBooking + 3) >= allBookings.length ? (
+              ''
+            ) : (
+              <a
+                onClick={this.nextBookings}
+                className='button button-blue'>Next Page</a>
+            )
+          }
+          </div>
         </section>
       );
-    // } else if (this.fetchInProgress) {
-    //   return(
-    //     <section className='bookings-index'>
-    //       <h1>Fetching bookings...</h1>
-    //     </section>
-    //   );
+
     } else {
       return(
         <section className='bookings-index'>

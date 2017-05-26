@@ -11,11 +11,10 @@ class ChairShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageVisibile: true
+      imageVisible: true
     };
     this.parsePath = this.parsePath.bind(this);
     this.onResize = this.onResize.bind(this);
-    this.selected = this.parsePath();
   }
 
   parsePath() {
@@ -31,7 +30,7 @@ class ChairShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(parseInt(newProps.match.params.chairId) !== this.props.chair.id) {
+    if((parseInt(newProps.match.params.chairId) !== this.props.chair.id) && (newProps.chair.id !== 0)) {
       this.props.fetchSingleChair(newProps.match.params.chairId);
     }
 
@@ -63,7 +62,6 @@ class ChairShow extends React.Component {
 
   render() {
     const { chair } = this.props;
-
 
     return(
       <section className='content'>
@@ -108,10 +106,11 @@ class ChairShow extends React.Component {
           {this.state.imageVisible ? (
             <Route
               path={`/chairs/:chairId/`}
-              render={() => (
+              render={() => {
+                return(
                   <ChairImg
                     imageUrl={chair.imageUrl} />
-                ) } />
+                ); } } />
               ) : (
                 ''
             )}

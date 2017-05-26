@@ -37,7 +37,10 @@ export const updateChair = chair => dispatch => (
 
 export const fetchAllChairs = filters => dispatch => (
   ChairsAPIUtil.fetchAllChairs(filters).then(
-    res => dispatch(receiveChairs(res))
+    res => {
+      dispatch(receiveChairs(res));
+      return res;
+    }
   )
 );
 

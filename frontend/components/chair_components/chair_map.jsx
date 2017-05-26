@@ -20,7 +20,7 @@ class ChairMap extends React.Component {
 
     const initialBounds = this.map.getBounds();
 
-    this.map.addListener('idle', function() {
+    this.updateBounds = this.map.addListener('idle', function() {
       let latLngBounds = this.map.getBounds();
       let northEast = latLngBounds.getNorthEast();
       let southWest = latLngBounds.getSouthWest();
@@ -39,14 +39,11 @@ class ChairMap extends React.Component {
       this.props.updateFilter('bounds', bounds);
     }.bind(this));
 
-    // this.map.addListener('click', coords => {
-    //   this.props.history.push({
-    //     pathname: "chairs/new",
-    //     search: `lat=${coords.latLng.lat()}&lng=${coords.latLng.lng()}`
-    //   });
-    // });
-
     this.MarkerManager = new MarkerManager(this.map);
+  }
+
+  componentWillUnmount() {
+    google.maps.event.removeListener(this.updateBounds);
   }
 
   componentWillReceiveProps(newProps) {
