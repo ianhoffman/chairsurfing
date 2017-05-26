@@ -44,3 +44,5 @@ def self.filter_by_keyword(chairs, filters)
   )
 end
 ```
+
+On the frotnend, Repose
