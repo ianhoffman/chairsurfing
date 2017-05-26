@@ -15,7 +15,8 @@ class RentalForm extends React.Component {
         startDate: moment(),
         endDate: moment(),
         chairId: props.chair.id,
-        userId: props.currentUser.id
+        userId: props.currentUser.id,
+        fetching: true
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.excludedDates = [];
@@ -26,6 +27,10 @@ class RentalForm extends React.Component {
         this.getStartDates = this.getStartDates.bind(this);
       }
       this.updateDates = this.updateDates.bind(this);
+    } else {
+      this.state = {
+        fetching: true
+      };
     }
   }
 
@@ -42,6 +47,11 @@ class RentalForm extends React.Component {
   componentWillReceiveProps(newProps) {
     if(newProps.chair && newProps.chair.id !== this.props.chair.id) {
       this.props.fetchChairBookings(newProps.chair.id);
+    }
+    if(newProps.chair.id !== 0) {
+      this.setState({
+        fetching: false
+      });
     }
   }
 
@@ -62,12 +72,6 @@ class RentalForm extends React.Component {
       icon: <i className="fa fa-thumbs-up" aria-hidden="true"></i>
     });
   }
-
-  // componentDidMount() {
-  //   if(this.props.chair.bookings !== undefined) {
-  //     this.getStartDates();
-  //   }
-  // }
 
   getStartDates() {
     const startDate = this.state.startDate;
@@ -177,6 +181,12 @@ class RentalForm extends React.Component {
           <br />
           <p>Please create an account to rent this chair!</p>
         </div>
+      );
+    }
+
+    if(this.state.fetching === true) {
+      return (
+        <div className='fetch'>Fetch in progress!</div>
       );
     }
 
