@@ -71,7 +71,7 @@ class ReviewIndex extends React.Component {
             )}
           </ul>
           { currentUser.chair !== 'null' &&
-            currentUser.chairOd == chairId ? (
+            currentUser.chairId == chairId ? (
               <ReviewForm
                 createReview={createReview}
                 userId={currentUser.id}
