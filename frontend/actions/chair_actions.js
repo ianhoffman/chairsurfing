@@ -29,8 +29,11 @@ export const updateChair = chair => dispatch => (
   ChairsAPIUtil.updateChair(chair).then(
     res => {
       dispatch(receiveChair(res));
-      dispatch(setUserChair(res));
+      dispatch(setUserChair(res.id));
       return res;
+    },
+    err => {
+      dispatch(receiveChairErrors(err.responseJSON));
     }
   )
 );

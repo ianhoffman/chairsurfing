@@ -6,20 +6,11 @@ import ReviewListItem from './review_list_item';
 class ReviewIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    };
   }
 
   componentDidMount() {
     const id = this.props.match.params.chairId;
     this.props.fetchAllReviews(id);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (Object.keys(newProps.reviews).length > 0) {
-      this.setState({loading: false});
-    }
   }
 
   render() {
@@ -32,19 +23,11 @@ class ReviewIndex extends React.Component {
     } = this.props;
     const chairId = parseInt(this.props.match.params.chairId);
 
-    if(this.state.loading) {
-      return(
-        <div className='fetch'>
-          Fetch in progress!
-        </div>
-      )
-    }
-
     if(currentUser === null || currentUser.chair_id === chairId) {
       if(Object.keys(reviews).length === 0) {
         return(
           <div className='no-reviews'>
-            <div>Your chair has no reviews yet!</div>
+            <div>This chair has no reviews yet!</div>
           </div>
         );
       } else {

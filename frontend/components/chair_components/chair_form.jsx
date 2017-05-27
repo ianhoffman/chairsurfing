@@ -25,6 +25,7 @@ class ChairForm extends React.Component {
       user_id: props.currentUser.id
     };
 
+    this.edit = false;
     this.submitting = false;
     this.startSpinner = this.startSpinner.bind(this);
 
@@ -54,10 +55,28 @@ class ChairForm extends React.Component {
       $link.css('padding-bottom', '8px');
       this.submitting = false;
     }
+
+    const { chair } = newProps;
+
+    if(chair.description !== '') {
+      this.setState({
+        id: chair.id,
+        description: chair.description,
+        address: chair.address,
+        about: chair.about,
+        lat: chair.lat,
+        lng: chair.lng,
+        image_url: chair.imageUrl,
+        image: [],
+        accepting_guests: chair.accepting_guests,
+        user_id: chair.user_id
+      });
+      this.edit = true;
+    }
   }
 
   submitChair() {
-    if(this.props.chair.user_id !== null) {
+    if(this.edit) {
       this.props.updateChair(this.state)
         .then(res => {
           this.props.history.push(`/chairs/${res.id}/description`);
@@ -165,7 +184,7 @@ class ChairForm extends React.Component {
     let img;
     let header = 'Create your chair';
     let submit = 'Create chair';
-    if(chair.user_id !== null) {
+    if(this.state.user_id !== null) {
       header = 'Update your chair';
       submit = 'Update chair';
     }
@@ -173,8 +192,8 @@ class ChairForm extends React.Component {
     if(this.state.image.length > 0) {
       img = (<img className="image-holder" src={this.state.image[0].preview} />);
     }
-    else if(chair.user_id !== null) {
-      img = (<img className="image-holder" src={chair.imageUrl} />);
+    else if(this.state.user_id !== null) {
+      img = (<img className="image-holder" src={this.state.image_url} />);
     }
     else {
       img = (<div className="placeholder">

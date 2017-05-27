@@ -13,7 +13,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllChairs: () => dispatch(fetchAllChairs()),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 

@@ -9,19 +9,10 @@ class FilterForm extends React.Component {
     };
     this.updateKeyword = this.updateKeyword.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.clearOnHashChange = this.clearOnHashChange.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('hashchange', this.clearOnHashChange());
-  }
-
-  clearOnHashChange() {
-    this.setState({keyword: ''});
   }
 
   componentWillUnmount() {
-    document.removeEventListener('hashchange', this.clearOnHashChange());
+    this.props.updateFilter('keyword', '');
   }
 
   updateKeyword(e) {
