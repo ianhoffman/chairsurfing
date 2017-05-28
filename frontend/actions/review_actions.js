@@ -3,6 +3,8 @@ export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const ADD_REVIEWS = 'ADD_REVIEWS';
 export const RECIEVE_REVIEW_ERRORS = 'RECIEVE_REVIEW_ERRORS';
 export const CLEAR_REVIEW_ERRORS = 'CLEAR_ERRORS';
+export const STOP_LOADER = 'STOP_LOADER';
+export const START_LOADER = 'START_LOADER';
 
 import * as ReviewsAPIUtil from '../util/reviews_api_util';
 
@@ -30,10 +32,19 @@ const clearReviewErrors = () => ({
   type: CLEAR_REVIEW_ERRORS
 });
 
+const stopLoader = () => ({
+  type: STOP_LOADER
+});
+
+export const startLoader = () => ({
+  type: START_LOADER
+});
+
 export const fetchAllReviews = id => dispatch => (
   ReviewsAPIUtil.fetchAllReviews(id).then(
     res => {
       dispatch(addReviews(res));
+      dispatch(stopLoader())
       return res;
     }
   )

@@ -13,6 +13,10 @@ class ReviewIndex extends React.Component {
     this.props.fetchAllReviews(id);
   }
 
+  componentWillUnmount() {
+    this.props.startLoader();
+  }
+
   render() {
     const {
       createReview,
@@ -22,6 +26,14 @@ class ReviewIndex extends React.Component {
       deleteReview
     } = this.props;
     const chairId = parseInt(this.props.match.params.chairId);
+
+    if(this.props.loading) {
+      return(
+        <div>Fetching...
+          <br/>
+        </div>
+      );
+    }
 
     if(currentUser === null || currentUser.chair_id === chairId) {
       if(Object.keys(reviews).length === 0) {

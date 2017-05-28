@@ -3,13 +3,16 @@ import {
   DELETE_REVIEW,
   ADD_REVIEWS,
   RECIEVE_REVIEW_ERRORS,
-  CLEAR_REVIEW_ERRORS
+  CLEAR_REVIEW_ERRORS,
+  STOP_LOADER,
+  START_LOADER
 } from '../actions/review_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
   reviews: {},
-  errors: []
+  errors: [],
+  loading: true
 };
 
 const reviewsReducer = (state = initialState, action) => {
@@ -18,6 +21,12 @@ const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_REVIEWS:
       newState.reviews = action.reviews;
+      return newState;
+    case STOP_LOADER:
+      newState.loading = false;
+      return newState;
+    case START_LOADER:
+      newState.loading = true;
       return newState;
     case ADD_REVIEW:
       newState.reviews[action.review.id] = action.review;
