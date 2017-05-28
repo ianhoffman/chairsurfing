@@ -25,7 +25,7 @@ class ReviewIndex extends React.Component {
 
     if(currentUser === null || currentUser.chair_id === chairId) {
       if(Object.keys(reviews).length === 0) {
-        return(
+        return(dsas
           <div className='no-reviews'>
             <div>This chair has no reviews yet!</div>
           </div>
