@@ -30,7 +30,7 @@ class ChairShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if((parseInt(newProps.match.params.chairId) !== this.props.chair.id)) {
+    if(parseInt(newProps.match.params.chairId) !== newProps.chair.id) {
       this.props.fetchSingleChair(newProps.match.params.chairId);
     }
 

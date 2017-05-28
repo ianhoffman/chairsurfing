@@ -15,6 +15,7 @@ class ChairModal extends React.Component {
       <Modal
         style={style}
         isOpen={modalOpen}
+        onRequestClose={closeModal}
         contentLabel="Modal">
         <ChairFormContainer
           closeModal={closeModal}

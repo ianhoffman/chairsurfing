@@ -13,6 +13,7 @@ const SessionModal = ({
 }) => (
   <Modal
     isOpen={modalOpen}
+    onRequestClose={closeModal}
     style={style}
     contentLabel="Modal">
     <SessionFormContainer
