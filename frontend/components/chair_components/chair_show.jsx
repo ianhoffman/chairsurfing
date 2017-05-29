@@ -25,26 +25,32 @@ class ChairShow extends React.Component {
   componentDidMount() {
     if(this.props.chair.id === 0) {
       this.props.fetchSingleChair(this.props.match.params.chairId);
-    }
-    document.getElementById(`${this.parsePath()}`).focus();
+      this.props.startFetching();
+    } 
   }
 
   componentWillReceiveProps(newProps) {
     if(parseInt(newProps.match.params.chairId) !== newProps.chair.id) {
       this.props.fetchSingleChair(newProps.match.params.chairId);
+      this.props.startFetching();
     }
 
     const oldPath = this.parsePath();
     const newFullPath = newProps.location.pathname.split('/');
     const newPath = newFullPath[newFullPath.length - 1];
 
-    document.getElementById(`${newPath}`).focus();
 
     if((newPath === 'reviews' || newPath === 'location') &&
       (window.innerWidth <= 1230)) {
         this.setState({imageVisible: false});
     } else {
       this.setState({imageVisible: true});
+    }
+  }
+  
+  componentDidUpdate() {
+    if(this.props.isFetching === false) {
+      document.getElementById(`${this.parsePath()}`).focus();
     }
   }
 
@@ -62,6 +68,12 @@ class ChairShow extends React.Component {
 
   render() {
     const { chair } = this.props;
+
+    if(this.props.isFetching) {
+      return(
+        <div></div>
+      );
+    }
 
     return(
       <section className='content'>

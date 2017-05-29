@@ -26,10 +26,10 @@ class ReviewIndex extends React.Component {
       deleteReview
     } = this.props;
     const chairId = parseInt(this.props.match.params.chairId);
-
+    
     if(this.props.loading) {
       return(
-        <div>Fetching...
+        <div className='fetching'>Fetching...
           <br/>
         </div>
       );

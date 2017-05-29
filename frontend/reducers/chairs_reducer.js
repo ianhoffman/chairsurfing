@@ -1,9 +1,15 @@
-import { RECEIVE_CHAIRS, RECEIVE_CHAIR, RECEIVE_CHAIR_ERRORS, CLEAR_ERRORS } from '../actions/chair_actions';
+import { RECEIVE_CHAIRS, 
+  RECEIVE_CHAIR, 
+  RECEIVE_CHAIR_ERRORS, 
+  STOP_FETCHING,
+  START_FETCHING,
+  CLEAR_ERRORS } from '../actions/chair_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
   chairs: {},
-  errors: []
+  errors: [],
+  fetching: true
 };
 
 const chairsReducer = (state = initialState, action) => {
@@ -15,6 +21,12 @@ const chairsReducer = (state = initialState, action) => {
         chairs: action.chairs,
         errors: []
       };
+    case STOP_FETCHING: 
+      newState.fetching = false;
+      return newState;
+    case START_FETCHING:
+      newState.fetching = true;
+      return newState;
     case RECEIVE_CHAIR:
       newState.chairs[action.chair.id] = action.chair;
       return newState;

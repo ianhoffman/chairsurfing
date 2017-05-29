@@ -36,6 +36,13 @@
   align-items: center;
 }
 
+.fetching {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
 /*.no-reviews {
   margin: 0 auto;
   margin-top: 30px;

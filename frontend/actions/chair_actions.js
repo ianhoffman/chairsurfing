@@ -4,6 +4,8 @@ export const RECEIVE_CHAIRS = 'RECEIVE_CHAIRS';
 export const RECEIVE_CHAIR = 'RECEIVE_CHAIR';
 export const RECEIVE_CHAIR_ERRORS = 'RECEIVE_CHAIR_ERRORS';
 export const SET_USER_CHAIR = 'SET_USER_CHAIR';
+export const STOP_FETCHING = 'STOP_FETCHING';
+export const START_FETCHING = 'START_FETCHING';
 
 const receiveChairs = chairs => ({
   type: RECEIVE_CHAIRS,
@@ -23,6 +25,14 @@ const receiveChair = chair => ({
 const receiveChairErrors = errors => ({
   type: RECEIVE_CHAIR_ERRORS,
   errors
+});
+
+const stopFetching = () => ({
+  type: STOP_FETCHING
+});
+
+export const startFetching = () => ({
+  type: START_FETCHING
 });
 
 export const updateChair = chair => dispatch => (
@@ -51,6 +61,7 @@ export const fetchSingleChair = id => dispatch => (
   ChairsAPIUtil.fetchSingleChair(id).then(
     res => {
       dispatch(receiveChair(res));
+      dispatch(stopFetching());
       return res;
     }
   )
