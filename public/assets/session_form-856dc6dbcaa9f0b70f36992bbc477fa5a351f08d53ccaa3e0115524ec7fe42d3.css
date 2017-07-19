@@ -1,0 +1,114 @@
+/* SESSION */
+
+
+.baseForm {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 7px;
+  width: 39%;
+  margin: 0 auto;
+}
+
+.formHeader {
+  border-bottom: 1px solid #f1efea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formHeader p {
+  margin-right: 35px;
+  font-size: 20px;
+  color: #B2B2B2
+}
+
+.formHeader p:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.formHeader h2 {
+  margin: 27px 38px 23px 38px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #34495e;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 38px;
+  margin-top: 19px;
+}
+
+.firstAndLast {
+  width: 100%;
+  display: flex;
+}
+
+.firstAndLast > input:first-child {
+  margin-right: 7px;
+}
+
+.firstAndLast input {
+  flex: 1
+}
+
+.baseForm input {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #27374c;
+  border: 1px solid #B2B2B2;
+  padding: 10px 7px;
+  flex: 1;
+}
+
+.switchLogin {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switchLogin span {
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.switchLogin a {
+  margin-top: 20px;
+  margin-bottom: 32px;
+}
+
+.errorList {
+  padding: 12px;
+  background-color: rgba(198,61,67,0.25);
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3e1214;
+}
+
+@media (max-width: 1147px) {
+
+  .baseForm {
+    width: 413px;
+  }
+}
+
+@media (max-width: 500px) {
+  .firstAndLast {
+    flex-direction: column;
+  }
+
+  .firstAndLast > input:first-child {
+    margin-right: 0px;
+  }
+  .baseForm {
+    width: 90%;
+  }
+}
