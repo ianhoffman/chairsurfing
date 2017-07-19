@@ -46,7 +46,7 @@ class SplashPage extends React.Component {
 
   render() {
 
-    const bannerImg = require('../../app/assets/images/banner-img.jpg');
+    const bannerImg = require('../../app/assets/images/banner-img.jpg') || "https://res.cloudinary.com/dfuh8ucrc/image/upload/v1495042789/hero-img_ygwiys.jpg";
 
     const demoLink = (!this.props.loggedIn) ? (
       <Link
