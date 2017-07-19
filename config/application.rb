@@ -17,5 +17,7 @@ module ChairSurfing
     config.assets.precompile += %w( *.js ^[^_]*.css *.css.erb )
 
     config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
+
   end
 end
