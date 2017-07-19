@@ -14,8 +14,9 @@ module ChairSurfing
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|jpg)$/
-    config.assets.precompile += %w( *.js ^[^_]*.css *.css.erb )
 
+    config.assets.precompile += ['banner-img.jpg']
+    
     config.assets.initialize_on_precompile = false
     config.serve_static_files = true
   end
