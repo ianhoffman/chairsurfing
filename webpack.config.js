@@ -43,11 +43,21 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style-loader!css-loader"
-      }
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'file-loader',
+        query: {
+          name: 'assets/[name].[ext]?[hash:8]',
+        },
+      },
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: [".js", ".jsx", "*"],
+    alias: {
+      'assets': path.resolve('./app/assets')
+    }
   }
 };

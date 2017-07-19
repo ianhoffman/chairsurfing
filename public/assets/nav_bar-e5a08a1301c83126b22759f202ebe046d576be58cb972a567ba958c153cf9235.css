@@ -1,0 +1,217 @@
+/* NAV BAR */
+/* line 4, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0px 0px 0px;
+  border-bottom: 2px solid #bfcad2;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 999;
+  background-color: white;
+  font-weight: 300;
+}
+
+/* line 22, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+#logo {
+  width: 79px;
+  margin: 5px;
+  margin-top: 14px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+}
+
+/* line 31, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header > a {
+  margin: 0px;
+  margin-left: 14px;
+  background-color: transparent;
+  position: relative;
+  top: -7px;
+}
+
+/* line 39, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header div {
+  display: flex;
+}
+
+/* line 43, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header .button {
+  padding: 8px;
+  margin: 6px 11px 10px 0px;
+  font-weight: 500;
+}
+
+/* line 49, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header .button-white {
+  margin-right: 20px;
+  padding-left: 9px;
+  padding-right: 7px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+/* line 57, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+header .button-blue {
+  padding: 8px 11px;
+}
+
+/* line 61, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.loggedIn-menu {
+  display: flex;
+  margin-right: 36px;
+}
+
+/* line 66, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown {
+  position: relative;
+}
+
+/* line 70, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown > i {
+  font-size: 32px;
+  color: #287fb8;
+  margin-right: 22px;
+}
+
+/* line 76, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown .fa-search {
+  font-size: 29px;
+  margin-top: 1px;
+  margin-right: 28px;
+  display: none;
+}
+
+/* line 83, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown > i:hover {
+  cursor: pointer;
+}
+
+/* line 87, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top: 32px;
+  opacity: .86;
+  right: 17px;
+  width: 106px;
+  background-color: #b2b2b2;
+  border-radius: 3px;
+  padding: 3px 5px 4px 9px;
+}
+
+/* line 100, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown-menu a {
+  color: white;
+}
+
+/* line 104, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.dropdown-menu a:hover {
+  cursor: pointer;
+  color: #287fb8;
+}
+
+/* line 109, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.view-edit-chair {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1050px) {
+  /* line 115, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+  header .button-blue {
+    width: 140px;
+  }
+
+  /* line 119, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+  header .button-white {
+    width: 80px;
+    margin-right: 37px;
+  }
+}
+/* line 125, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.chairButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+/* line 131, /Users/Ian/Chairsurfing/app/assets/stylesheets/nav_bar.scss */
+.createChairButton {
+  -webkit-animation: swing 2.5s ease;
+  animation: swing 2.5s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes swing {
+  12.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  25% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  37.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  62.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  75% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  87.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@keyframes swing {
+  12.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  25% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  37.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  62.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  75% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  87.5% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}

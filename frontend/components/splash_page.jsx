@@ -46,6 +46,8 @@ class SplashPage extends React.Component {
 
   render() {
 
+    const bannerImg = require('../../app/assets/images/banner-img.jpg');
+
     const demoLink = (!this.props.loggedIn) ? (
       <Link
         onClick={this.handleClick.bind(this)}
@@ -65,7 +67,7 @@ class SplashPage extends React.Component {
           logIn={this.state.logIn} />
 
         <div id='heroContainer'>
-          <img id='bannerImg' src="https://res.cloudinary.com/dfuh8ucrc/image/upload/v1495042789/hero-img_ygwiys.jpg" />
+          <img id='bannerImg' src={bannerImg} />
           <div id='bannerContainer'>
             <h1 className='banner'>Sit down, be humble</h1>
             <h2 id='subHeader'>SF real estate is heating up. Just sleep in these chairs.</h2>
