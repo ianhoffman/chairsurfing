@@ -16,8 +16,8 @@ module ChairSurfing
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|jpg)$/
 
     config.assets.precompile += ['banner-img.jpg']
-    
+
     config.assets.initialize_on_precompile = false
-    config.serve_static_files = true
+    config.public_file_server.enabled = true
   end
 end
